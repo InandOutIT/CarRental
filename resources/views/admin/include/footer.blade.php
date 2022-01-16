@@ -1,21 +1,25 @@
-<footer class="py-4 bg-light mt-auto">
-    <div class="container-fluid">
-        <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-            <div>
-                <a href="#">Privacy Policy</a>
-                &middot;
-                <a href="#">Terms &amp; Conditions</a>
-            </div>
-        </div>
-    </div>
-</footer>
-</div>
-</div>
+
+
 <script src="{{asset("js/jquery.js")}}"></script>
 <script src="{{asset("js/bootstrap.min.js")}}"></script>
 <script src="{{asset("js/action.js")}}"></script>
 <script src="{{asset("js/scripts.js")}}"></script>
+ <!-- Bootstrap core JavaScript-->
+ <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+ <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+ <!-- Core plugin JavaScript-->
+ <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+ <!-- Custom scripts for all pages-->
+ <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+
+ <!-- Page level plugins -->
+ <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
+ <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+ <!-- Page level custom scripts -->
+ <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
 </body>
 
 </html>

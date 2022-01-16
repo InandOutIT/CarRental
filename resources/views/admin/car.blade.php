@@ -53,24 +53,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Enter Car Brand</label>
-                                <select name="car_id" id="car_id" class="form-control form-control-lg">
+                                <select name="car_id" id="car_brand" class="form-control form-control-lg">
                                     <option disabled selected>Select Car Brand</option>
                                     @foreach ($brand as $cat)
                                     <option value="{{$cat->id}}">{{$cat->car_brand_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
-
 
                             <div class="form-group">
-                                <label for="">Enter Car Brand</label>
-                                <select name="car_id" id="car_id" class="form-control form-control-lg">
-                                    <option disabled selected>Select Car Brand</option>
-                                    @foreach ($brand as $cat)
-                                    <option value="{{$cat->id}}">{{$cat->car_brand_name}}</option>
-                                    @endforeach
+                                <label for="">Enter Car Model</label>
+                                <select name="car_model" id="car_model" class="form-control form-control-lg">
+                                    <option disabled selected>Select Car Model</option>
+                                   
                                 </select>
                             </div>
+                        
+
 
                             <div class="form-group">
                                 <label for="">Enter Car Fuel</label>
@@ -168,5 +167,9 @@
                 </div>
             </div>
         </div>
+        <Script>
+            
+        </Script>
     </x-slot>
 </x-app-layout>
+

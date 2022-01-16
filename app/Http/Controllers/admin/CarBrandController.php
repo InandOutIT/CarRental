@@ -188,6 +188,14 @@ class CarBrandController extends Controller
         
     }
 
+    public function getModelById($id)
+    {
+        $brand = CarBrand::find($id);
+        $carsmodel = $brand->cars_model;
+        return $carsmodel; 
+
+    }
+
 
     public function delete(Request $request){
         $id=$request->id;

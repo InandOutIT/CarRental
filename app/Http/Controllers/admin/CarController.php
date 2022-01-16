@@ -376,6 +376,43 @@ $output .= "</select>
     }
 
 
+
+    public function getOfflineCars()
+    {
+        
+        $cars = Car::where('status',0)->get();
+        $Type = "Offline";
+        return view("admin.statusCar",compact('cars', 'Type'));
+
+    }
+
+
+    public function getOnlineCars()
+    {
+        $cars = Car::where('status',1)->get();
+        $Type = "Online";
+        return view("admin.statusCar",compact('cars', 'Type'));
+    }
+
+    public function getReservationCars()
+    {
+        $cars = Car::where('status',2)->get();
+       
+        $Type = "Resevation";
+        return view("admin.statusCar",compact('cars', 'Type'));
+    }
+
+
+    public function changeStatusCar($id,Request $request)
+    {
+        $car = Car::find($id);
+        $car->status = $request->status;
+        $car->save();
+        return redirect()->back();
+
+    }
+
+
     public function delete(Request $request)
     {
         $id = $request->id;

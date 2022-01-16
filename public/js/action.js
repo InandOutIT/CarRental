@@ -37,6 +37,17 @@ $(document).ready(function () {
     }
     loadCarBrand();
 
+    const loadCarModel = () => {
+        $.ajax({
+            url: "/admin/loadDataModel",
+            type: "GET",
+            success: function (data) {
+                $("#table-data-model").html(data);
+            }
+        });
+    }
+    loadCarModel();
+
     const loadCarFuel = () => {
         $.ajax({
             url: "/admin/loadDataFuel",
@@ -69,6 +80,18 @@ $(document).ready(function () {
         })
     }
     loadTotalCarBrand();
+
+
+    const loadTotalCarModel = () => {
+        $.ajax({
+            url: "/admin/total-car-model",
+            type: "GET",
+            success: (data) => {
+                $("#total-car-model").html(data);
+            }
+        })
+    }
+    loadTotalCarModel();
 
     loadTotalCarCategory();
 
@@ -111,6 +134,19 @@ $(document).ready(function () {
             data: { search: search },
             success: function (data) {
                 $("#table-data-brand").html(data);
+            }
+        });
+    });
+
+
+    $("#search-carModel").keyup(function () {
+        const search = $(this).val();
+        $.ajax({
+            url: "/admin/searchDatacarModel",
+            type: "GET",
+            data: { search: search },
+            success: function (data) {
+                $("#table-data-model").html(data);
             }
         });
     });
@@ -183,6 +219,38 @@ $(document).ready(function () {
 
                         $("#addcarBrand").trigger("reset");
                         $("#carbrand").modal("hide");
+                    } else {
+                        show_message("error", "Data not Add successfully");
+                    }
+                }
+            });
+        }
+    });
+
+
+    $("#addcarModel").submit(function (e) {
+        e.preventDefault();
+        var car_name = $("#car_model_name").val();
+        
+
+        const formdata = new FormData(this);
+        if (car_name == "") {
+            show_message("error", "Please Fill All Field");
+        } else {
+            $.ajax({
+                url: "/admin/car_model_category",
+                type: "POST",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data == 1) {
+                        show_message("success", "Data add Successfully");
+                        loadCarModel()
+                        loadTotalCarModel();
+
+                        $("#addcarModel").trigger("reset");
+                        $("#carmodel").modal("hide");
                     } else {
                         show_message("error", "Data not Add successfully");
                     }
@@ -286,6 +354,39 @@ $(document).ready(function () {
         }
     });
 
+    
+
+
+    $("#editcarModel").submit(function (e) {
+        e.preventDefault();
+        var car_name = $("#edit_car_Model_name").val();
+
+        const formdata = new FormData(this);
+        if (car_name == "") {
+            show_message("error", "Please Fill All Field");
+        } else {
+            $.ajax({
+                url: "/admin/update_Model",
+                type: "POST",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data == 1) {
+                        show_message("success", "Data update Successfully");
+                        loadCarModel()
+                        loadTotalCarModel();
+
+                        $("#editcarModel").trigger("reset");
+                        $("#editmodel").modal("hide");
+                    } else {
+                        show_message("error", "Data not update successfully");
+                    }
+                }
+            });
+        }
+    });
+
 
 
     $("#editcarFuel").submit(function (e) {
@@ -338,6 +439,18 @@ $(document).ready(function () {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/edit_brand",
+            type: "GET",
+            data: { id: id },
+            success: function (data) {
+                $("#form-data").html(data);
+            }
+        });
+    });
+
+    $(document).on("click", "#edit-btn-model", function () {
+        const id = $(this).data("id");
+        $.ajax({
+            url: "/admin/edit_model",
             type: "GET",
             data: { id: id },
             success: function (data) {
@@ -402,6 +515,27 @@ $(document).ready(function () {
     });
 
 
+
+    $(document).on("click", "#delete-btn-carModel", function () {
+        const id = $(this).data("id");
+        $.ajax({
+            url: "/admin/delete_model",
+            type: "GET",
+            data: { id: id },
+            success: function (data) {
+                if (data == 1) {
+                    show_message("success", "Data Delete Successfully");
+                    loadCarModel()
+                    loadTotalCarModel();
+
+                } else {
+                    show_message("error", "Data not Delete successfully");
+                }
+            }
+        });
+    });
+
+
     $(document).on("click", "#delete-btn-carFuel", function () {
         const id = $(this).data("id");
         $.ajax({
@@ -423,6 +557,25 @@ $(document).ready(function () {
 
 
 
+
+
+
+    $(document).ready(function(){
+        $('select[id="car_brand"]').on('change',function(){
+            var brandId = $(this).val();
+            $.ajax({
+                url:"/admin/get-model/"+brandId,
+                type:"GET",
+                dataType:"json",
+                success:function(data){
+                    $('select[name="car_model"]').empty();
+                    $.each(data,function(key,value){
+                        $('select[name="car_model"]').append('<option value="'+value.name+'">'+value.name+'</option>');
+                    })
+                }
+            });
+        })
+    })
 
 
 
@@ -480,9 +633,7 @@ $(document).ready(function () {
         const car_desc = $("#car_desc").val();
         const car_image = $("#car_img").val();
         const car_price = $("#car_price").val();
-        const num_door = $("#num_door").val();
-        const num_site = $("#num_site").val();
-        const type_gear = $("#type_gear").val();
+        
         const formdata = new FormData(this);
         if (car_name == "" || car_price == "" || car_image == "" || car_desc == "" || car_id == "") {
             show_message("error", "Please Fill All Field");
@@ -525,12 +676,13 @@ $(document).ready(function () {
         const car_name = $("#edit_car_name").val();
         const car_id = $("#edit_car_cat_id").val();
         const car_brand = $("#edit_car_brand_id").val();
+        const car_model = $("#edit_car_model_id").val();
         const car_fuel = $("#edit_car_fuel_id").val();
         const car_desc = $("#edit_car_desc").val();
         const car_price = $("#edit_car_price").val();
 
         const formdata = new FormData(this);
-        if (car_name == "" || car_price == "" || car_desc == "" || car_id == ""||car_brand==""||car_fuel=="") {
+        if (car_name == "" || car_price == "" || car_desc == "" || car_id == ""||car_brand==""||car_fuel==""||car_model=="") {
             show_message("error", "Please Fill All Field");
         } else {
             $.ajax({

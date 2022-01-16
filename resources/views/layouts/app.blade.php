@@ -36,7 +36,7 @@
     <!-- Page Content -->
     <main>
         {{ $slot }}
-        @include('../admin/include/footer')
+         @include('../admin/include/footer')
     </main>
     </div>
 </body>

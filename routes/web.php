@@ -138,7 +138,17 @@ Route::middleware(["auth"])->group(function () {
 
 // car model
 
-Route::get("/admin/car_model/{id}",[CarModelController::class,"show"]);
+    Route::get("/admin/car_model/{id}",[CarModelController::class,"show"]);
+    Route::get("/admin/car_model", [CarModelController::class, "index"])->name("car_model");
+    Route::get("/admin/loadDataModel", [CarModelController::class, "loadDataModel"])->name("loadDataModel");
+    Route::get("/admin/searchDatacarModel", [CarModelController::class, "searchData"])->name("search");
+    Route::post("/admin/car_model_category", [CarModelController::class, "create"])->name("add");
+    Route::get("/admin/edit_model", [CarModelController::class, "edit"])->name("edit");
+    Route::post("/admin/update_model", [CarModelController::class, "update"])->name("updateModel");
+    Route::get("/admin/delete_model", [CarModelController::class, "delete"])->name("delete");
+     Route::get("/admin/total-car-model",[CarModelController::class,"totalCount"]);
+
+    
 
 
 
@@ -164,6 +174,12 @@ Route::get("/admin/car_model/{id}",[CarModelController::class,"show"]);
     Route::get("/admin/total-car",[CarController::class,"totalCount"]);
 
 
+    //car status
+
+    Route::get("/admin/get-car-offline",[CarController::class,"getOfflineCars"]);
+    Route::get("/admin/get-car-online",[CarController::class,"getOnlineCars"]);
+    Route::get("/admin/get-car-reservation",[CarController::class,"getReservationCars"]);
+    Route::post("admin/change-status/{id}",[CarController::class,"changeStatusCar"])->name("statusCar");
 
     // post category route
     Route::get("/admin/category", [CategoryController::class, "index"])->name("category");
@@ -195,6 +211,11 @@ Route::get("/admin/car_model/{id}",[CarModelController::class,"show"]);
     Route::post("/admin/update-gallery", [GalleryController::class, "update"]);
     Route::get("/admin/delete-gallery", [GalleryController::class, "delete"]);
     Route::get("/admin/total-gallery",[GalleryController::class,"totalCount"]);
+
+
+
+// get model by brand
+    Route::get("/admin/get-model/{id}",[CarBrandController::class,"getModelById"]);
 
 
 

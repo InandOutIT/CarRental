@@ -48,6 +48,10 @@
 
                         </div>
                         <div class="flex  nav-link">
+                            <a href="{{ route('car_model') }}" class="{{Request::routeIs("car_model") ? 'actives' :""}}">Car model</a>
+
+                        </div>
+                        <div class="flex  nav-link">
                             <a href="{{ route('car_fuel') }}" class="{{Request::routeIs("car_fuel") ? 'actives' :""}}">Car fuel</a>
 
                         </div>
