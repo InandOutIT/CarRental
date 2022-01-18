@@ -25,6 +25,16 @@ class Car extends Model
 
     ];
 
+
+    
+
+
+
+     
+
+  
+
+
     public function users(){
         return $this->belongsTo(User::class,"user_id");
     }
@@ -63,4 +73,14 @@ class Car extends Model
     {
         return $this->hasMany(BookCar::class);
     }
+
+
+
+    public function images()
+    {
+        return $this->hasMany(Image::class,'car_id');
+    }
+
+ 
+
 }

@@ -63,7 +63,7 @@ Route::post("/add-contact", [ContactController::class, "create"]);
 
 
 Route::group(["middleware" => "cAuth"], function () {
-    Route::get("/book-car", [AccountController::class, "index"])->name("book-car");
+    Route::get("/get-book-car", [AccountController::class, "index"])->name("book-car");
     Route::get("/logout", [LogoutController::class, "logout"])->name("logouts");
     Route::post("/like", [LikeController::class, "create"]);
     Route::post("/book-car", [BookCarController::class, "book"])->name("book-car");
@@ -75,11 +75,15 @@ Route::group(["middleware" => "cAuth"], function () {
     Route::get("/reset-password", [ResetPasswordController::class, "index"])->name("reset-password");
     Route::post("/reset-password", [ResetPasswordController::class, "reset_password"]);
 });
+
+
 Route::group(["middleware" => "noauth"], function () {
+    Route::post("/login", [LoginController::class, "login"]);
     Route::get("/signup", [SignUpController::class, "index"])->name("signup");
     Route::post("/create", [SignUpController::class, "create"]);
     Route::get("/signin", [LoginController::class, "index"])->name("signin");
-    Route::post("/login", [LoginController::class, "login"]);
+    
+    
 });
 
 
@@ -114,7 +118,7 @@ Route::middleware(["auth"])->group(function () {
     // car category
     Route::get("/admin/car_category", [CarCategory::class, "index"])->name("car_category");
     Route::get("/admin/loadDataCategory", [CarCategory::class, "loadDataCategory"])->name("loadDataCategory");
-    Route::get("/admin/searchDatacarCategory", [CarCategory::class, "searchData"])->name("search");
+    Route::get("/admin/searchDatacarCategory", [CarCategory::class, "searchData"]);
     Route::post("/admin/car_cat_category", [CarCategory::class, "create"])->name("add");
     Route::get("/admin/edit_category", [CarCategory::class, "edit"])->name("edit");
     Route::post("/admin/update_category", [CarCategory::class, "update"])->name("updateCategory");
@@ -125,10 +129,10 @@ Route::middleware(["auth"])->group(function () {
     Route::get("/admin/car_brand", [CarBrandController::class, "index"])->name("car_brand");
     Route::get("/admin/loadDataBrand", [CarBrandController::class, "loadDataBrand"])->name("loadDataBrand");
     Route::get("/admin/searchDatacarBrand", [CarBrandController::class, "searchData"])->name("search");
-    Route::post("/admin/car_brand_category", [CarBrandController::class, "create"])->name("add");
-     Route::get("/admin/edit_brand", [CarBrandController::class, "edit"])->name("edit");
-     Route::post("/admin/update_brand", [CarBrandController::class, "update"])->name("updateBrand");
-     Route::get("/admin/delete_brand", [CarBrandController::class, "delete"])->name("delete");
+    Route::post("/admin/car_brand_category", [CarBrandController::class, "create"]);
+     Route::get("/admin/edit_brand", [CarBrandController::class, "edit"]);
+     Route::post("/admin/update_brand", [CarBrandController::class, "update"]);
+     Route::get("/admin/delete_brand", [CarBrandController::class, "delete"]);
      Route::get("/admin/total-car-brand",[CarBrandController::class,"totalCount"]);
 
      Route::get("/admin/car_brand/{id}",[CarBrandController::class,"show"]);
@@ -141,11 +145,11 @@ Route::middleware(["auth"])->group(function () {
     Route::get("/admin/car_model/{id}",[CarModelController::class,"show"]);
     Route::get("/admin/car_model", [CarModelController::class, "index"])->name("car_model");
     Route::get("/admin/loadDataModel", [CarModelController::class, "loadDataModel"])->name("loadDataModel");
-    Route::get("/admin/searchDatacarModel", [CarModelController::class, "searchData"])->name("search");
-    Route::post("/admin/car_model_category", [CarModelController::class, "create"])->name("add");
-    Route::get("/admin/edit_model", [CarModelController::class, "edit"])->name("edit");
+    Route::get("/admin/searchDatacarModel", [CarModelController::class, "searchData"]);
+    Route::post("/admin/car_model_category", [CarModelController::class, "create"]);
+    Route::get("/admin/edit_model", [CarModelController::class, "edit"]);
     Route::post("/admin/update_model", [CarModelController::class, "update"])->name("updateModel");
-    Route::get("/admin/delete_model", [CarModelController::class, "delete"])->name("delete");
+    Route::get("/admin/delete_model", [CarModelController::class, "delete"]);
      Route::get("/admin/total-car-model",[CarModelController::class,"totalCount"]);
 
     
@@ -155,11 +159,11 @@ Route::middleware(["auth"])->group(function () {
      // car Fuel
     Route::get("/admin/car_fuel", [CarFuelController::class, "index"])->name("car_fuel");
     Route::get("/admin/loadDataFuel", [CarFuelController::class, "loadDataFuel"])->name("loadDataFuel");
-    Route::get("/admin/searchDatacarFuel", [CarFuelController::class, "searchData"])->name("search");
-    Route::post("/admin/car_fuel_category", [CarFuelController::class, "create"])->name("add");
-     Route::get("/admin/edit_fuel", [CarFuelController::class, "edit"])->name("edit");
+    Route::get("/admin/searchDatacarFuel", [CarFuelController::class, "searchData"]);
+    Route::post("/admin/car_fuel_category", [CarFuelController::class, "create"]);
+     Route::get("/admin/edit_fuel", [CarFuelController::class, "edit"]);
      Route::post("/admin/update_fuel", [CarFuelController::class, "update"])->name("updateFuel");
-     Route::get("/admin/delete_fuel", [CarFuelController::class, "delete"])->name("delete");
+     Route::get("/admin/delete_fuel", [CarFuelController::class, "delete"]);
      Route::get("/admin/total-car-fuel",[CarFuelController::class,"totalCount"]);
 
 
@@ -172,6 +176,20 @@ Route::middleware(["auth"])->group(function () {
     Route::post("/admin/update", [CarController::class, "update"]);
     Route::get("/admin/delete", [CarController::class, "delete"]);
     Route::get("/admin/total-car",[CarController::class,"totalCount"]);
+
+
+
+
+
+
+
+    /////////////rfdffffffffffffff//////////////////
+
+
+
+
+    Route::get("/admin/button", [CarController::class, "index1"])->name("car1");
+
 
 
     //car status

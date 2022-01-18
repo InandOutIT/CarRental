@@ -9,6 +9,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12 mt-3 offset-lg-3
                     offset-md-2 offset-sm-12">
+                    
                     <form action="" id="login">
                         @csrf
                         <div class="form-group">
@@ -20,7 +21,7 @@
                             <input type="password" name="password" id="password" class="form-control form-control-lg">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-success">Login</button>
+                            <button  class="btn btn-success">Login</button>
                         </div>
                         <span>Create Acount ? <a href="signup.html">Sign
                                 Up</a></span>

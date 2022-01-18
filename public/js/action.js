@@ -570,12 +570,31 @@ $(document).ready(function () {
                 success:function(data){
                     $('select[name="car_model"]').empty();
                     $.each(data,function(key,value){
-                        $('select[name="car_model"]').append('<option value="'+value.name+'">'+value.name+'</option>');
+                        $('select[name="car_model"]').append('<option value='+value.id+'>'+value.car_model_name+'</option>');
                     })
                 }
             });
         })
     })
+
+    $(document).ready(function(){
+        $('select[id="edit_car_brand_id"]').on('change',function(){
+            var brandId = $(this).val();
+            $.ajax({
+                url:"/admin/get-model/"+brandId,
+                type:"GET",
+                dataType:"json",
+                success:function(data){
+                    $('select[name="edit_car_model_id"]').empty();
+                    $.each(data,function(key,value){
+                        $('select[name="edit_car_model_id"]').append('<option value='+value.id+'>'+value.car_model_name+'</option>');
+                    })
+                }
+            });
+        })
+    })
+
+   
 
 
 
@@ -631,11 +650,11 @@ $(document).ready(function () {
         const car_name = $("#car_name").val();
         const car_id = $("#car_id").val();
         const car_desc = $("#car_desc").val();
-        const car_image = $("#car_img").val();
+       
         const car_price = $("#car_price").val();
         
         const formdata = new FormData(this);
-        if (car_name == "" || car_price == "" || car_image == "" || car_desc == "" || car_id == "") {
+        if (car_name == "" || car_price == "" ||  car_desc == "" || car_id == "") {
             show_message("error", "Please Fill All Field");
         } else {
             $.ajax({

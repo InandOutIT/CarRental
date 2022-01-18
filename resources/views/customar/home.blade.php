@@ -2,7 +2,7 @@
     <x-slot name="title">Home</x-slot>
     <x-slot name="content">
         <div class="mybg">
-            <h1>Welcome to My Car Rental</h1>
+            <h1>Welcome to  Car Rental</h1>
         </div>
 
         <!-- car category -->

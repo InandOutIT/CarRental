@@ -36,7 +36,7 @@
                     </div>
                    
                     <div class="modal-body">
-                        <form action="" id="addcars">
+                        <form action="" id="addcars" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="">Enter Car Name</label>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Enter Car Brand</label>
-                                <select name="car_id" id="car_brand" class="form-control form-control-lg">
+                                <select name="car_brand" id="car_brand" class="form-control form-control-lg">
                                     <option disabled selected>Select Car Brand</option>
                                     @foreach ($brand as $cat)
                                     <option value="{{$cat->id}}">{{$cat->car_brand_name}}</option>
@@ -128,8 +128,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Enter Car Image</label>
-                                <input type="file" name="car_img" id="car_img" class="form-control form-control-lg">
+                                <input type="file" name="images[]"  class="form-control form-control-lg" multiple>
                             </div>
+
+
                             <div class="form-group">
                                 <label for="">Enter Car Price</label>
                                 <input type="text" name="price" id="price" class="form-control form-control-lg">

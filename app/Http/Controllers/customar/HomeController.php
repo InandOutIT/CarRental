@@ -15,6 +15,6 @@ class HomeController extends Controller
        $car=Car::orderBy("id","DESC")->limit(6)->get();
        $posts=Posts::orderBy("id","DESC")->limit(3)->get();
     //    dd($category);
-       return view("customar.home",["category"=>$category,"cars"=>$car,"posts"=>$posts]);
+       return view("index",["category"=>$category,"cars"=>$car,"posts"=>$posts]);
    }
 }

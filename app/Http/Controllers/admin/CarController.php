@@ -7,6 +7,8 @@ use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\CarFuel;
 use App\Models\CarCategory;
+use App\Models\CarModel;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -15,17 +17,25 @@ class CarController extends Controller
 {
     public function index()
     {
-        $brand=CarBrand::all();
-        $fuel=CarFuel::all();
+        $brand = CarBrand::all();
+        $fuel = CarFuel::all();
         $category = CarCategory::all();
-        return view("admin.car", ["category" => $category,"brand"=>$brand,"fuel"=>$fuel]);
+        return view("admin.car", ["category" => $category, "brand" => $brand, "fuel" => $fuel]);
+    }
+
+
+
+    public function index1()
+    {
+
+        return view("button");
     }
 
     public function totalCount()
     {
         $output = "";
         $car = Car::all();
-        echo $output .=count($car);
+        echo $output .= count($car);
     }
 
     public function get()
@@ -44,8 +54,7 @@ class CarController extends Controller
                             <td>Car Category</td>
                             <td>Car Brand</td>
                             <td>Type Of Fuel</td>
-                            <td>Car Doors</td>
-                            <td>Car Site</td>
+                            <td>Car model</td>
                             <td>Car Gear</td>
                             <td>Car image</td>
                             <td>Car price</td>
@@ -64,7 +73,7 @@ class CarController extends Controller
                             <td>{$cars->car_category->car_cat_name}</td>
                             <td>{$cars->car_brand->car_brand_name}</td>
                             <td>{$cars->car_fuel->car_fuel_name}</td>
-                            <td>{$cars->num_door}</td>
+                            <td>{$cars->car_model->car_model_name}</td>
                             <td>{$cars->num_site}</td>
                             <td>{$cars->type_gear}</td>
                             <td><img src='{$image}' style='width:50px;height=50px;' alt=''></td>
@@ -143,8 +152,7 @@ class CarController extends Controller
                         <td>Car Category</td>
                         <td>Car Brand</td>
                         <td>Type Of Fuel</td>
-                        <td>Car Doors</td>
-                        <td>Car Site</td>
+                        <td>Car Model</td>
                         <td>Car Gear</td>
                         <td>Car image</td>
                         <td>Car price</td>
@@ -163,8 +171,7 @@ class CarController extends Controller
                         <td>{$cars->car_category->car_cat_name}</td>
                         <td>{$cars->car_brand->car_brand_name}</td>
                         <td>{$cars->car_fuel->car_fuel_name}</td>
-                        <td>{$cars->num_door}</td>
-                        <td>{$cars->num_site}</td>
+                        <td>{$cars->car_model->car_model_name}</td>
                         <td>{$cars->type_gear}</td>
                         <td><img src='{$image}' style='width:50px;height=50px;' alt=''></td>
                         <td>{$cars->car_price}</td>
@@ -183,17 +190,16 @@ class CarController extends Controller
     }
     public function create(Request $request)
     {
-       
+
         $car = new Car();
 
-        $image = $request->file("car_img");
-        $new_image = rand() . "." . $image->extension();
-        $image->move(public_path("upload/cars"), $new_image);
+
 
 
         $car->car_cat_id = $request->car_id;
-        $car->car_brand_id = $request->car_id;
+        $car->car_brand_id = $request->car_brand;
         $car->car_fuel_id = $request->car_fuel;
+        $car->car_model_id = $request->car_model;
         $car->user_id = Auth::user()->id;
         $car->car_name = $request->car_name;
         $car->num_door = $request->num_door;
@@ -201,8 +207,42 @@ class CarController extends Controller
         $car->type_gear = $request->type_gear;
         $car->car_desc = $request->desc;
         $car->car_price = $request->price;
-        $car->car_image = $new_image;
+        // $car->car_image = $new_image;
         $result = $car->save();
+
+
+
+
+
+
+        if ($files = $request->file('images')) {
+            foreach ($files as $file) {
+                $name = $file->hashName();
+                $file->move('imageTest', $name);
+                Image::insert([
+                    'url' => 'imageTest/' . $name,
+                    'car_id' => $car->id,
+                ]);
+            }
+        }
+
+
+
+
+
+
+
+        // foreach ($request->file('images') as $imagefile) {
+        //     $image = new Image();
+        //     // $image = $imagefile;
+        //     $path = $imagefile->store('/upload/test', ['disk' =>'my_files']);
+        //     // $image->move('resource/',$image->hashName);
+        //     $image->url = $path;
+        //     $image->car_id = $car->id;
+        //     $image->save();
+        //   }
+
+
         if ($result) {
             echo 1;
         } else {
@@ -217,6 +257,7 @@ class CarController extends Controller
         $category = CarCategory::all();
         $brand = CarBrand::all();
         $fuel = CarFuel::all();
+        $model = CarModel::all();
         $car = Car::find($id);
         $image = asset("upload/cars/" . $car->car_image);
         // echo $image;
@@ -245,25 +286,25 @@ class CarController extends Controller
                             <label for=''>Enter Car Brand</label>
                             <select name='edit_car_brand_id' id='edit_car_brand_id' class='form-control form-control-lg'>
                                 <option disabled selected>Select Car brand</option>";
-    foreach ($brand as $bra) {
-        if ($bra->id == $car->car_brand_id) {
-            $select = "selected";
-        } else {
-            $select = "";
+        foreach ($brand as $bra) {
+            if ($bra->id == $car->car_brand_id) {
+                $select = "selected";
+            } else {
+                $select = "";
+            }
+            $output .= "<option {$select} value='{$bra->id}'>{$bra->car_brand_name}</option>";
         }
-        $output .= "<option {$select} value='{$bra->id}'>{$bra->car_brand_name}</option>";
-    }
 
 
-    
-    
 
 
-    $test=0;
-    if($car->type_gear=="Manual")
-    $test = 1;
 
-    $output .= "</select>
+
+        $test = 0;
+        if ($car->type_gear == "Manual")
+            $test = 1;
+
+        $output .= "</select>
                         </div>
 
 
@@ -271,16 +312,32 @@ class CarController extends Controller
                         <label for=''>Enter Type Of Fuel</label>
                         <select name='edit_car_fuel_id' id='edit_car_fuel_id' class='form-control form-control-lg'>
                             <option disabled selected>Select Car fuelegory</option>";
-foreach ($fuel as $cat) {
-    if ($cat->id == $car->car_fuel_id) {
-        $select = "selected";
-    } else {
-        $select = "";
-    }
-    $output .= "<option {$select} value='{$cat->id}'>{$cat->car_fuel_name}</option>";
-}
-$output .= "</select>
+        foreach ($fuel as $cat) {
+            if ($cat->id == $car->car_fuel_id) {
+                $select = "selected";
+            } else {
+                $select = "";
+            }
+            $output .= "<option {$select} value='{$cat->id}'>{$cat->car_fuel_name}</option>";
+        }
+        $output .= "</select>
                     </div>
+
+
+                    <div class='form-group'>
+                    <label for=''>Enter model</label>
+                    <select name='edit_car_model_id' id='edit_car_model_id' class='form-control form-control-lg'>
+                        <option disabled selected>Select Car model</option>";
+        // foreach ($model as $cat) {
+        // if ($cat->id == $car->car_model_id) {
+        //     $select = "selected";
+        // } else {
+        //     $select = "";
+        // }
+        // $output .= "<option {$select} value='{$cat->id}'>{$cat->car_model_name}</option>";
+        // }
+        $output .= "</select>
+                </div>
 
                         
 
@@ -360,6 +417,7 @@ $output .= "</select>
         $car->car_cat_id = $request->edit_car_cat_id;
         $car->car_brand_id = $request->edit_car_brand_id;
         $car->car_fuel_id = $request->edit_car_fuel_id;
+        $car->car_model_id = $request->edit_car_model_id;
         $car->user_id = Auth::user()->id;
         $car->car_name = $request->edit_car_name;
         $car->car_desc = $request->edit_desc;
@@ -379,37 +437,35 @@ $output .= "</select>
 
     public function getOfflineCars()
     {
-        
-        $cars = Car::where('status',0)->get();
-        $Type = "Offline";
-        return view("admin.statusCar",compact('cars', 'Type'));
 
+        $cars = Car::where('status', 0)->get();
+        $Type = "Offline";
+        return view("admin.statusCar", compact('cars', 'Type'));
     }
 
 
     public function getOnlineCars()
     {
-        $cars = Car::where('status',1)->get();
+        $cars = Car::where('status', 1)->get();
         $Type = "Online";
-        return view("admin.statusCar",compact('cars', 'Type'));
+        return view("admin.statusCar", compact('cars', 'Type'));
     }
 
     public function getReservationCars()
     {
-        $cars = Car::where('status',2)->get();
-       
+        $cars = Car::where('status', 2)->get();
+
         $Type = "Resevation";
-        return view("admin.statusCar",compact('cars', 'Type'));
+        return view("admin.statusCar", compact('cars', 'Type'));
     }
 
 
-    public function changeStatusCar($id,Request $request)
+    public function changeStatusCar($id, Request $request)
     {
         $car = Car::find($id);
         $car->status = $request->status;
         $car->save();
         return redirect()->back();
-
     }
 
 
