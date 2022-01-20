@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class SignUpController extends Controller
 {
     public function index(){
-        return view("customar.sign-up");
+        return view("customar.register");
     }
 
     public function create(Request $request){

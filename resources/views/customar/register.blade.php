@@ -1,10 +1,10 @@
 <x-layouts>
-	<x-slot name="title">Sign in</x-slot>
+	<x-slot name="title">Sign Out</x-slot>
     <x-slot name="content">
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V2</title>
+	<title>Sign Out</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -35,21 +35,38 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form action="" id="login" class="login100-form validate-form">
+				<form action="" id="addCustomar" class="login100-form validate-form">
 					@csrf
 					<span class="login100-form-title p-b-26">
-						Welcome To Levan Again
+						Welcome To Levan 
 					</span>
 					<span class="login100-form-title p-b-48">
-						<img class="" src="index/assets/img/logo.png" alt="Imperial">
+                        <img class="" src="index/assets/img/logo.png" alt="Imperial">
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 						
+						<input type="text" name="fname" id="fname" class="input100">
+						<span class="focus-input100" data-placeholder="First Name"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						
+						<input type="text" name="lname" id="lname" class="input100">
+						<span class="focus-input100" data-placeholder="Last Name"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						
+						<input type="text" name="username" id="username" class="input100">
+						<span class="focus-input100" data-placeholder="User Name"></span>
+					</div>
+                    
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						
 						<input type="text" name="email" id="email" class="input100">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
-
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
@@ -59,11 +76,46 @@
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						
+						<input type="password" name="cpassword" id="cpassword" class="input100">
+						<span class="focus-input100" data-placeholder="Confirm Password"></span>
+					</div>
+
+                    {{-- <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						
+						<input type="file" name="profile" id="profile" class="input100">
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div> --}}
+
+                    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<main class="main_full">
+	<div class="container">
+		<div class="panel">
+			<div class="button_outer">
+				<div class="btn_upload">
+					<input type="file" name="profile" id="upload_file" name="">
+					Upload Image
+				</div>
+				<div class="processing_bar"></div>
+				<div class="success_box"></div>
+			</div>
+		</div>
+		<div class="error_msg"></div>
+		<div class="uploaded_file_view" id="uploaded_view">
+			<span class="file_remove">X</span>
+		</div>
+	</div>
+</main>
+
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn">
-								Login
+								Sign Up
 							</button>
 						</div>
 					</div>

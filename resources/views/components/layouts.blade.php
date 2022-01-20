@@ -17,7 +17,7 @@
     <div class="pre-loader">
         <img src="images/pre-loader.gif" alt="">
     </div>
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
         <header class="container">
             <div class="d-flex justify-content-between custom-header">
                 @if (session()->has("email"))
@@ -37,8 +37,8 @@
 
             </div>
         </header>
-    </div>
-    <div class="container-fluid bg-dark">
+    </div> --}}
+    {{-- <div class="container-fluid bg-dark">
         <div class="container">
             <div class="myNavbar cus-nav">
                 <div class="left-side">
@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <main>
         {{$content}}
     </main>

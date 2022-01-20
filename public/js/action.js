@@ -1143,6 +1143,7 @@ $(document).ready(function () {
         const password = $("#password").val()
         const c_password = $("#c_password").val()
         const image = $("#image").val();
+        var pw1 = document.getElementById("Password").value;
 
         const formdata = new FormData(this);
 
@@ -1151,6 +1152,8 @@ $(document).ready(function () {
 
         } else if (password != c_password) {
             show_message("error", "Password Are Not Matched");
+        } else if (password.length < 8) {
+            show_message("error", "Password Are Too Short");
         } else {
             $.ajax({
                 url: "/admin/add-user",
