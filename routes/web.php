@@ -45,6 +45,8 @@ use App\Http\Controllers\customar\UpdateProfileController;
 
 // Home route
 Route::get("/", [HomeController::class, "index"])->name("home");
+
+
 Route::get("/category-post/{id}", [CategoryPostController::class, "index"])->name("category-post");
 Route::get("/car", [CustomarCarController::class, "index"])->name("cars");
 Route::get("/car-detail/{id}", [CustomarCarController::class, "detail"])->name("car-detail");
@@ -78,7 +80,7 @@ Route::group(["middleware" => "cAuth"], function () {
 
 
 Route::group(["middleware" => "noauth"], function () {
-    Route::post("/login", [LoginController::class, "login"]);
+    Route::post("/logining", [LoginController::class, "login"]);
     Route::get("/signup", [SignUpController::class, "index"])->name("signup");
     Route::post("/create", [SignUpController::class, "create"]);
     Route::get("/signin", [LoginController::class, "index"])->name("signin");

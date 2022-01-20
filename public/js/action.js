@@ -1384,7 +1384,7 @@ $(document).ready(function () {
         } else {
             $.ajax({
                 type: "POST",
-                url: "/login",
+                url: "/logining",
                 data: formdata,
                 processData: false,
                 contentType: false,

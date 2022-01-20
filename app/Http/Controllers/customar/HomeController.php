@@ -17,4 +17,7 @@ class HomeController extends Controller
     //    dd($category);
        return view("index",["category"=>$category,"cars"=>$car,"posts"=>$posts]);
    }
+
+
+   
 }
