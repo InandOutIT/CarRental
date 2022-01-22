@@ -201,9 +201,9 @@ class CarController extends Controller
         $car->car_fuel_id = $request->car_fuel;
         $car->car_model_id = $request->car_model;
         $car->user_id = Auth::user()->id;
-        $car->car_name = $request->car_name;
+        // $car->car_name = $request->car_name;
         $car->num_door = $request->num_door;
-        $car->num_site = $request->num_site;
+        // $car->num_site = $request->num_site;
         $car->type_gear = $request->type_gear;
         $car->car_desc = $request->desc;
         $car->car_price = $request->price;

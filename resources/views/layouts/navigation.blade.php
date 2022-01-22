@@ -44,6 +44,9 @@
                             <a href="{{ route('dashboard') }}" class="{{Request::routeIs("dashboard") ? 'actives' :""}}">Dashboard</a>
                         </div>
                         <div class="flex  nav-link">
+                            <a href="{{ route('car') }}" class="{{Request::routeIs("car") ? 'actives' :""}}">Car</a>
+                        </div>
+                        <div class="flex  nav-link">
                             <a href="{{ route('car_brand') }}" class="{{Request::routeIs("car_brand") ? 'actives' :""}}">Car brand</a>
 
                         </div>
@@ -59,15 +62,13 @@
                             <a href="{{ route('car_category') }}" class="{{Request::routeIs("car_category") ? 'actives' :""}}">Car Category</a>
 
                         </div>
-                        <div class="flex  nav-link">
-                            <a href="{{ route('car') }}" class="{{Request::routeIs("car") ? 'actives' :""}}">Car</a>
-                        </div>
-                        <div class="flex  nav-link">
+                       
+                        {{-- <div class="flex  nav-link">
                             <a href="{{ route('category') }}" class="{{Request::routeIs("category") ? 'actives' :""}}">Category</a>
-                        </div>
-                        <div class="flex  nav-link">
+                        </div> --}}
+                        {{-- <div class="flex  nav-link">
                             <a href="{{ route('post') }}" class="{{Request::routeIs("post") ? 'actives' :""}}">Posts</a>
-                        </div>
+                        </div> --}}
                         {{-- <div class="flex  nav-link">
                             <a href="{{ route('gallerys') }}" class="{{Request::routeIs("gallerys") ? 'actives' :""}}">
                             Gallery</a>
@@ -76,18 +77,18 @@
                             <a href="{{ route('admins') }}" class="{{Request::routeIs("admins") ? 'actives' :""}}">
                             Admin</a>
                         </div>
-                        <div class="flex  nav-link">
+                        {{-- <div class="flex  nav-link">
                             <a href="{{ route('customars') }}" class="{{Request::routeIs("customars") ? 'actives' :""}}">
                             Customer</a>
-                        </div>
+                        </div> --}}
                         {{-- <div class="flex  nav-link">
                             <a href="{{ route('about') }}" class="{{Request::routeIs("about") ? 'actives' :""}}">
                             About</a>
                         </div> --}}
-                        <div class="flex  nav-link">
+                        {{-- <div class="flex  nav-link">
                             <a href="{{ route('contact') }}" class="{{Request::routeIs("contact") ? 'actives' :""}}">
                             Contact</a>
-                        </div>
+                        </div> --}}
                         <div class="flex  nav-link">
                             <a href="{{ route('likes') }}" class="{{Request::routeIs("likes") ? 'actives' :""}}">
                             Likes</a>

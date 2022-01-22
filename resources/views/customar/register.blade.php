@@ -56,11 +56,7 @@
 						<span class="focus-input100" data-placeholder="Last Name"></span>
 					</div>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						
-						<input type="text" name="username" id="username" class="input100">
-						<span class="focus-input100" data-placeholder="User Name"></span>
-					</div>
+                   
                     
                     <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 						

@@ -29,7 +29,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
+                        <h5 class="modal-title">Add Car</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -38,19 +38,10 @@
                     <div class="modal-body">
                         <form action="" id="addcars" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="">Enter Car Name</label>
                                 <input type="text" name="car_name" id="car_name" class="form-control form-control-lg">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Enter Car Category</label>
-                                <select name="car_id" id="car_id" class="form-control form-control-lg">
-                                    <option disabled selected>Select Car category</option>
-                                    @foreach ($category as $cat)
-                                    <option value="{{$cat->id}}">{{$cat->car_cat_name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label for="">Enter Car Brand</label>
                                 <select name="car_brand" id="car_brand" class="form-control form-control-lg">
@@ -68,6 +59,17 @@
                                    
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <label for="">Enter Car Category</label>
+                                <select name="car_id" id="car_id" class="form-control form-control-lg">
+                                    <option disabled selected>Select Car category</option>
+                                    @foreach ($category as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->car_cat_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            
                         
 
 
@@ -95,7 +97,7 @@
                             </div>
 
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="">Enter num site</label>
                                 <select name="num_site" id="num_site" class="form-control form-control-lg">
                                     <option disabled selected>Select Num site</option>
@@ -106,7 +108,7 @@
                                     <option value="6">6</option>
                                     
                                 </select>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label for="">Enter Gear</label>
@@ -128,7 +130,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Enter Car Image</label>
-                                <input type="file" name="images[]"  class="form-control form-control-lg" multiple>
+                                <input type="file" name="images[]" accept="image/*" class="form-control form-control-lg" multiple>
                             </div>
 
 

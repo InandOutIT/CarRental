@@ -654,7 +654,7 @@ $(document).ready(function () {
         const car_price = $("#car_price").val();
         
         const formdata = new FormData(this);
-        if (car_name == "" || car_price == "" ||  car_desc == "" || car_id == "") {
+        if ( car_price == "" ||  car_desc == "" || car_id == "") {
             show_message("error", "Please Fill All Field");
         } else {
             $.ajax({

@@ -9,7 +9,7 @@ class Customar extends Model
 {
     use HasFactory;
     protected $table="customars";
-    protected $fillable=["fname","lname","username","email","password","image"];
+    protected $fillable=["fname","lname","email","password","image"];
 
     public function cares(){
         return $this->hasMany(Car::class);
