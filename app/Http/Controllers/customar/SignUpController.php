@@ -21,19 +21,20 @@ class SignUpController extends Controller
         }else{
         $customar=new Customar();
         $image=$request->file("profile");
-        $new_image=rand().".".$image->extension();
-        $image->move(public_path("upload/customar"),$new_image);
+        $new_image = $image->hashName();
+        $image->move(public_path( "upload/user_images/"), $image->hashName() );
+
         $fname=$request->fname;
         $lname=$request->lname;
         $email=$request->email;
-        $username=$request->username;
+       
         $email=$request->email;
         $password=$request->password;
 
         $customar->fname=$fname;
         $customar->lname=$lname;
         $customar->email=$email;
-        $customar->username=$username;
+       
         $customar->password=Hash::make($password);
         $customar->image=$new_image;
         $result=$customar->save();

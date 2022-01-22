@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Laravel\Sanctum\HasApiTokens;
 class Customar extends Model
 {
+
+
+    use HasApiTokens;
+
     use HasFactory;
     protected $table="customars";
     protected $fillable=["fname","lname","username","email","password","image"];

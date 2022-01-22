@@ -15,7 +15,7 @@ class Car extends Model
         "car_cat_id",
         "car_brand_id",
         "car_model_id",
-        "car_name",
+        "car_color",
         "car_desc",
         "car_image",
         "car_price",

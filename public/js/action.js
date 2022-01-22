@@ -1,15 +1,15 @@
-$(document).ready(function () {
+$(document).ready(function() {
     setTimeout(() => {
         $(".pre-loader").hide();
     }, 2000)
 
-    $("#open").click(function () {
+    $("#open").click(function() {
         $("#main-nav").removeClass("hide")
         $("#main-nav").addClass("show")
 
 
     })
-    $("#close").click(function () {
+    $("#close").click(function() {
         $("#main-nav").removeClass("show")
         $("#main-nav").addClass("hide")
     })
@@ -18,7 +18,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/admin/loadDataCategory",
             type: "GET",
-            success: function (data) {
+            success: function(data) {
                 $("#table-data-category").html(data);
             }
         });
@@ -30,7 +30,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/admin/loadDataBrand",
             type: "GET",
-            success: function (data) {
+            success: function(data) {
                 $("#table-data-brand").html(data);
             }
         });
@@ -41,7 +41,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/admin/loadDataModel",
             type: "GET",
-            success: function (data) {
+            success: function(data) {
                 $("#table-data-model").html(data);
             }
         });
@@ -52,7 +52,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/admin/loadDataFuel",
             type: "GET",
-            success: function (data) {
+            success: function(data) {
                 $("#table-data-fuel").html(data);
             }
         });
@@ -110,61 +110,61 @@ $(document).ready(function () {
 
 
 
-    
 
 
-    $("#search-carCategory").keyup(function () {
+
+    $("#search-carCategory").keyup(function() {
         const search = $(this).val();
         $.ajax({
             url: "/admin/searchDatacarCategory",
             type: "GET",
             data: { search: search },
-            success: function (data) {
+            success: function(data) {
                 $("#table-data-category").html(data);
             }
         });
     });
 
 
-    $("#search-carBrand").keyup(function () {
+    $("#search-carBrand").keyup(function() {
         const search = $(this).val();
         $.ajax({
             url: "/admin/searchDatacarBrand",
             type: "GET",
             data: { search: search },
-            success: function (data) {
+            success: function(data) {
                 $("#table-data-brand").html(data);
             }
         });
     });
 
 
-    $("#search-carModel").keyup(function () {
+    $("#search-carModel").keyup(function() {
         const search = $(this).val();
         $.ajax({
             url: "/admin/searchDatacarModel",
             type: "GET",
             data: { search: search },
-            success: function (data) {
+            success: function(data) {
                 $("#table-data-model").html(data);
             }
         });
     });
 
-    $("#search-carFuel").keyup(function () {
+    $("#search-carFuel").keyup(function() {
         const search = $(this).val();
         $.ajax({
             url: "/admin/searchDatacarFuel",
             type: "GET",
             data: { search: search },
-            success: function (data) {
+            success: function(data) {
                 $("#table-data-fuel").html(data);
             }
         });
     });
 
 
-    $("#addcarCategory").submit(function (e) {
+    $("#addcarCategory").submit(function(e) {
         e.preventDefault();
         var car_name = $("#car_cat_name").val();
         var car_image = $("#car_image").val();
@@ -179,7 +179,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data add Successfully");
                         loadCarCategory()
@@ -196,7 +196,7 @@ $(document).ready(function () {
     });
 
 
-    $("#addcarBrand").submit(function (e) {
+    $("#addcarBrand").submit(function(e) {
         e.preventDefault();
         var car_name = $("#car_brand_name").val();
         var car_image = $("#car_image").val();
@@ -211,7 +211,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data add Successfully");
                         loadCarBrand()
@@ -228,10 +228,10 @@ $(document).ready(function () {
     });
 
 
-    $("#addcarModel").submit(function (e) {
+    $("#addcarModel").submit(function(e) {
         e.preventDefault();
         var car_name = $("#car_model_name").val();
-        
+
 
         const formdata = new FormData(this);
         if (car_name == "") {
@@ -243,7 +243,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data add Successfully");
                         loadCarModel()
@@ -260,10 +260,10 @@ $(document).ready(function () {
     });
 
 
-    $("#addcarFuel").submit(function (e) {
+    $("#addcarFuel").submit(function(e) {
         e.preventDefault();
         var car_name = $("#car_fuel_name").val();
-        
+
 
         const formdata = new FormData(this);
         if (car_name == "") {
@@ -275,7 +275,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data add Successfully");
                         loadCarFuel()
@@ -292,7 +292,7 @@ $(document).ready(function () {
     });
 
 
-    $("#editcarCategory").submit(function (e) {
+    $("#editcarCategory").submit(function(e) {
         e.preventDefault();
         var car_name = $("#edit_car_cat_name").val();
 
@@ -306,7 +306,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data update Successfully");
                         loadCarCategory()
@@ -324,7 +324,7 @@ $(document).ready(function () {
 
 
 
-    $("#editcarBrand").submit(function (e) {
+    $("#editcarBrand").submit(function(e) {
         e.preventDefault();
         var car_name = $("#edit_car_brand_name").val();
 
@@ -338,7 +338,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data update Successfully");
                         loadCarBrand()
@@ -354,10 +354,10 @@ $(document).ready(function () {
         }
     });
 
-    
 
 
-    $("#editcarModel").submit(function (e) {
+
+    $("#editcarModel").submit(function(e) {
         e.preventDefault();
         var car_name = $("#edit_car_Model_name").val();
 
@@ -371,7 +371,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data update Successfully");
                         loadCarModel()
@@ -389,7 +389,7 @@ $(document).ready(function () {
 
 
 
-    $("#editcarFuel").submit(function (e) {
+    $("#editcarFuel").submit(function(e) {
         e.preventDefault();
         var car_name = $("#edit_car_fuel_name").val();
 
@@ -403,7 +403,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data update Successfully");
                         loadCarFuel()
@@ -421,13 +421,13 @@ $(document).ready(function () {
 
 
 
-    $(document).on("click", "#edit-btn-category", function () {
+    $(document).on("click", "#edit-btn-category", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/edit_category",
             type: "GET",
             data: { id: id },
-            success: function (data) {
+            success: function(data) {
                 $("#form-data").html(data);
             }
         });
@@ -435,38 +435,38 @@ $(document).ready(function () {
 
 
 
-    $(document).on("click", "#edit-btn-brand", function () {
+    $(document).on("click", "#edit-btn-brand", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/edit_brand",
             type: "GET",
             data: { id: id },
-            success: function (data) {
+            success: function(data) {
                 $("#form-data").html(data);
             }
         });
     });
 
-    $(document).on("click", "#edit-btn-model", function () {
+    $(document).on("click", "#edit-btn-model", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/edit_model",
             type: "GET",
             data: { id: id },
-            success: function (data) {
+            success: function(data) {
                 $("#form-data").html(data);
             }
         });
     });
 
 
-    $(document).on("click", "#edit-btn-fuel", function () {
+    $(document).on("click", "#edit-btn-fuel", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/edit_fuel",
             type: "GET",
             data: { id: id },
-            success: function (data) {
+            success: function(data) {
                 $("#form-data").html(data);
             }
         });
@@ -475,13 +475,13 @@ $(document).ready(function () {
 
 
 
-    $(document).on("click", "#delete-btn-carCategory", function () {
+    $(document).on("click", "#delete-btn-carCategory", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete_category",
             type: "GET",
             data: { id: id },
-            success: function (data) {
+            success: function(data) {
                 if (data == 1) {
                     show_message("success", "Data Delete Successfully");
                     loadCarCategory()
@@ -495,13 +495,13 @@ $(document).ready(function () {
     });
 
 
-    $(document).on("click", "#delete-btn-carBrand", function () {
+    $(document).on("click", "#delete-btn-carBrand", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete_brand",
             type: "GET",
             data: { id: id },
-            success: function (data) {
+            success: function(data) {
                 if (data == 1) {
                     show_message("success", "Data Delete Successfully");
                     loadCarBrand()
@@ -516,13 +516,13 @@ $(document).ready(function () {
 
 
 
-    $(document).on("click", "#delete-btn-carModel", function () {
+    $(document).on("click", "#delete-btn-carModel", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete_model",
             type: "GET",
             data: { id: id },
-            success: function (data) {
+            success: function(data) {
                 if (data == 1) {
                     show_message("success", "Data Delete Successfully");
                     loadCarModel()
@@ -536,13 +536,13 @@ $(document).ready(function () {
     });
 
 
-    $(document).on("click", "#delete-btn-carFuel", function () {
+    $(document).on("click", "#delete-btn-carFuel", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete_fuel",
             type: "GET",
             data: { id: id },
-            success: function (data) {
+            success: function(data) {
                 if (data == 1) {
                     show_message("success", "Data Delete Successfully");
                     loadCarFuel()
@@ -560,41 +560,41 @@ $(document).ready(function () {
 
 
 
-    $(document).ready(function(){
-        $('select[id="car_brand"]').on('change',function(){
+    $(document).ready(function() {
+        $('select[id="car_brand"]').on('change', function() {
             var brandId = $(this).val();
             $.ajax({
-                url:"/admin/get-model/"+brandId,
-                type:"GET",
-                dataType:"json",
-                success:function(data){
+                url: "/admin/get-model/" + brandId,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
                     $('select[name="car_model"]').empty();
-                    $.each(data,function(key,value){
-                        $('select[name="car_model"]').append('<option value='+value.id+'>'+value.car_model_name+'</option>');
+                    $.each(data, function(key, value) {
+                        $('select[name="car_model"]').append('<option value=' + value.id + '>' + value.car_model_name + '</option>');
                     })
                 }
             });
         })
     })
 
-    $(document).ready(function(){
-        $('select[id="edit_car_brand_id"]').on('change',function(){
+    $(document).ready(function() {
+        $('select[id="edit_car_brand_id"]').on('change', function() {
             var brandId = $(this).val();
             $.ajax({
-                url:"/admin/get-model/"+brandId,
-                type:"GET",
-                dataType:"json",
-                success:function(data){
+                url: "/admin/get-model/" + brandId,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
                     $('select[name="edit_car_model_id"]').empty();
-                    $.each(data,function(key,value){
-                        $('select[name="edit_car_model_id"]').append('<option value='+value.id+'>'+value.car_model_name+'</option>');
+                    $.each(data, function(key, value) {
+                        $('select[name="edit_car_model_id"]').append('<option value=' + value.id + '>' + value.car_model_name + '</option>');
                     })
                 }
             });
         })
     })
 
-   
+
 
 
 
@@ -627,7 +627,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/admin/get",
             type: "GET",
-            success: function (data) {
+            success: function(data) {
                 $("#car-table").html(data);
             }
         });
@@ -645,16 +645,16 @@ $(document).ready(function () {
     }
     loadTotalCar();
 
-    $("#addcars").submit(function (e) {
+    $("#addcars").submit(function(e) {
         e.preventDefault();
         const car_name = $("#car_name").val();
         const car_id = $("#car_id").val();
         const car_desc = $("#car_desc").val();
-       
+
         const car_price = $("#car_price").val();
-        
+
         const formdata = new FormData(this);
-        if (car_name == "" || car_price == "" ||  car_desc == "" || car_id == "") {
+        if (car_name == "" || car_price == "" || car_desc == "" || car_id == "") {
             show_message("error", "Please Fill All Field");
         } else {
             $.ajax({
@@ -678,7 +678,7 @@ $(document).ready(function () {
         }
 
     });
-    $(document).on("click", "#car-edit-btn", function () {
+    $(document).on("click", "#car-edit-btn", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/edit",
@@ -690,7 +690,7 @@ $(document).ready(function () {
         })
     });
 
-    $("#editcars").submit(function (e) {
+    $("#editcars").submit(function(e) {
         e.preventDefault();
         const car_name = $("#edit_car_name").val();
         const car_id = $("#edit_car_cat_id").val();
@@ -701,7 +701,7 @@ $(document).ready(function () {
         const car_price = $("#edit_car_price").val();
 
         const formdata = new FormData(this);
-        if (car_name == "" || car_price == "" || car_desc == "" || car_id == ""||car_brand==""||car_fuel==""||car_model=="") {
+        if (car_name == "" || car_price == "" || car_desc == "" || car_id == "" || car_brand == "" || car_fuel == "" || car_model == "") {
             show_message("error", "Please Fill All Field");
         } else {
             $.ajax({
@@ -725,7 +725,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on("click", "#car-delete-btn", function () {
+    $(document).on("click", "#car-delete-btn", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete",
@@ -744,7 +744,7 @@ $(document).ready(function () {
     });
 
 
-    $("#search").keyup(function () {
+    $("#search").keyup(function() {
         const search = $(this).val();
         $.ajax({
             url: "/admin/search",
@@ -761,7 +761,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/admin/getcategory",
             type: "GET",
-            success: function (data) {
+            success: function(data) {
                 $("#category-table").html(data);
             }
         });
@@ -772,24 +772,24 @@ $(document).ready(function () {
         $.ajax({
             url: "/admin/total-category",
             type: "GET",
-            success: function (data) {
+            success: function(data) {
                 $("#total-category").html(data);
             }
         });
     }
     loadTotalCategory()
-    $("#search").keyup(function () {
+    $("#search").keyup(function() {
         const search = $(this).val();
         $.ajax({
             url: "/admin/search-category",
             type: "GET",
             data: { search: search },
-            success: function (data) {
+            success: function(data) {
                 $("#category-table").html(data);
             }
         });
     })
-    $("#addpostcategory").submit(function (e) {
+    $("#addpostcategory").submit(function(e) {
         e.preventDefault();
         var cat_name = $("#cat_name").val();
 
@@ -803,7 +803,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data add Successfully");
                         loadCategory()
@@ -818,7 +818,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#editpostcategory").submit(function (e) {
+    $("#editpostcategory").submit(function(e) {
         e.preventDefault();
         var cat_name = $("#edit_cat_name").val();
 
@@ -832,7 +832,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data update Successfully");
                         loadCategory()
@@ -846,25 +846,25 @@ $(document).ready(function () {
             });
         }
     });
-    $(document).on("click", "#cat-edit-btn", function () {
+    $(document).on("click", "#cat-edit-btn", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/edit-category",
             type: "GET",
             data: { id: id },
-            success: function (data) {
+            success: function(data) {
                 $("#category-form").html(data);
             }
         });
     })
 
-    $(document).on("click", "#cat-delete-btn", function () {
+    $(document).on("click", "#cat-delete-btn", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete-category",
             type: "GET",
             data: { id: id },
-            success: function (data) {
+            success: function(data) {
                 if (data == 1) {
                     show_message("success", "Data Delete Successfully");
                     loadTotalCategory()
@@ -882,7 +882,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/admin/get-posts",
             type: "GET",
-            success: function (data) {
+            success: function(data) {
                 $("#posts-table").html(data);
             }
         });
@@ -893,7 +893,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/admin/total-posts",
             type: "GET",
-            success: function (data) {
+            success: function(data) {
                 $("#total-posts").html(data);
             }
         });
@@ -901,7 +901,7 @@ $(document).ready(function () {
     loadTotalPosts()
 
 
-    $("#addposts").submit(function (e) {
+    $("#addposts").submit(function(e) {
         e.preventDefault();
         const title = $("#title").val();
         const cat_id = $("#cat_id").val();
@@ -933,7 +933,7 @@ $(document).ready(function () {
         }
 
     });
-    $(document).on("click", "#post-edit-btn", function () {
+    $(document).on("click", "#post-edit-btn", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/edit-posts",
@@ -945,7 +945,7 @@ $(document).ready(function () {
         })
     });
 
-    $("#editposts").submit(function (e) {
+    $("#editposts").submit(function(e) {
         e.preventDefault();
         const title = $("#edit_post_name").val();
         const cat_id = $("#edit_cat_id").val();
@@ -976,7 +976,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on("click", "#post-delete-btn", function () {
+    $(document).on("click", "#post-delete-btn", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete-posts",
@@ -994,13 +994,13 @@ $(document).ready(function () {
         })
     });
 
-    $("#search").keyup(function () {
+    $("#search").keyup(function() {
         const search = $(this).val();
         $.ajax({
             url: "/admin/search-posts",
             type: "GET",
             data: { search: search },
-            success: function (data) {
+            success: function(data) {
                 $("#posts-table").html(data);
             }
         });
@@ -1011,7 +1011,7 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: "/admin/get_gallery",
-            success: function (data) {
+            success: function(data) {
                 // console.log(data);
                 $("#gallery-data").html(data);
             }
@@ -1023,14 +1023,14 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: "/admin/total-gallery",
-            success: function (data) {
+            success: function(data) {
                 // console.log(data);
                 $("#total-gallery").html(data);
             }
         });
     }
     getTotalGallery();
-    $("#submitGallery").on("submit", function (e) {
+    $("#submitGallery").on("submit", function(e) {
         e.preventDefault();
         var image = $("#file").val();
 
@@ -1044,7 +1044,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Data add successfully");
                         $("#submitGallery").trigger("reset");
@@ -1060,7 +1060,7 @@ $(document).ready(function () {
         }
     })
 
-    $(document).on("click", "#edit-gallery", function () {
+    $(document).on("click", "#edit-gallery", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/edit-gallery",
@@ -1073,7 +1073,7 @@ $(document).ready(function () {
     });
 
 
-    $("#editGallery").submit(function (e) {
+    $("#editGallery").submit(function(e) {
         e.preventDefault();
         const formdata = new FormData(this);
         $.ajax({
@@ -1095,7 +1095,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("click", "#delete-gallery", function () {
+    $(document).on("click", "#delete-gallery", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete-gallery",
@@ -1134,7 +1134,7 @@ $(document).ready(function () {
         })
     }
     loadTotalUser();
-    $("#save-user").on("submit", function (e) {
+    $("#save-user").on("submit", function(e) {
         e.preventDefault();
         const fname = $("#fname").val()
         const lname = $("#lname").val()
@@ -1161,7 +1161,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     // console.log(data);
                     if (data == 1) {
                         show_message("success", "Admin Add Successfully")
@@ -1172,8 +1172,7 @@ $(document).ready(function () {
 
                     } else if (data == 2) {
                         show_message("error", "Emai already Exist")
-                    }
-                    else {
+                    } else {
                         show_message("error", "Admin Not Add Successfully")
                     }
                 }
@@ -1183,7 +1182,7 @@ $(document).ready(function () {
     });
 
 
-    $(document).on("click", "#user-edit", function () {
+    $(document).on("click", "#user-edit", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/edit-user",
@@ -1196,7 +1195,7 @@ $(document).ready(function () {
     });
 
 
-    $("#update-user").on("submit", function (e) {
+    $("#update-user").on("submit", function(e) {
         e.preventDefault();
         const fname = $("#edit_fname").val()
         const lname = $("#edit_lname").val()
@@ -1215,14 +1214,13 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "Admin Update Successfully")
                         loadUser();
                         loadTotalUser();
                         $("#edit-user").modal("hide");
-                    }
-                    else {
+                    } else {
                         show_message("error", "Admin Not Update Successfully")
                     }
                 }
@@ -1231,7 +1229,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on("click", "#user-delete", function () {
+    $(document).on("click", "#user-delete", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete-user",
@@ -1260,7 +1258,7 @@ $(document).ready(function () {
         })
     }
     loadReview();
-    $("#submitReview").on("click", function (e) {
+    $("#submitReview").on("click", function(e) {
         e.preventDefault();
         var id = $(this).data("id");
         var review = $("#review").val();
@@ -1279,7 +1277,7 @@ $(document).ready(function () {
                     comment: comment,
                     _token: _token
                 },
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         $("#review-form").trigger("reset");
                         loadReview();
@@ -1307,7 +1305,7 @@ $(document).ready(function () {
         })
     }
     comments();
-    $("#submitComment").on("click", function (e) {
+    $("#submitComment").on("click", function(e) {
         e.preventDefault();
         var id = $(this).data("id");
         var comment = $("#comment").val();
@@ -1324,7 +1322,7 @@ $(document).ready(function () {
                     comment: comment,
                     _token: _token
                 },
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         $("#comment-form").trigger("reset");
                         comments();
@@ -1338,18 +1336,17 @@ $(document).ready(function () {
     });
 
 
-    $("#addCustomar").on("submit", function (e) {
+    $("#addCustomar").on("submit", function(e) {
         e.preventDefault();
         const fname = $("#fname").val();
         const lname = $("#lname").val();
-        const username = $("#username").val();
         const email = $("#email").val();
         const password = $("#password").val();
         const cpassword = $("#cpassword").val();
         const profile = $("#profile").val();
 
         const formdata = new FormData(this);
-        if (fname == "" || lname == "" || username == "" || email == "" || password == "" || cpassword == "" || profile == "") {
+        if (fname == "" || lname == "" || email == "" || password == "" || cpassword == "" || profile == "") {
             show_message("error", "Please fill all the field");
         } else if (password != cpassword) {
             show_message("error", "password are not matched");
@@ -1360,7 +1357,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     if (data == 1) {
                         show_message("success", "User register successfully");
                         $("#addCustomar").trigger("reset");
@@ -1376,7 +1373,7 @@ $(document).ready(function () {
     })
 
 
-    $("#login").submit(function (e) {
+    $("#login").submit(function(e) {
         e.preventDefault();
         const email = $("#email").val();
         const password = $("#password").val();
@@ -1391,7 +1388,7 @@ $(document).ready(function () {
                 data: formdata,
                 processData: false,
                 contentType: false,
-                success: function (data) {
+                success: function(data) {
                     console.log(data);
                     if (data == 1) {
                         show_message("success", "User register successfully");
@@ -1407,13 +1404,13 @@ $(document).ready(function () {
         }
     });
 
-    $("#gotologin").click(function (e) {
+    $("#gotologin").click(function(e) {
         e.preventDefault();
         window.location.href = "/signin";
     });
 
 
-    $("#subscribe").on("submit", function (e) {
+    $("#subscribe").on("submit", function(e) {
         e.preventDefault();
 
         const email = $("#email").val();
@@ -1451,7 +1448,7 @@ $(document).ready(function () {
         })
     }
     loadLike();
-    $("#likebtn").on("click", function (e) {
+    $("#likebtn").on("click", function(e) {
         e.preventDefault();
         const id = $(this).data("id");
         var _token = $("input[name=_token]").val();
@@ -1478,7 +1475,7 @@ $(document).ready(function () {
     }
     loadBookCar();
 
-    $("#book-car").on("submit", function (e) {
+    $("#book-car").on("submit", function(e) {
         e.preventDefault();
         const id = $("#id").val();
         const days = $("#days").val();
@@ -1507,7 +1504,7 @@ $(document).ready(function () {
         }
     });
 
-    $(document).on("click", "#delete-book-car", function () {
+    $(document).on("click", "#delete-book-car", function() {
         const id = $(this).data("id")
         $.ajax({
             url: "/delete-book-car",
@@ -1524,7 +1521,7 @@ $(document).ready(function () {
         })
     });
 
-    $("#delete-account").on("click", function (e) {
+    $("#delete-account").on("click", function(e) {
         e.preventDefault();
         if (confirm("Are you Sure you want to delete account")) {
             $.ajax({
@@ -1555,7 +1552,7 @@ $(document).ready(function () {
     }
     loadBookCars();
 
-    $(document).on("click", "#confirm", function () {
+    $(document).on("click", "#confirm", function() {
         const id = $(this).data("id");
         var _token = $("input[name=_token]").val();
         // console.log(id);
@@ -1574,7 +1571,7 @@ $(document).ready(function () {
             }
         })
     })
-    $(document).on("click", "#not-confirm", function () {
+    $(document).on("click", "#not-confirm", function() {
         const id = $(this).data("id");
         var _token = $("input[name=_token]").val();
         // console.log(id);
@@ -1650,7 +1647,7 @@ $(document).ready(function () {
     loadAllCommets();
 
 
-    $(document).on("click", "#delete-review", function () {
+    $(document).on("click", "#delete-review", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete-review",
@@ -1666,7 +1663,7 @@ $(document).ready(function () {
             }
         })
     })
-    $(document).on("click", "#delete-comment", function () {
+    $(document).on("click", "#delete-comment", function() {
         const id = $(this).data("id");
         $.ajax({
             url: "/admin/delete-comments",
@@ -1695,7 +1692,7 @@ $(document).ready(function () {
         })
     }
     loadAbout();
-    $("#addabout").on("submit", function (e) {
+    $("#addabout").on("submit", function(e) {
         e.preventDefault();
         const image = $("#about_image").val();
         const about = $("#about_des").val();
@@ -1728,7 +1725,7 @@ $(document).ready(function () {
     })
 
 
-    $(document).on("click", "#read-more", function (e) {
+    $(document).on("click", "#read-more", function(e) {
         // e.preventDefault();
 
         const id = $(this).data("id");
@@ -1742,7 +1739,7 @@ $(document).ready(function () {
             }
         })
     })
-    $(document).on("click", "#about-edit-btn", function (e) {
+    $(document).on("click", "#about-edit-btn", function(e) {
         // e.preventDefault();
 
         const id = $(this).data("id");
@@ -1757,7 +1754,7 @@ $(document).ready(function () {
         })
     })
 
-    $("#updateabout").on("submit", function (e) {
+    $("#updateabout").on("submit", function(e) {
         e.preventDefault();
         const about = $("#edit_about").val();
 
@@ -1784,7 +1781,7 @@ $(document).ready(function () {
             })
         }
     })
-    $(document).on("click", "#about-delete-btn", function (e) {
+    $(document).on("click", "#about-delete-btn", function(e) {
         // e.preventDefault();
 
         const id = $(this).data("id");
@@ -1796,15 +1793,14 @@ $(document).ready(function () {
                 if (data == 1) {
                     show_message("success", "About Section Delete Successfully")
                     loadAbout();
-                }
-                else {
+                } else {
                     show_message("error", "About is not delete successfully")
                 }
             }
         })
     })
 
-    $("#contact-form").on("submit", function (e) {
+    $("#contact-form").on("submit", function(e) {
         e.preventDefault();
         const name = $("#name").val();
         const email = $("#email").val();
@@ -1831,7 +1827,7 @@ $(document).ready(function () {
         }
     });
 
-   
+
 
 
 

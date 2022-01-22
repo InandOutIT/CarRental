@@ -65,7 +65,7 @@ Route::post("/add-contact", [ContactController::class, "create"]);
 
 
 Route::group(["middleware" => "cAuth"], function () {
-    Route::get("/get-book-car", [AccountController::class, "index"])->name("book-car");
+    // Route::get("/get-book-car", [AccountController::class, "index"])->name("book-car");
     Route::get("/logout", [LogoutController::class, "logout"])->name("logouts");
     Route::post("/like", [LikeController::class, "create"]);
     Route::post("/book-car", [BookCarController::class, "book"])->name("book-car");
@@ -107,6 +107,7 @@ Route::middleware(["auth"])->group(function () {
     Route::get("/admin/comments", [CommentsController::class, "index"])->name("comments");
     Route::get("/admin/load-all-comments", [CommentsController::class, "comments"]);
     Route::get("/admin/delete-comments", [CommentsController::class, "delete"]);
+    Route::get("/admin/accept-order/{id}",[CarBookController::class,"acceptBook"]);
 
 
     // users
