@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\auth\CustomerController;
+use App\Http\Controllers\Api\brands\BrandController;
 use App\Http\Controllers\Api\cars\CarController;
 use App\Http\Controllers\Api\customer\CustomerProfile;
 use Illuminate\Http\Request;
@@ -28,6 +29,8 @@ Route::get('cars/{id}',[CarController::class,'getCarById']);
 Route::get('cars/brand/{id}',[CarController::class,'getCarsByBrand']);
 
 
+Route::get('brands',[BrandController::class,'index']);
+
 Route::group(['middleware' => 'auth:customer'], function () {
     Route::post('customer/logout', [CustomerController::class, "logout"]);
 
@@ -38,6 +41,7 @@ Route::group(['middleware' => 'auth:customer'], function () {
     Route::post('customer/review-car/{car_id}',[CarController::class,"carReview"]);
 
 
+    Route::get('customer/get-book-car',[CarController::class,'getBookCar']);
 
 
     Route::get('customer/get-profile',[CustomerProfile::class,'getProfile']);

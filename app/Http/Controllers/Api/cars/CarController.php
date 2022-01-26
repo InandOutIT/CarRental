@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api\cars;
 use App\Http\Controllers\apiController;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BookCarResource;
+use App\Http\Resources\CarBookResource;
 use App\Http\Resources\CarResource;
+use App\Http\Resources\CarsResource;
 use App\Http\Resources\ReviewCarResource;
 use App\Models\BookCar;
 use App\Models\Car;
@@ -23,13 +25,13 @@ class CarController extends apiController
     public function getAllCars()
     {
         $cars = Car::all();
-        return $this->apiResponse(CarResource::collection($cars) , self::STATUS_OK, 'selecting cars successfully');
+        return $this->apiResponse(CarsResource::collection($cars) , self::STATUS_OK, 'selecting cars successfully');
     }
 
 
     public function getCarById($id)
     {
-        $car = Car::findOrFail($id);
+        $car = Car::with('images')->findOrFail($id);
         return $this->apiResponse( new CarResource($car) ,self::STATUS_OK,"select car successfully" );
     }
 
@@ -39,7 +41,7 @@ class CarController extends apiController
     {
         $brand = CarBrand::find($id);
         $cars = $brand->cars;
-        return $this->apiResponse(CarResource::collection($cars) , self::STATUS_OK, 'selecting cars by brand successfully');
+        return $this->apiResponse(CarsResource::collection($cars) , self::STATUS_OK, 'selecting cars by brand successfully');
     }
 
 
@@ -80,6 +82,15 @@ class CarController extends apiController
         $review->review = $request->review;
         $review->save();
         return $this->apiResponse(new ReviewCarResource($review), self::STATUS_OK, 'car has been review successfully');
+
+    }
+
+
+    public function getBookCar()
+    {
+        $user_id = auth('customer')->user()->id;
+        $books = BookCar::where('customar_id',$user_id)->get();
+        return $this->apiResponse(CarBookResource::collection($books), self::STATUS_OK, 'car book have been return successfully');
 
     }
 

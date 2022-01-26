@@ -34,6 +34,7 @@ class SignUpController extends Controller
         $customar->fname=$fname;
         $customar->lname=$lname;
         $customar->email=$email;
+        $customar->phone = $request->phone;
        
         $customar->password=Hash::make($password);
         $customar->image=$new_image;
