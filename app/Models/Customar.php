@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customar extends Model
 {
+
+
+    
+
     use HasFactory;
     protected $table="customars";
     protected $fillable=["fname","lname","email","password","image"];

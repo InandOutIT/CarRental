@@ -15,4 +15,10 @@ class AccountController extends Controller
     return view("customar.book-car",["account"=>$account]);
   }
 
+  public function index1()
+  {
+      $id=session("loggedUser");
+      $account=Customar::find($id);
+    return view("customar.book-car",["account"=>$account]);
+  }
 }

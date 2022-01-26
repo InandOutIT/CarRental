@@ -50,7 +50,7 @@ class CarController extends Controller
                     <thead>
                         <tr>
                             <td>Car id</td>
-                            <td>Car Name</td>
+                            <td>Car color</td>
                             <td>Car Category</td>
                             <td>Car Brand</td>
                             <td>Type Of Fuel</td>
@@ -58,7 +58,7 @@ class CarController extends Controller
                             <td>Car Gear</td>
                             <td>Car image</td>
                             <td>Car price</td>
-                            <td>Username</td>
+                            
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -69,7 +69,7 @@ class CarController extends Controller
                     $output .= "
                         <tr>
                             <td>{$cars->id}</td>
-                            <td>{$cars->car_name}</td>
+                            <td>{$cars->car_color}</td>
                             <td>{$cars->car_category->car_cat_name}</td>
                             <td>{$cars->car_brand->car_brand_name}</td>
                             <td>{$cars->car_fuel->car_fuel_name}</td>
@@ -78,7 +78,7 @@ class CarController extends Controller
                             <td>{$cars->type_gear}</td>
                             <td><img src='{$image}' style='width:50px;height=50px;' alt=''></td>
                             <td>{$cars->car_price}</td>
-                            <td>{$cars->users->username}</td>
+                          
                             <td><button class='btn btn-success' data-id='{$cars->id}' id='car-edit-btn' data-toggle='modal' data-target='#edit-car'>Edit</button></td>
                             <td><button class='btn btn-danger' data-id='{$cars->id}' id='car-delete-btn'>Delete</button></td>
                         </tr>";
@@ -99,13 +99,13 @@ class CarController extends Controller
                         <thead>
                             <tr>
                                 <td>Car id</td>
-                                <td>Car Name</td>
+                                <td>Car color</td>
                                 <td>Car Category</td>
                                 <td>Car Brand</td>
                                 <td>Type Of Fuel</td>
                                 <td>Car image</td>
                                 <td>Car price</td>
-                                <td>Username</td>
+                               
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -116,13 +116,13 @@ class CarController extends Controller
                     $output .= "
                             <tr>
                                 <td>{$cars->id}</td>
-                                <td>{$cars->car_name}</td>
+                                <td>{$cars->car_color}</td>
                                 <td>{$cars->car_category->car_cat_name}</td>
                                 <td>{$cars->car_brand->car_brand_name}</td>
                                 <td>{$cars->car_fuel->car_fuel_name}</td>
                                 <td><img src='{$image}' style='width:50px;height=50px;' alt=''></td>
                                 <td>{$cars->car_price}</td>
-                                <td>{$cars->users->username}</td>
+                                
                                 <td><button class='btn btn-success' data-id='{$cars->id}' id='car-edit-btn' data-toggle='modal' data-target='#edit-car'>Edit</button></td>
                                 <td><button class='btn btn-danger' data-id='{$cars->id}' id='car-delete-btn'>Delete</button></td>
                             </tr>";
@@ -148,7 +148,7 @@ class CarController extends Controller
                     <thead>
                         <tr>
                         <td>Car id</td>
-                        <td>Car Name</td>
+                        <td>Car color</td>
                         <td>Car Category</td>
                         <td>Car Brand</td>
                         <td>Type Of Fuel</td>
@@ -167,7 +167,7 @@ class CarController extends Controller
                 $output .= "
                         <tr>
                         <td>{$cars->id}</td>
-                        <td>{$cars->car_name}</td>
+                        <td>{$cars->car_color}</td>
                         <td>{$cars->car_category->car_cat_name}</td>
                         <td>{$cars->car_brand->car_brand_name}</td>
                         <td>{$cars->car_fuel->car_fuel_name}</td>
@@ -194,7 +194,9 @@ class CarController extends Controller
         $car = new Car();
 
 
-
+        $image=$request->file("car_img");
+        $new_image=rand().".".$image->extension();
+        $image->move(public_path("upload/car"),$new_image);
 
         $car->car_cat_id = $request->car_id;
         $car->car_brand_id = $request->car_brand;
@@ -207,7 +209,7 @@ class CarController extends Controller
         $car->type_gear = $request->type_gear;
         $car->car_desc = $request->desc;
         $car->car_price = $request->price;
-        // $car->car_image = $new_image;
+        $car->car_image = $new_image;
         $result = $car->save();
 
 

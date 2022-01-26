@@ -128,10 +128,17 @@
                                 <textarea name="desc" id="desc" cols="30" rows="10"
                                     class="form-control form-control-lg"></textarea>
                             </div>
+
                             <div class="form-group">
-                                <label for="">Enter Car Image</label>
+                                <label for="">Enter Main Car Image</label>
+                                <input type="file" name="car_img" accept="image/*" class="form-control form-control-lg">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Enter Car Images</label>
                                 <input type="file" name="images[]" accept="image/*" class="form-control form-control-lg" multiple>
                             </div>
+
+                            
 
 
                             <div class="form-group">

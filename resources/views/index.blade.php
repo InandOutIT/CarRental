@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Levana</title>
+  <title>Levant</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -61,9 +61,9 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Levana<span>.</span></a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">Levant<span>.</span></a></h1>
       
-      <a href="index.html" class="logo me-auto me-lg-0"><img src="index/assets/img/hero-logo.png" alt="" class="img-fluid"></a>
+      {{-- <a href="index.html" class="logo me-auto me-lg-0"><img src="index/assets/img/car1.png" alt="" class="img-fluid"></a> --}}
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -100,10 +100,11 @@
     <div class="hero-container">
       <div data-aos="fade-in">
         <div class="hero-logo">
-          <img class="" src="index/assets/img/hero-logo.png" alt="Imperial">
+          <img class="" src="index/assets/img/car.png" alt="Imperial">
    
 
-        <h1>Welcome to Levana</h1>
+        <h1>Welcome to Levant WebSite</h1>
+        <h3>The Best Way To Rent Your Car</h3>
         <h2>We Have <span class="typed" data-typed-items="BMW, AUDI, KIA, FORD"></span></h2>
         <div class="actions">
           <a href="#about" class="btn-get-started">Choose Your Car Now</a>
@@ -183,7 +184,32 @@
     </div>
   </section><!-- End Hero -->
 
-  
+  <!-- ======= Clients Section ======= -->
+  <section id="clients" class="clients">
+    <div class="container" data-aos="zoom-in">
+
+      
+
+      <div class="clients-slider swiper">
+        <div class="swiper-wrapper align-items-center">
+          @foreach ($brand as $bra)
+           <div class="swiper-slide"><img src="{{asset("upload/car-category")}}/{{$bra->car_image}} " class="img-fluid" alt=""></div>
+          {{--<div class="swiper-slide"><img src="index/assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="index/assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="index/assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="index/assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="index/assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="index/assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="index/assets/img/clients/client-8.png" class="img-fluid" alt=""></div>  --}}
+          @endforeach
+         
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </section> 
+  <!-- End Clients Section -->
 
   <!-- ======= Hero1 Section ======= -->
   <section id="hero1" class="d-flex align-items-center">
@@ -191,7 +217,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Rent Your Car With Levana</h1>
+          <h1 data-aos="fade-up">Rent Your Car With Levant</h1>
           <h2 data-aos="fade-up" data-aos-delay="400">We are team of car lovers in the UAE and we work to help people get thier cars</h2>
           <div data-aos="fade-up" data-aos-delay="800">
             <a href="#about" class="btn-get-started scrollto">Choose your car now</a>
@@ -217,27 +243,7 @@
 
     
 
-  <!-- ======= Clients Section ======= -->
-   <section id="clients" class="clients">
-    <div class="container" data-aos="zoom-in">
 
-      <div class="clients-slider swiper">
-        <div class="swiper-wrapper align-items-center">
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-    </div>
-  </section> 
-  <!-- End Clients Section -->
 
     <!-- ======= Services Section ======= -->
     <!-- <section id="services">

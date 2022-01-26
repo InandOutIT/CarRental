@@ -23,6 +23,7 @@
                             <div class="title d-flex justify-content-between
                                                             mt-3">
                                 <h2>{{$car->car_name}}</h2>
+                                
                                 <h1>${{$car->car_price}}</h1>
                             </div>
                             <div class="review text-primary">
@@ -31,7 +32,7 @@
                                 <i class="fa fa-star-half-o" aria-hidden="true"></i>
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
-                                <span class="ml-3">4 Reviews</spanc>
+                                <span class="ml-3">4 Reviews</span>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-lg-6">
@@ -86,7 +87,7 @@
                                 <i class="fa fa-star-half-o" aria-hidden="true"></i>
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
-                                <span class="ml-3">4 Reviews</spanc>
+                                <span class="ml-3">4 Reviews</span>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-lg-6">
