@@ -15,6 +15,7 @@ use App\Models\CarBrand;
 use App\Models\CarComment;
 use App\Traits\rulesReturnTrait;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Response;
 
 class CarController extends apiController
@@ -24,29 +25,32 @@ class CarController extends apiController
 
     public function getAllCars()
     {
-        $cars = Car::all();
-        return $this->apiResponse(CarsResource::collection($cars) , self::STATUS_OK, 'selecting cars successfully');
+        $cars = Car::where('status', 1)->get();
+        return $this->apiResponse(CarsResource::collection($cars), self::STATUS_OK, 'selecting cars successfully');
     }
 
 
     public function getCarById($id)
     {
         $car = Car::with('images')->findOrFail($id);
-        return $this->apiResponse( new CarResource($car) ,self::STATUS_OK,"select car successfully" );
+        return $this->apiResponse(new CarResource($car), self::STATUS_OK, "select car successfully");
     }
 
 
 
     public function getCarsByBrand($id)
     {
-        $brand = CarBrand::find($id);
-        $cars = $brand->cars;
-        return $this->apiResponse(CarsResource::collection($cars) , self::STATUS_OK, 'selecting cars by brand successfully');
+        // $brand = CarBrand::find($id);
+        // // $cars = $brand->cars;
+        // $cars = Car::where([['car_brand_id',$id],['status', 1]])->get();
+        $brand = CarBrand::findOrFail($id);
+        $cars = $brand->cars()->where('status',1)->get();
+        return $this->apiResponse(CarsResource::collection($cars), self::STATUS_OK, 'selecting cars by brand successfully');
     }
 
 
 
-    public function bookCar(Request $request,$car_id)
+    public function bookCar(Request $request, $car_id)
     {
         function dateDiffInDays($date1, $date2)
         {
@@ -55,25 +59,25 @@ class CarController extends apiController
         }
 
         $validate = $this->apiValidation($request, $this->bookCarRules());
-        if($validate instanceof Response) return $validate;
+        if ($validate instanceof Response) return $validate;
 
-       $book = new BookCar();
-       $book->car_id = $car_id;
-       $book->customar_id = auth('customer')->user()->id;
-       $book->start_book = $request->start_book;
-       $book->end_book = $request->end_book;
-       $book->days = dateDiffInDays($book->start_book, $book->end_book) + 1;
-       $book->save();
-       return $this->apiResponse(new BookCarResource($book), self::STATUS_OK, 'car has been book successfully');
+        $book = new BookCar();
+        $book->car_id = $car_id;
+        $book->customar_id = auth('customer')->user()->id;
+        $book->start_book = $request->start_book;
+        $book->end_book = $request->end_book;
+        $book->days = dateDiffInDays($book->start_book, $book->end_book) + 1;
+        $book->save();
+        return $this->apiResponse(new BookCarResource($book), self::STATUS_OK, 'car has been book successfully');
     }
 
 
 
-    public function carReview(Request $request,$car_id)
+    public function carReview(Request $request, $car_id)
     {
 
         $validate = $this->apiValidation($request, $this->reviewCarRules());
-        if($validate instanceof Response) return $validate;
+        if ($validate instanceof Response) return $validate;
 
 
         $review = new CarComment();
@@ -82,17 +86,13 @@ class CarController extends apiController
         $review->review = $request->review;
         $review->save();
         return $this->apiResponse(new ReviewCarResource($review), self::STATUS_OK, 'car has been review successfully');
-
     }
 
 
     public function getBookCar()
     {
         $user_id = auth('customer')->user()->id;
-        $books = BookCar::where('customar_id',$user_id)->get();
+        $books = BookCar::where('customar_id', $user_id)->get();
         return $this->apiResponse(CarBookResource::collection($books), self::STATUS_OK, 'car book have been return successfully');
-
     }
-
-
 }

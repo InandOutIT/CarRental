@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BookCar;
 use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\CarFuel;
@@ -455,7 +456,8 @@ class CarController extends Controller
 
     public function getReservationCars()
     {
-        $cars = Car::where('status', 2)->get();
+        // $cars = Car::where('status', 2)->get();
+        $books = BookCar::where('status',1)->get();
 
         $Type = "Resevation";
         return view("admin.statusCar", compact('cars', 'Type'));
