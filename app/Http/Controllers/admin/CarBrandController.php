@@ -119,7 +119,7 @@ class CarBrandController extends Controller
         $cat_name=$request->car_brand_name;
         $image=$request->file("car_img");
         $new_image=rand().".".$image->extension();
-        $image->move(public_path("upload/car-brand"),$new_image);
+        $image->move(public_path("upload/car-category"),$new_image);
 
         $category->car_brand_name=$cat_name;
         $category->car_image=$new_image;

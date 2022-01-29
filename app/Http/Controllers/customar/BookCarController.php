@@ -4,6 +4,7 @@ namespace App\Http\Controllers\customar;
 
 use App\Http\Controllers\Controller;
 use App\Models\BookCar;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class BookCarController extends Controller
@@ -11,6 +12,13 @@ class BookCarController extends Controller
     public function book(Request $request)
 
     {
+      
+
+        $validated = $request->validate([
+            'start_book' => 'required|after:yesterday',
+            'end_book' => 'required|date|after:start_book',
+        ]);
+    
 
         function dateDiffInDays($date1, $date2)
         {

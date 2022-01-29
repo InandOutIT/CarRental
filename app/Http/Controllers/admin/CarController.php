@@ -460,7 +460,7 @@ class CarController extends Controller
         $books = BookCar::where('status',1)->get();
 
         $Type = "Resevation";
-        return view("admin.statusCar", compact('cars', 'Type'));
+        return view("admin.statusCar", compact('books', 'Type'));
     }
 
     public function getALlCars()

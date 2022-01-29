@@ -101,59 +101,62 @@
        
             <button class="btn btn-danger" type="button">Rent Now</button>
           </div> --}}
-
-          <section class="ftco-section">
-            <div class="container">
-              <div class="row justify-content-center js-fullheight">
-                <div class="col-md-16 text-center d-flex align-items-center">
-                  <div class="wrap w-400">
-                    
-                    <button type="button" class="btn btn-danger py-4 px-4" data-toggle="modal" data-target="#exampleModalCenter">
-                  <strong> Rent This Car Now</strong>  
-                    </button>
-      
-                    <!-- Modal -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button style="background-color: rgb(103, 13, 13);" type="button" class=" close d-flex align-items-center justify-content-center"  data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="ion-ios-close"></span>
-                  </button>
-                </div>
-                <div class="row no-gutters">
-                  <div class="col-md-6 d-flex">
-                    <div class="modal-body p-5 img d-flex" style="background-image: url(Detailsassets\img\car.jpg)";>
-                    </div>
-                  </div>
-                  <div class="col-md-6 d-flex">
-                    <div class="modal-body p-5 d-flex align-items-center">
-                      <div class="text w-100 text-center py-5">
-                        <h3 class="mb-0">Select Time To Rent</h3>
-                      
-                        <form action="/book-car" method="post" class="code-form">
-                          @csrf
-                          <div class="form-group d-flex">
-                            <input type="hidden" value="{{$cars->id}}" name="id" id="id" class="form-control form-control-lg">
-                    <input style="width: 280px;" type="text" name="datetimes" />
-                          </div>
-                      
-                          <button type="submit" class="btn btn-danger d-block py-3">Rent Now</button> 
-                        </form>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
           </div>
+      @endif
+
+
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/book-car" method="post" class="code-form">
+          @csrf
+          <div class="form-group d-flex">
+            <input type="hidden" value="{{$cars->id}}" name="id" id="id" class="form-control form-control-lg">
+    <input style="width: 280px;" type="text" name="datetimes" />
+
+          </div>
+          <label for="">From</label>
+  <input type="date" name="start_book" id="start_book" class="form-control form-control-lg">
+  
+  <label for="">To</label>
+  <input type="date" name="end_book" id="end_book" class="form-control form-control-lg">
+</div>
+<div class="form-group">
+  <button type="submit" class="btn btn-success">Book</button> 
+</div>
+      
+          <button type="submit" class="btn btn-danger d-block py-3">Rent Now</button> 
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+          
+          
+         
 
 
 

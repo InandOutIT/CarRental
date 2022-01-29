@@ -9,7 +9,7 @@ class Customar extends Model
 {
 
 
-    use HasApiTokens;
+  
 
     use HasFactory;
     protected $table="customars";
