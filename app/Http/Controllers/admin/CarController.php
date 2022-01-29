@@ -461,6 +461,14 @@ class CarController extends Controller
         return view("admin.statusCar", compact('cars', 'Type'));
     }
 
+    public function getALlCars()
+    {
+        $cars = Car::all();
+
+        $Type = "";
+        return view("admin.statusCar", compact('cars', 'Type'));
+    }
+
 
     public function changeStatusCar($id, Request $request)
     {

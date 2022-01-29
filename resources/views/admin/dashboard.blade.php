@@ -7,9 +7,83 @@
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
+
             <div class="row">
                 <div class="col-xl-3 col-md-6">
+                    <a href="{{ route('get-all-car') }}" style="align-items: center" class="card bg-warning text-white mb-4">
+                        
+                        <div class="card-body">
+                         
+                          <h3>Car OffLine</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <a href="{{ route('get-car-offline') }}" style="align-items: center" class="card bg-danger text-white mb-4">
+                        
+                        <div class="card-body">
+                         
+                          <h3>Car OffLine</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <a href="{{ route('get-car-online') }}" style="align-items: center" class="card bg-success text-white mb-4">
+                        
+                        <div class="card-body">
+                         
+                          <h3>Car OnLine</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <a href="{{ route('get-car-reservation') }}" style="align-items: center" class="card bg-primary text-white mb-4">
+                        
+                        <div class="card-body">
+                         
+                          <h3>Car Reservation</h3>
+                        </div>
+                    </a>
+                </div>
+                
+                
+                <div class="col-xl-3 col-md-6">
                     <div class="card bg-primary text-white mb-4">
+                       
+                        <div class="card-body">
+                            <h1>{{count($brands)}}</h1>
+                          <h3>All Brand</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-warning text-white mb-4">
+                        <div class="card-body">
+                            <h1>{{count($car_comments)}}</h1>
+                          <h3>Car Comments</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-success text-white mb-4">
+                        <div class="card-body">
+                            <h1>{{count($comments)}}</h1>
+                          <h3>Posts Comments</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-danger text-white mb-4">
+                        <div class="card-body">
+                            <h1>{{count($car_books)}}</h1>
+                          <h3>Book Car</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div style="align-items: center" class="card bg-primary text-white mb-4">
                        
                         <div class="card-body">
                             <h1>{{count($categorys)}}</h1>

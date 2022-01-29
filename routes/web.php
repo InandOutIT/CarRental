@@ -65,7 +65,7 @@ Route::post("/add-contact", [ContactController::class, "create"]);
 
 
 Route::group(["middleware" => "cAuth"], function () {
-    // Route::get("/get-book-car", [AccountController::class, "index"])->name("book-car");
+ 
     Route::get("/get-Account", [AccountController::class, "index1"])->name("get-Account");
     Route::get("/logout", [LogoutController::class, "logout"])->name("logouts");
     Route::post("/like", [LikeController::class, "create"]);
@@ -198,9 +198,10 @@ Route::middleware(["auth"])->group(function () {
 
     //car status
 
-    Route::get("/admin/get-car-offline",[CarController::class,"getOfflineCars"]);
-    Route::get("/admin/get-car-online",[CarController::class,"getOnlineCars"]);
-    Route::get("/admin/get-car-reservation",[CarController::class,"getReservationCars"]);
+    Route::get("/admin/get-car-offline",[CarController::class,"getOfflineCars"])->name('get-car-offline');
+    Route::get("/admin/get-car-online",[CarController::class,"getOnlineCars"])->name('get-car-online');
+    Route::get("/admin/get-car-reservation",[CarController::class,"getReservationCars"])->name('get-car-reservation');
+    Route::get("/admin/get-all-car",[CarController::class,"getAllCars"])->name('get-all-car');
     Route::post("admin/change-status/{id}",[CarController::class,"changeStatusCar"])->name("statusCar");
 
     // post category route

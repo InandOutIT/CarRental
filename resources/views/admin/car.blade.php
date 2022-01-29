@@ -43,7 +43,7 @@
                                 <input type="text" name="car_name" id="car_name" class="form-control form-control-lg">
                             </div> --}}
                             <div class="form-group">
-                                <label for="">Enter Car Brand</label>
+                               
                                 <select name="car_brand" id="car_brand" class="form-control form-control-lg">
                                     <option disabled selected>Select Car Brand</option>
                                     @foreach ($brand as $cat)
@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="">Enter Car Model</label>
+                              
                                 <select name="car_model" id="car_model" class="form-control form-control-lg">
                                     <option disabled selected>Select Car Model</option>
                                    
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="">Enter Car Category</label>
+                               
                                 <select name="car_id" id="car_id" class="form-control form-control-lg">
                                     <option disabled selected>Select Car category</option>
                                     @foreach ($category as $cat)
@@ -74,7 +74,7 @@
 
 
                             <div class="form-group">
-                                <label for="">Enter Car Fuel</label>
+                               
                                 <select name="car_fuel" id="car_id" class="form-control form-control-lg">
                                     <option disabled selected>Select Car Fuel</option>
                                     @foreach ($fuel as $cat)
@@ -85,7 +85,7 @@
 
 
                             <div class="form-group">
-                                <label for="">Enter Car door</label>
+                             
                                 <select name="num_door" id="num_door" class="form-control form-control-lg">
                                     <option disabled selected>Select Num Door</option>
                                     
@@ -111,7 +111,7 @@
                             </div> --}}
 
                             <div class="form-group">
-                                <label for="">Enter Gear</label>
+                           
                                 <select name="type_gear" id="type_gear" class="form-control form-control-lg">
                                     <option disabled selected>Select Gear</option>
                                     
@@ -178,9 +178,7 @@
                 </div>
             </div>
         </div>
-        <Script>
-            
-        </Script>
+    
     </x-slot>
 </x-app-layout>
 

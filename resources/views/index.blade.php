@@ -76,7 +76,7 @@
 
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
             @if (session()->has("loggedUser"))
-            <li> <a href="/book-car" class="{{Request::routeIs("book-car") ?'activess' : ""}}">Account</a></li>
+            <li> <a href="/get-Account" class="{{Request::routeIs("get-Account") ?'activess' : ""}}">Account</a></li>
             <li> <a href="{{ route('logouts')}}" class="{{Request::routeIs("loggouts") ?'activess' : ""}}">Logout</a></li>
             @else
             <li>  <a href="{{ route('signup')}}" class="{{Request::routeIs("signup") ?'activess' : ""}}">Register</a></li>
@@ -90,7 +90,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-       <a href="#about" class="get-started-btn scrollto">Choose Your Car Now</a> 
+       <a   href="{{ route('cars') }}" class="get-started-btn scrollto">Choose Your Car Now</a> 
 
     </div>
   </header><!-- End Header -->
@@ -107,7 +107,7 @@
         <h3>The Best Way To Rent Your Car</h3>
         <h2>We Have <span class="typed" data-typed-items="BMW, AUDI, KIA, FORD"></span></h2>
         <div class="actions">
-          <a href="#about" class="btn-get-started">Choose Your Car Now</a>
+          <a href="{{ route('cars') }}" class="btn-get-started">Choose Your Car Now</a>
           {{-- <a href="#services" class="btn-services">Our Services</a> --}}
         </div> 
         <!-- <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
@@ -193,14 +193,11 @@
       <div class="clients-slider swiper">
         <div class="swiper-wrapper align-items-center">
           @foreach ($brand as $bra)
-           <div class="swiper-slide"><img src="{{asset("upload/car-category")}}/{{$bra->car_image}} " class="img-fluid" alt=""></div>
-          {{--<div class="swiper-slide"><img src="index/assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="index/assets/img/clients/client-8.png" class="img-fluid" alt=""></div>  --}}
+          <a class="swiper-slide" href="{{ route('category-post', [$bra->id]) }}">
+            <img src="{{asset("upload/car-category")}}/{{$bra->car_image}} " class="img-fluid" alt="">
+        
+        </a>
+
           @endforeach
          
         </div>
@@ -220,7 +217,7 @@
           <h1 data-aos="fade-up">Rent Your Car With Levant</h1>
           <h2 data-aos="fade-up" data-aos-delay="400">We are team of car lovers in the UAE and we work to help people get thier cars</h2>
           <div data-aos="fade-up" data-aos-delay="800">
-            <a href="#about" class="btn-get-started scrollto">Choose your car now</a>
+            <a href="{{ route('cars') }}" class="btn-get-started scrollto">Choose your car now</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero1-img" data-aos="fade-left" data-aos-delay="200">

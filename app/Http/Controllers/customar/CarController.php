@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class CarController extends Controller
 {
    public function index(){
-       $car=Car::orderBy("id","DESC")->limit(10)->get();
+       $car=Car::where("status",1)->orderBy("id","DESC")->get();
        return view("customar.allCar",["cars"=>$car]);
    }
 

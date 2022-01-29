@@ -12,10 +12,16 @@
   <!-- Favicons -->
   <link href="{{asset('Detailsassets/img/favicon.png')}}" rel="icon">
   <link href="{{asset('Detailsassets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700&display=swap" rel="stylesheet">
+	
+  {{-- <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/style.css"> --}}
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700&display=swap" rel="stylesheet">
   <!-- Vendor CSS Files -->
   <link href="{{asset('Detailsassets/vendor/aos/aos.css')}}" rel="stylesheet">
   <link href="{{asset('Detailsassets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -26,6 +32,9 @@
   <link href="{{asset('Detailsassets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
+
+  <link rel="stylesheet" href="{{asset('Detailsassets/css/ionicons.min.css')}}">
+  <link rel="stylesheet" href="{{asset('Detailsassets/css/flaticon.css')}}">
   <link href="{{asset('Detailsassets/css/style.css')}}" rel="stylesheet">
 
   <!-- =======================================================
@@ -42,7 +51,7 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Levana<span>.</span></a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">Levant<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="Detailsassets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -87,15 +96,89 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Car Details</h2>
-          <div class="d-grid gap-2 col-3 mx-auto">
+          <h2><strong>Car Details</strong> </h2>
+          {{-- <div class="d-grid gap-2 col-3 mx-auto">
        
             <button class="btn btn-danger" type="button">Rent Now</button>
+          </div> --}}
+
+          <section class="ftco-section">
+            <div class="container">
+              <div class="row justify-content-center js-fullheight">
+                <div class="col-md-16 text-center d-flex align-items-center">
+                  <div class="wrap w-400">
+                    
+                    <button type="button" class="btn btn-danger py-4 px-4" data-toggle="modal" data-target="#exampleModalCenter">
+                  <strong> Rent This Car Now</strong>  
+                    </button>
+      
+                    <!-- Modal -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button style="background-color: rgb(103, 13, 13);" type="button" class=" close d-flex align-items-center justify-content-center"  data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="ion-ios-close"></span>
+                  </button>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col-md-6 d-flex">
+                    <div class="modal-body p-5 img d-flex" style="background-image: url(Detailsassets\img\car.jpg)";>
+                    </div>
+                  </div>
+                  <div class="col-md-6 d-flex">
+                    <div class="modal-body p-5 d-flex align-items-center">
+                      <div class="text w-100 text-center py-5">
+                        <h3 class="mb-0">Select Time To Rent</h3>
+                      
+                        <form action="/book-car" method="post" class="code-form">
+                          @csrf
+                          <div class="form-group d-flex">
+                            <input type="hidden" value="{{$cars->id}}" name="id" id="id" class="form-control form-control-lg">
+                    <input style="width: 280px;" type="text" name="datetimes" />
+                          </div>
+                      
+                          <button type="submit" class="btn btn-danger d-block py-3">Rent Now</button> 
+                        </form>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <ol>
+
+
+
+
+               
+                 
+
+                  {{-- <label for="">From</label>
+                  <input type="date" name="start_book" id="start_book" class="form-control form-control-lg">
+                  
+                  <label for="">To</label>
+                  <input type="date" name="end_book" id="end_book" class="form-control form-control-lg">
+                </div>
+              <div class="form-group">
+                  <button type="submit" class="btn btn-success">Book</button> 
+              </div>
+            </form> --}}
+    
+
+
+
+          <ol> 
               
             <li><a href="index.html">Home</a></li>
-            <li>Car Details</li>
+            <li><strong>Car Details</strong> </li>
           </ol>
         </div>
 
@@ -114,9 +197,11 @@
 
 @foreach ($images as $image)
 <div class="swiper-slide">
-  <img src="{{$image->url}}" alt="">
+  <img src='{{asset("$image->url")}}' alt="">
+
 </div>  
 @endforeach
+
                
 
 
@@ -124,6 +209,9 @@
 
               </div>
               <div class="swiper-pagination"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            
             </div>
           </div>
 
@@ -154,6 +242,10 @@
     
   </main><!-- End #main -->
 
+
+
+
+
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
@@ -166,7 +258,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Gp</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>In & Out Group</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
@@ -189,10 +281,55 @@
   <script src="{{asset('Detailsassets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
   <script src="{{asset('Detailsassets/vendor/swiper/swiper-bundle.min.js')}}"></script>
   <script src="{{asset('Detailsassets/vendor/php-email-form/validate.js')}}"></script>
+ 
 
   <!-- Template Main JS File -->
   <script src="{{asset('Detailsassets/js/main.js')}}"></script>
+  <script src="{{asset('Detailsassets/js/jquery.min.js')}}"></script>
+  <script src="{{asset('Detailsassets/js/popper.js')}}"></script>
+  <script src="{{asset('Detailsassets/js/bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script>
+$(function() {
+  $('input[name="datetimes"]').daterangepicker({
+  timePicker: true,
+  startDate: moment().startOf('hour'),
+  endDate: moment().startOf('hour').add(32, 'hour'),
+  locale: {
+    format: 'M/DD hh:mm A'
+  }
+  });
+});
+
+</script>
+
+<script>var mountNode = document.getElementById('container');</script>
 
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+		
+
+		
+
+
+

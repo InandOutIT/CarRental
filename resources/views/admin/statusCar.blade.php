@@ -56,7 +56,7 @@
                             <td>Car price</td>
                             <td>Username</td>
                             <th>Status</th>
-                           >
+                           
                                       </tr>
                                     </thead>
                                     <tfoot>
