@@ -28,37 +28,32 @@
 		
 			  
 		
-			  <nav id="navbar" class="navbar">
-				<ul>
-				  <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-				  <li><a class="nav-link scrollto" href="#about">About</a></li>
-				  <li><a class="nav-link scrollto" href="#services">Services</a></li>
-				  <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-				  <li><a class="nav-link scrollto" href="#team">Team</a></li>
-				  <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-				  <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+				<nav id="navbar" class="navbar order-last order-lg-0">
 					<ul>
-					  <li><a href="#">Drop Down 1</a></li>
-					  <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-						<ul>
-						  <li><a href="#">Deep Drop Down 1</a></li>
-						  <li><a href="#">Deep Drop Down 2</a></li>
-						  <li><a href="#">Deep Drop Down 3</a></li>
-						  <li><a href="#">Deep Drop Down 4</a></li>
-						  <li><a href="#">Deep Drop Down 5</a></li>
-						</ul>
-					  </li>
-					  <li><a href="#">Drop Down 2</a></li>
-					  <li><a href="#">Drop Down 3</a></li>
-					  <li><a href="#">Drop Down 4</a></li>
+					  <li><a href="{{ route('home')}}" class="nav-link scrollto active" href="#hero">Home</a></li>
+					  <li><a class="nav-link scrollto" href="#hero1">About</a></li>
+					  <li><a class="nav-link scrollto" href="#subscribe">Our Pages</a></li>
+					  
+					  {{-- <li><a class="nav-link scrollto" href="#team">Team</a></li> --}}
+			
+			
+					  <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+						@if (session()->has("loggedUser"))
+						<li> <a href="/get-Account" class="{{Request::routeIs("get-Account") ?'activess' : ""}}">Account</a></li>
+						<li> <a href="{{ route('logouts')}}" class="{{Request::routeIs("loggouts") ?'activess' : ""}}">Logout</a></li>
+						@else
+						<li>  <a href="{{ route('signup')}}" class="{{Request::routeIs("signup") ?'activess' : ""}}">Register</a></li>
+						<li> <a href="{{ route('signin') }}" class="{{Request::routeIs("signin") ?'activess' : ""}}">Login</a></li>
+						@endif
+			
+				   
+					 
+					  
 					</ul>
-				  </li>
-				  <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-				</ul>
-				<i class="bi bi-list mobile-nav-toggle"></i>
-			  </nav><!-- .navbar -->
+					<i class="bi bi-list mobile-nav-toggle"></i>
+				  </nav><!-- .navbar -->
 			  <div class="logo">
-				<a href="index.html"><img src="Carassets/img/levant2.png" alt="" class="img-fluid"></a>
+				<a href="{{ route('home')}}"><img src="Carassets/img/levant2.png" alt="" class="img-fluid"></a>
 			  </div>
 			</div>
 		  </header><!-- End Header -->

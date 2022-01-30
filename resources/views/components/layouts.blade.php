@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset("css/styles.css")}}">
     <link rel="stylesheet" href="{{asset("css/style.css")}}">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{{$title}}</title>
 </head>
@@ -73,7 +74,7 @@
     <main>
         {{$content}}
     </main>
-    <!-- footer -->
+    {{-- <!-- footer -->
     <section class="container-fluid bg-dark footer">
         <div class="container">
             <div class="row">
@@ -115,7 +116,30 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
+    
+      
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="copyright">
+                  &copy; Copyright <strong>In & Out Group</strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                  <!--
+                  All the links in the footer should remain intact.
+                  You can delete the links only if you purchased the pro version.
+                  Licensing information: https://bootstrapmade.com/license/
+                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Imperial
+                -->
+                  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer><!-- End Footer -->
     <script src="{{asset("js/jquery.js")}}"></script>
     <script src="{{asset("js/action.js")}}"></script>
     <script src="{{asset("js/bootstrap.min.js")}}"></script>

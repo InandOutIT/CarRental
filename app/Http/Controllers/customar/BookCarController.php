@@ -16,8 +16,17 @@ class BookCarController extends Controller
 
         $validated = $request->validate([
             'start_book' => 'required|after:yesterday',
-            'end_book' => 'required|date|after:start_book',
-        ]);
+            'end_book' => 'required|after:start_book',
+        ],
+        [
+            'start_book.required'=> 'Enter Date Please', // custom message
+            'end_book.required'=> 'Enter Date Please',// custom message
+            'start_book.after'=> 'Enter Date Aftar Today ', // custom message
+            'end_book.after'=> 'Enter Date Aftar Start Date ', // custom message
+           ]
+    
+    
+    );
     
 
         function dateDiffInDays($date1, $date2)
@@ -43,7 +52,7 @@ class BookCarController extends Controller
         // $car = Car::find($id);
         // $car->status = 0;
         if ($result) {
-            echo 1;
+           return redirect()->back();
         } else {
             echo 0;
         }

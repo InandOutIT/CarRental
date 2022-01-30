@@ -37,25 +37,34 @@
 			<div class="wrap-login100">
 				<form action="" id="addCustomar" class="login100-form validate-form">
 					@csrf
+					
 					<span class="login100-form-title p-b-26">
-						Welcome To Levan 
+						Welcome To Levant 
 					</span>
 					<span class="login100-form-title p-b-48">
-                        <img class="" src="index/assets/img/logo.png" alt="Imperial">
+						<div class="logo">
+							<a href="{{ route('home')}}"><img src="Carassets/img/car1.png" alt="" class="img-fluid"></a>
+						  </div>
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+					<div class="wrap-input100 validate-input" data-validate = "Enter Name">
 						
 						<input type="text" name="fname" id="fname" class="input100">
 						<span class="focus-input100" data-placeholder="First Name"></span>
 					</div>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                    <div class="wrap-input100 validate-input" data-validate = "Enter Name">
 						
 						<input type="text" name="lname" id="lname" class="input100">
 						<span class="focus-input100" data-placeholder="Last Name"></span>
 					</div>
-
+					
+					<label style="color: rgb(144, 144, 144);font-size: 14px;" for="basic-url" class="form-label">Num Of phone</label>
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="basic-addon1">+971</span>
+						<input placeholder="5XXXXXXXX" type="text" class="form-control" name="phone" maxlength="9" title="Error Message"  pattern="[5][0-9]{8}"> 
+					  </div>
+					  
                    
                     
                     <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
@@ -80,12 +89,9 @@
 						<input type="password" name="cpassword" id="cpassword" class="input100">
 						<span class="focus-input100" data-placeholder="Confirm Password"></span>
 					</div>
+					
 
-                    {{-- <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						
-						<input type="file" name="profile" id="profile" class="input100">
-						<span class="focus-input100" data-placeholder="Email"></span>
-					</div> --}}
+                 
 
                     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <main class="main_full">
@@ -118,11 +124,11 @@
 
 					<div class="text-center p-t-115">
 						<span class="txt1">
-							Don’t have an account?
+							 have an account?
 						</span>
 
-						<a class="txt2" href="#">
-							Sign Up
+						<a class="txt2" href="{{route('signin')}}">
+							Sign In
 						</a>
 					</div>
 				</form>

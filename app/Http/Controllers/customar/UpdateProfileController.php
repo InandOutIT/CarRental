@@ -19,7 +19,7 @@ class UpdateProfileController extends Controller
         $id = session("loggedUser");
         $profile = Customar::find($id);
         $account = Customar::find($id);
-        return view("customar.update-profile", ["account" => $account, "profile" => $profile]);
+        return view("customar.updateprofile", ["account" => $account, "profile" => $profile]);
     }
 
     public function update(Request $request)
@@ -43,7 +43,8 @@ class UpdateProfileController extends Controller
         }
         $update->fname = $request->edit_fname;
         $update->lname = $request->edit_lname;
-        $update->username = $request->edit_username;
+        $update->phone = $request->edit_phone;
+
         $update->email = $request->edit_email;
         $result = $update->save();
         if ($result) {

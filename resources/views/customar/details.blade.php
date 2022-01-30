@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Portfolio Details - Gp Bootstrap Template</title>
+  <title>details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -51,41 +51,39 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Levant<span>.</span></a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="{{ route('home')}}">Levant<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="Detailsassets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto active" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
+          <li><a href="{{ route('home')}}" class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#hero1">About</a></li>
+          <li><a class="nav-link scrollto" href="#subscribe">Our Pages</a></li>
+          
+          {{-- <li><a class="nav-link scrollto" href="#team">Team</a></li> --}}
+
+
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            @if (session()->has("loggedUser"))
+            <li> <a href="/get-Account" class="{{Request::routeIs("get-Account") ?'activess' : ""}}">Account</a></li>
+            <li> <a href="{{ route('logouts')}}" class="{{Request::routeIs("loggouts") ?'activess' : ""}}">Logout</a></li>
+            @else
+            <li>  <a href="{{ route('signup')}}" class="{{Request::routeIs("signup") ?'activess' : ""}}">Register</a></li>
+            <li> <a href="{{ route('signin') }}" class="{{Request::routeIs("signin") ?'activess' : ""}}">Login</a></li>
+            @endif
+
+       
+         
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#about" class="get-started-btn scrollto">Get Started</a>
-
+     
+      <button type="button"  class="get-started-btn  py-3 px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Rent This Car Now
+       </button>
     </div>
   </header><!-- End Header -->
 
@@ -102,6 +100,7 @@
             <button class="btn btn-danger" type="button">Rent Now</button>
           </div> --}}
           @if ($errors->any())
+          
           <div class="alert alert-danger">
               <ul>
                   @foreach ($errors->all() as $error)
@@ -113,52 +112,59 @@
 
 
       <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static backdrop modal
+     
+<button type="button"  class="get-started-btn py-3 px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+ Rent This Car Now
 </button>
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div style="background-color: rgb(57, 57, 57)" class="modal-dialog">
+    <div style="background-color: rgb(57, 57, 57)" class="modal-content">
+      <div style="background-color: rgb(42, 41, 41)" class="modal-header">
+        <h3 style="color: rgb(164, 21, 21)" class="modal-title" id="staticBackdropLabel"><strong>Select Time To Rent</strong> </h3>
+        <button style="background-color: rgb(209, 23, 23)" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div style="background-color: rgb(130, 130, 130)" class="modal-body">
+    
+                      
         <form action="/book-car" method="post" class="code-form">
           @csrf
-          <div class="form-group d-flex">
+        <div>
             <input type="hidden" value="{{$cars->id}}" name="id" id="id" class="form-control form-control-lg">
-    <input style="width: 280px;" type="text" name="datetimes" />
-
-          </div>
-          <label for="">From</label>
-  <input type="date" name="start_book" id="start_book" class="form-control form-control-lg">
-  
-  <label for="">To</label>
-  <input type="date" name="end_book" id="end_book" class="form-control form-control-lg">
+ 
+<div>
+      
+          <label for=""> <h4 >Rent From</h4>   </label>
+  <input min="today" type="date" name="start_book" id="start_book" class="form-control form-control-lg">
 </div>
-<div class="form-group">
-  <button type="submit" class="btn btn-success">Book</button> 
+<div>
+  <label for=""><h4>Rent To</h4></label>
+  <input type="date" name="end_book" id="end_book" class="form-control form-control-lg">
+
+  <label for=""><h4> Choese Your Time</h4></label>
+  <input type="time" name="" id="" class="form-control form-control-lg">
+</div>
 </div>
       
-          <button type="submit" class="btn btn-danger d-block py-3">Rent Now</button> 
-        </form>
         
+        <div  class="modal-footer">
+          <button type="button" class="get-end-btn " data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="get-started-btn ">Submit</button> 
+        </div>
+        
+      </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
+      
     </div>
   </div>
 </div>
           
           
-         
-
-
+          
+                    
+                        
+                   
 
 
                
@@ -180,7 +186,7 @@
 
           <ol> 
               
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{ route('home')}}"><strong>Home</strong> </a></li>
             <li><strong>Car Details</strong> </li>
           </ol>
         </div>
@@ -220,13 +226,13 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Project information</h3>
+              <h3>CAR Information</h3>
               <ul>
-                <li><strong>Brand</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_brand->car_brand_name}}</strong></li>
+                <li><strong>Brand</strong>:  <strong style="color: rgb(148, 13, 13)">{{$cars->car_brand->car_brand_name}}</strong></li>
                 <li><strong>Category</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_category->car_cat_name}}</strong></li>
                 <li><strong>Model</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_model->car_model_name}}</strong></li>
                 <li><strong>Type Of Gear</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->type_gear}}</strong></li>
-                <li><strong>Number Of Doors</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->num_door}}</strong></li>
+                <li><strong>Num Of Doors</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->num_door}}</strong></li>
                 
               </ul>
             </div>
@@ -290,27 +296,7 @@
   <script src="{{asset('Detailsassets/js/main.js')}}"></script>
   <script src="{{asset('Detailsassets/js/jquery.min.js')}}"></script>
   <script src="{{asset('Detailsassets/js/popper.js')}}"></script>
-  <script src="{{asset('Detailsassets/js/bootstrap.min.js')}}"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-<script>
-$(function() {
-  $('input[name="datetimes"]').daterangepicker({
-  timePicker: true,
-  startDate: moment().startOf('hour'),
-  endDate: moment().startOf('hour').add(32, 'hour'),
-  locale: {
-    format: 'M/DD hh:mm A'
-  }
-  });
-});
-
-</script>
-
-<script>var mountNode = document.getElementById('container');</script>
 
 </body>
 

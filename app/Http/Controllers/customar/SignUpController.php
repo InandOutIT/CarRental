@@ -27,11 +27,12 @@ class SignUpController extends Controller
         $fname=$request->fname;
         $lname=$request->lname;
         $email=$request->email;
-       
+        $phone=$request->phone;
         $email=$request->email;
         $password=$request->password;
 
         $customar->fname=$fname;
+        $customar->phone=$phone;
         $customar->lname=$lname;
         $customar->email=$email;
         $customar->phone = $request->phone;

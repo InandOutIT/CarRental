@@ -199,30 +199,6 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 	outline: 0; background: #555; border: 0; color: #fff; box-shadow: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Open Sans:400,600,800');
 h1,
 h2,
@@ -432,10 +408,10 @@ filter: opacity(0.7);
 */
 .navbar {
   padding: 0;
-  
 }
 .navbar ul {
   margin: 0;
+  margin-left:260px ;
   padding: 0;
   display: flex;
   list-style: none;
@@ -450,8 +426,8 @@ filter: opacity(0.7);
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   font-size: 15px;
-  color: #ffffff;
-  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -461,7 +437,7 @@ filter: opacity(0.7);
   margin-left: 5px;
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #cc1f1f;
+  color: #b10000;
 }
 .navbar .dropdown ul {
   display: block;
@@ -473,7 +449,7 @@ filter: opacity(0.7);
   z-index: 99;
   opacity: 0;
   visibility: hidden;
-  background: rgba(0, 0, 0, 0.904);
+  background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
 }
@@ -482,15 +458,16 @@ filter: opacity(0.7);
 }
 .navbar .dropdown ul a {
   padding: 10px 20px;
-  font-size: 15px;
+  font-size: 14px;
   text-transform: none;
-  font-weight: 600;
+  color: #151515;
+  font-weight: 400;
 }
 .navbar .dropdown ul a i {
   font-size: 12px;
 }
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #711a1a;
+  background-color: #b62121;
 }
 .navbar .dropdown:hover > ul {
   opacity: 1;
@@ -521,15 +498,12 @@ filter: opacity(0.7);
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: #151515;
+  color: #fff;
   font-size: 28px;
   cursor: pointer;
   display: none;
   line-height: 0;
   transition: 0.5s;
-}
-.mobile-nav-toggle.bi-x {
-  color: #fff;
 }
 
 @media (max-width: 991px) {
@@ -575,7 +549,8 @@ filter: opacity(0.7);
   color: #151515;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #7cc576;
+  color: #151515;
+  background-color: #ff5151;
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
@@ -596,12 +571,13 @@ filter: opacity(0.7);
 }
 .navbar-mobile .dropdown ul a {
   padding: 10px 20px;
+  color: #151515;
 }
 .navbar-mobile .dropdown ul a i {
   font-size: 12px;
 }
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #710e0e;
+  background-color: #691515;
 }
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;

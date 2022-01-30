@@ -37,13 +37,15 @@
 			<div class="wrap-login100">
 				<form action="" id="login" class="login100-form validate-form">
 					@csrf
-					<span class="login100-form-title p-b-26">
-						Welcome To Levan Again
-					</span>
+					
 					<span class="login100-form-title p-b-48">
-						<img class="" src="index/assets/img/logo.png" alt="Imperial">
+						<div class="logo">
+							<a href="{{ route('home')}}"><img src="Carassets/img/car1.png" alt="" class="img-fluid"></a>
+						  </div>
 					</span>
-
+					<span class="login100-form-title p-b-26">
+						Welcome To Levant Again
+					</span>
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 						
 						<input type="text" name="email" id="email" class="input100">
@@ -73,7 +75,7 @@
 							Don’t have an account?
 						</span>
 
-						<a class="txt2" href="#">
+						<a class="txt2" href="{{route('signup')}}">
 							Sign Up
 						</a>
 					</div>
