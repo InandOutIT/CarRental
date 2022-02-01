@@ -47,15 +47,14 @@
                                       <tr>
                                         <td>Car id</td>
                                         <td>Car Brand</td>
-                            <td>Car Category</td>
-                          
-                            <td>Type Of Fuel</td>
-                            
-                            <td>Car Gear</td>
-                            <td>Car image</td>
-                            <td>Car price</td>
-                            <td>Username</td>
-                            <th>Status</th>
+                                        <td>Car Name</td>
+                                        <td>Year</td>
+                                        <td>Car Category</td>
+                                        <td>Car price</td>
+                                        <th>Status</th>
+                                        <td>Type Of Fuel</td>
+                                        <td>Car Gear</td>
+                                        <td>Num Of DOOR</td>
                            
                                       </tr>
                                     </thead>
@@ -63,17 +62,18 @@
                                       <tr>
                                         <td>Car id</td>
                                         <td>Car Brand</td>
-                                       
+                                        <td>Car Name</td>
+                                        <td>Year</td>
                                         <td>Car Category</td>
-                                        
-                                        <td>Type Of Fuel</td>
-                                        
-                                        <td>Car Gear</td>
-                                        <td>Car image</td>
                                         <td>Car price</td>
-                                        <td>Username</td>
-                                       
                                         <th>Status</th>
+                                        <td>Type Of Fuel</td>
+                                        <td>Car Gear</td>
+                                        <td>Num Of DOOR</td>
+                                       
+                                        
+                                       
+                                       
                                       </tr>
                                     </tfoot>
                                     <tbody>
@@ -82,48 +82,52 @@
          <tr>
             <th scope="row">{{$ad->id}}</th>
             <td>{{$ad->car_brand->car_brand_name}}</td>
+            <td>{{$ad->car_model->car_model_name}}</td>
+            <td>2017</td>
             <td>{{$ad->car_category->car_cat_name}}</td>
-            <td>{{$ad->car_fuel->car_fuel_name}}</td>
-            
-            <td>{{$ad->type_gear}}</td>
-            <td><img src='asset("upload/cars/".{{$ad->car_image}})' style='width:70px;height=70px;' alt=''></td>
             <td>{{$ad->car_price}}</td>
-            <td>{{$ad->users->username}}</td>
             <td>
         
 
-                @if($ad->status==0)
+              @if($ad->status==0)
 
-               <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
-                @csrf
-                <input name="status" type="hidden" value=1>
-                <button  class="btn btn-success"> make online  </button>  
-               </form>
-               
-               @elseif($ad->status==1)
-               <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
-                @csrf
-                <input name="status" type="hidden" value=2>
-                <button  class="btn btn-success"> make reservation </button>  
-               </form>
-               <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
-                @csrf
-                <input name="status" type="hidden" value=0>
-                <button  class="btn btn-success"> make offline </button>  
-               </form>
-
-               @elseif($ad->status==2)
-               <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
-                @csrf
-                <input name="status" type="hidden" value=1>
-                <button  class="btn btn-success"> make online </button>  
-               </form>
-
-               @endif
-               
+             <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
+              @csrf
+              <input name="status" type="hidden" value=1>
+              <button  class="btn btn-success"> make online  </button>  
+             </form>
              
-                
-              </td>
+             @elseif($ad->status==1)
+             {{-- <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
+              @csrf
+              <input name="status" type="hidden" value=2>
+              <button  class="btn btn-success"> make reservation </button>  
+             </form> --}}
+             <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
+              @csrf
+              <input name="status" type="hidden" value=0>
+              <button  class="btn btn-success"> make offline </button>  
+             </form>
+
+             @elseif($ad->status==2)
+             <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
+              @csrf
+              <input name="status" type="hidden" value=1>
+              <button  class="btn btn-success"> make online </button>  
+             </form>
+
+             @endif
+             
+           
+              
+            </td>
+            <td>{{$ad->car_fuel->car_fuel_name}}</td>
+            
+            <td>{{$ad->type_gear}}</td>
+           <td>{{$ad->num_door}}</td>
+           
+           
+            
            
           </tr>
           @endforeach

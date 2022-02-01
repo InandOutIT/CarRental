@@ -31,13 +31,13 @@
 				<nav id="navbar" class="navbar order-last order-lg-0">
 					<ul>
 					  <li><a href="{{ route('home')}}" class="nav-link scrollto active" href="#hero">Home</a></li>
-					  <li><a class="nav-link scrollto" href="#hero1">About</a></li>
-					  <li><a class="nav-link scrollto" href="#subscribe">Our Pages</a></li>
+					   <li><a href="{{ route('home')}}" class="nav-link scrollto" href="#hero1">About</a></li> 
+					{{--  <li><a class="nav-link scrollto" href="#subscribe">Our Pages</a></li> --}}
 					  
 					  {{-- <li><a class="nav-link scrollto" href="#team">Team</a></li> --}}
 			
 			
-					  <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+					  <li><a href="{{ route('home')}}" class="nav-link scrollto" href="#contact">Contact</a></li>
 						@if (session()->has("loggedUser"))
 						<li> <a href="/get-Account" class="{{Request::routeIs("get-Account") ?'activess' : ""}}">Account</a></li>
 						<li> <a href="{{ route('logouts')}}" class="{{Request::routeIs("loggouts") ?'activess' : ""}}">Logout</a></li>
@@ -157,7 +157,7 @@
                     <i class="fas fa-align-left"></i> <span>Filtter</span>
                 </a>
 			
-				<div class="filters d-flex flex-column flex-md-row justify-content-around">
+				{{-- <div class="filters d-flex flex-column flex-md-row justify-content-around">
         
 					<div class="btn-group" role="group" data-filter-group="color" aria-label="Kind">
 					  <button type="button" class="btn btn-sm btn-secondary btn-filter checked" data-filter="">All</button>
@@ -184,7 +184,7 @@
 					</div>
 				  </div>
 				
-				   
+				    --}}
 					
 		
 				  
@@ -209,7 +209,8 @@
 							
 							<div class="profile-description">{{$car->car_model->car_model_name}}</div>
 						<div class="protofile-img" style>	<img   src='{{asset("upload/car-category/".$car->car_brand->car_image)}}' alt='{{$car->car_brand->car_brand_name}}' ></div>
-							<div class="profile-description2">Rent Now {{$car->car_price}} $ </div>
+							<div class="profile-description1">{{$car->car_price}} AED/DAY </div>
+							<div class="profile-description2">More Information</div>
 							
 							
 							

@@ -11,7 +11,7 @@ class BookCar extends Model
 
     protected $fillable = [
         'start_book',
-        'end_book'
+        'end_book',
     ];
     public function book_car()
     {

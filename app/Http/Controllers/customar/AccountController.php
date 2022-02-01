@@ -13,9 +13,11 @@ class AccountController extends Controller
 
   public function index1()
   { 
-    $bookCar=BookCar::all();
-      $id=session("loggedUser");
+    
+    $id=session("loggedUser");
+      $bookCar=BookCar::where('customar_id',$id)->get();
       $account=Customar::find($id);
+     
     return view("customar.account",["account"=>$account,"bookCar"=>$bookCar]);
   }
 }

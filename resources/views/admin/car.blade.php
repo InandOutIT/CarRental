@@ -38,10 +38,7 @@
                     <div class="modal-body">
                         <form action="" id="addcars" enctype="multipart/form-data">
                             @csrf
-                            {{-- <div class="form-group">
-                                <label for="">Enter Car Name</label>
-                                <input type="text" name="car_name" id="car_name" class="form-control form-control-lg">
-                            </div> --}}
+                           
                             <div class="form-group">
                                
                                 <select name="car_brand" id="car_brand" class="form-control form-control-lg">
@@ -97,18 +94,7 @@
                             </div>
 
 
-                            {{-- <div class="form-group">
-                                <label for="">Enter num site</label>
-                                <select name="num_site" id="num_site" class="form-control form-control-lg">
-                                    <option disabled selected>Select Num site</option>
-                                    
-                                    <option value="2">2</option>
-                                    <option value="4">5</option>
-                                    <option value="4">8</option>
-                                    <option value="6">6</option>
-                                    
-                                </select>
-                            </div> --}}
+            
 
                             <div class="form-group">
                            

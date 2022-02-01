@@ -42,9 +42,9 @@ class CarBrandController extends Controller
                 <table class='table table-bordered'>
                     <thead>
                         <tr>
-                            <th>Category Id</th>
-                            <th>Category Name</th>
-                            <th>Category Status</th>
+                            <th>Brand Id</th>
+                            <th>Brand Name</th>
+                            <th>LOGO</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>

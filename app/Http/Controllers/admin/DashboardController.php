@@ -8,6 +8,7 @@ use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\CarCategory;
 use App\Models\CarComment;
+use App\Models\CarFuel;
 use App\Models\Comments;
 use App\Models\Customar;
 use App\Models\Like;
@@ -28,7 +29,8 @@ class DashboardController extends Controller
         $car_books = BookCar::where("book", "confirm")->get();
         $comments = Comments::orderBy("id", "DESC")->limit(6)->get();
         $sumlikes = Like::sum("like");
-        return view("admin.dashboard", ["customars" => $customars, "likes" => $likes, "sumlikes" => $sumlikes, "car_comments" => $car_comments, "comments" => $comments, "categorys" => $categorys,"brands" => $brands, "cars" => $cars, "posts" => $posts, "car_books" => $car_books]);
+        $fuel= CarFuel::all();
+        return view("admin.dashboard", ["customars" => $customars, "likes" => $likes, "sumlikes" => $sumlikes, "car_comments" => $car_comments, "comments" => $comments,"fuel"=>$fuel, "categorys" => $categorys,"brands" => $brands, "cars" => $cars, "posts" => $posts, "car_books" => $car_books]);
     }
 
     public function get()

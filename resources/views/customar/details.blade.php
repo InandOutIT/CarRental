@@ -58,8 +58,8 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a href="{{ route('home')}}" class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#hero1">About</a></li>
-          <li><a class="nav-link scrollto" href="#subscribe">Our Pages</a></li>
+          <li><a href="{{ route('home')}}" class="nav-link scrollto" href="#hero1">About</a></li>
+          <li><a href="{{ route('home')}}" class="nav-link scrollto" href="#subscribe">Our Pages</a></li>
           
           {{-- <li><a class="nav-link scrollto" href="#team">Team</a></li> --}}
 
@@ -81,8 +81,8 @@
       </nav><!-- .navbar -->
 
      
-      <button type="button"  class="get-started-btn  py-3 px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Rent This Car Now
+      <button type="button"  class="get-started-btn1  py-3 px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Book This Car Now
        </button>
     </div>
   </header><!-- End Header -->
@@ -114,7 +114,7 @@
       <!-- Button trigger modal -->
      
 <button type="button"  class="get-started-btn py-3 px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
- Rent This Car Now
+ Book This Car Now
 </button>
 
 <!-- Modal -->
@@ -143,14 +143,14 @@
   <input type="date" name="end_book" id="end_book" class="form-control form-control-lg">
 
   <label for=""><h4> Choese Your Time</h4></label>
-  <input type="time" name="" id="" class="form-control form-control-lg">
+  <input type="time" name="time" id="time" class="form-control form-control-lg">
 </div>
 </div>
       
         
         <div  class="modal-footer">
           <button type="button" class="get-end-btn " data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="get-started-btn ">Submit</button> 
+          <button type="submit" class="get-end-btn1 ">Submit</button> 
         </div>
         
       </form>
@@ -229,8 +229,10 @@
               <h3>CAR Information</h3>
               <ul>
                 <li><strong>Brand</strong>:  <strong style="color: rgb(148, 13, 13)">{{$cars->car_brand->car_brand_name}}</strong></li>
-                <li><strong>Category</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_category->car_cat_name}}</strong></li>
                 <li><strong>Model</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_model->car_model_name}}</strong></li>
+                <li><strong>Model Year</strong>: <strong style="color: rgb(148, 13, 13)">2017</strong></li>
+                <li><strong>Category</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_category->car_cat_name}}</strong></li>
+                <li><strong>Price In Day</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_price}} AED</strong></li>
                 <li><strong>Type Of Gear</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->type_gear}}</strong></li>
                 <li><strong>Num Of Doors</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->num_door}}</strong></li>
                 

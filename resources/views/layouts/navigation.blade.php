@@ -1,10 +1,10 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{ route('dashboard') }}">CRMS</a>
+        <a class="navbar-brand" href="{{ route('dashboard') }}">LEVANT</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
                 class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        {{-- <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <div class="input-group">
                 <input class="form-control" type="text" placeholder="Search for..." aria-label="Search"
                     aria-describedby="basic-addon2" />
@@ -12,7 +12,7 @@
                     <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </div>
-        </form>
+        </form> --}}
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto mr-0 ml-md-0">
             <li class="nav-item dropdown">
@@ -89,18 +89,18 @@
                             <a href="{{ route('contact') }}" class="{{Request::routeIs("contact") ? 'actives' :""}}">
                             Contact</a>
                         </div> --}}
-                        <div class="flex  nav-link">
+                        {{-- <div class="flex  nav-link">
                             <a href="{{ route('likes') }}" class="{{Request::routeIs("likes") ? 'actives' :""}}">
                             Likes</a>
                         </div>
                         <div class="flex  nav-link">
                             <a href="{{ route('review') }}" class="{{Request::routeIs("review") ? 'actives' :""}}">
                             Review</a>
-                        </div>
+                        </div>--}}
                         <div class="flex  nav-link">
                             <a href="{{ route('car-book') }}" class="{{Request::routeIs("car-book") ? 'actives' :""}}">
                             Car Book</a>
-                        </div>
+                        </div> 
                         {{-- <div class="flex  nav-link">
                             <a href="{{ route('comments') }}" class="{{Request::routeIs("comments") ? 'actives' :""}}">
                             Comments</a>

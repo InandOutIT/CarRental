@@ -101,7 +101,7 @@
       <div data-aos="fade-in">
         <div class="hero-logo">
           <img class="" src="index/assets/img/car.png" alt="Imperial">
-   
+   <div style="height: 50px"></div>
 
         <h1>Welcome to Levant WebSite</h1>
         <h3>The Best Way To Rent Your Car</h3>
@@ -272,7 +272,7 @@
           <div class="col-md-12">
             <h3 class="section-title">Contact Us</h3>
             <div class="section-title-divider"></div>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            <p class="section-description">The Best Way To Rent Your Car</p>
           </div>
         </div>
 
@@ -281,7 +281,7 @@
             <div class="info">
               <div>
                 <i class="bi bi-geo-alt"></i>
-                <p>A108 Adam Street<br>New York, NY 535022</p>
+                <p>A108 Adam Street<br>Dubai , NY 535022</p>
               </div>
 
               <div>
@@ -291,7 +291,7 @@
 
               <div>
                 <i class="bi bi-phone"></i>
-                <p>+1 5589 55488 55s</p>
+                <p>+971 544444444</p>
               </div>
 
             </div>

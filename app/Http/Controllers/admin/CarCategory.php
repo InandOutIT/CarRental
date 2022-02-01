@@ -33,7 +33,6 @@ class CarCategory extends Controller
                         <tr>
                             <th>Category Id</th>
                             <th>Category Name</th>
-                            <th>Category Status</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -46,7 +45,6 @@ class CarCategory extends Controller
                 <tr>
                             <td>".$cat->id."</td>
                             <td>".$cat->car_cat_name."</td>
-                            <td><img src='{$image}' alt='{$cat->car_cat_name}' style='width:50px;height:50px;'></td>
                             <td><button id='edit-btn-category' data-id='{$cat->id}' class='btn btn-success' data-toggle='modal' data-target='#editcategory'>Edit</button></td>
                             <td><button id='delete-btn-carCategory' data-id='{$cat->id}' class='btn btn-danger'>Delete</button></td>
                 </tr>

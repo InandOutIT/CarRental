@@ -78,7 +78,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">My Rent Car</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -92,26 +92,32 @@
             <table class='table table-bordered'>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        
                         <th>Car Name</th>
                         <th>Days</th>
+						<th>Start</th>
+						<th>End</th>
+						<th>Time</th>
                         <th>Price</th>
                         <th>Total</th>
                         <th>Confirm</th>
-                        <th>Delete</th>
+                   
                     </tr>
                 </thead>
                
 
             @foreach($bookCar as $car) 
                <tr>
-                    <td>{{$car->id}}</td>
+                   
                     <td>{{$car->book_car->car_brand->car_brand_name}}</td>
                     <td>{{$car->days}}</td>
+					<td>{{$car->start_book}}</td>
+					<td>{{$car->end_book}}</td>
+					<td>{{$car->time}}</td>
                     <td> {{$car->book_car->car_price}} AED</td>
                     <td> {{$car->days * $car->book_car->car_price}} AED</td>
                     <td>{{$car->book}}</td>
-                    <td><button data-id='{{$car->id}}' id='delete-book-car' class='btn btn-danger'>Delete</button></td>
+
                 </tr>
             
 
@@ -120,31 +126,18 @@
             
                 </table>
             </div>
-
-            
-        
-            
-       
-                  
-                 
               
-            </div>
+           
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-danger">Ok</button>
         </div>
       </div>
     </div>
   </div>
 					
 
-					
-				</div>
-			</div>
-		</div>
-	</div>
-	
 	
 
 	

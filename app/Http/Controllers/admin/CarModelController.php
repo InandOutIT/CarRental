@@ -43,9 +43,9 @@ class CarModelController extends Controller
                 <table class='table table-bordered'>
                     <thead>
                         <tr>
-                            <th>Category Id</th>
-                            <th>Category Name</th>
-                            <th>Category Status</th>
+                            <th>Model Id</th>
+                            <th>Model Name</th>
+                            <th>His Brand</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -82,9 +82,9 @@ class CarModelController extends Controller
                 <table class='table table-bordered'>
                     <thead>
                         <tr>
-                            <th>Category Id</th>
-                            <th>Category Name</th>
-                            <th>Category Status</th>
+                            <th>Model Id</th>
+                            <th>Model Name</th>
+                            <th>His Brand</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>

@@ -39,7 +39,7 @@ font-weight: bold;
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #ca1f1f;
+  background: #710400;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -47,14 +47,12 @@ font-weight: bold;
 }
 .back-to-top i {
   font-size: 28px;
-  color: #151515;
+  color: #fff;
   line-height: 0;
 }
 .back-to-top:hover {
-  background: #e41c1c;
-}
-.back-to-top:hover i {
-  color: #000000;
+  background: #cc0700;
+  color: #fff;
 }
 .back-to-top.active {
   visibility: visible;
@@ -150,13 +148,14 @@ font-weight: bold;
 #  Get Startet Button
 --------------------------------------------------------------*/
 .get-started-btn {
-  color: rgb(255, 255, 255);
-  background-color: #bd0f0f;
-  border-radius: 4px;
-  padding: 7px 25px 8px 25px;
+  background: #c20600;
+  border: 3px solid #ffffff;
+  color: #ffffff;
+  border-radius: 15px;
+ 
   white-space: nowrap;
   transition: 0.3s;
-  font-size: 17px;
+  font-size: 14px;
   display: inline-block;
   /* border: 2px solid #272626; */
   font-family: 'Times New Roman', Times, serif;
@@ -166,15 +165,39 @@ font-weight: bold;
 }
 
 .get-started-btn:hover {
-  background: #941414;
-  color: #e9e7e7;
+  background: #ce0505;
+  color: #ffffff;
 }
 @media (max-width: 992px) {
   .get-started-btn {
     padding: 7px 20px 8px 20px;
     margin-right: 15px;
+    font-size: 11px;
   }
 }
+
+.get-started-btn1 {
+  background: #c20600;
+  border: 3px solid #ffffff;
+  color: #fff;
+  border-radius: 15px;
+ 
+  font-size: 14px;
+  
+}
+
+.get-started-btn1:hover {
+  background: #ce0505;
+  color: #ffffff;
+}
+@media (max-width: 992px) {
+  .get-started-btn {
+    padding: 7px 20px 8px 20px;
+    margin-right: 15px;
+    display: none;
+  }
+}
+
 
 .get-end-btn {
   color: rgb(255, 255, 255);
@@ -193,6 +216,25 @@ font-weight: bold;
 
 .get-end-btn:hover {
   background: #2a2a2a;
+  color: #e9e7e7;
+}
+.get-end-btn1 {
+  color: rgb(255, 255, 255);
+  background-color: #ce0505;
+  border-radius: 4px;
+  padding: 7px 25px 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 17px;
+  display: inline-block;
+  /* border: 2px solid #272626; */
+  font-family: 'Times New Roman', Times, serif;
+  
+  
+}
+
+.get-end-btn1:hover {
+  background: #ec0a0a;
   color: #e9e7e7;
 }
 @media (max-width: 992px) {
@@ -466,6 +508,7 @@ height: 60px;
   box-shadow: 0px 0 10px rgb(21, 21, 21);
   background-color: #e2e2e2;
   padding: 30px;
+  margin-bottom: 20px;
 }
 .portfolio-details .portfolio-description h2 {
   font-size: 26px;
@@ -528,6 +571,13 @@ height: 60px;
   }
   .breadcrumbs ol li {
     display: inline-block;
+  }
+  .portfolio-details .portfolio-details-slider img {
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+  
+   
   }
 }
 

@@ -51,13 +51,12 @@ class CarController extends Controller
                     <thead>
                         <tr>
                             <td>Car id</td>
-                            <td>Car color</td>
                             <td>Car Category</td>
                             <td>Car Brand</td>
                             <td>Type Of Fuel</td>
                             <td>Car model</td>
                             <td>Car Gear</td>
-                            <td>Car image</td>
+                           
                             <td>Car price</td>
                             
                             <th>Edit</th>
@@ -70,14 +69,12 @@ class CarController extends Controller
                     $output .= "
                         <tr>
                             <td>{$cars->id}</td>
-                            <td>{$cars->car_color}</td>
                             <td>{$cars->car_category->car_cat_name}</td>
                             <td>{$cars->car_brand->car_brand_name}</td>
                             <td>{$cars->car_fuel->car_fuel_name}</td>
                             <td>{$cars->car_model->car_model_name}</td>
-                            <td>{$cars->num_site}</td>
                             <td>{$cars->type_gear}</td>
-                            <td><img src='{$image}' style='width:50px;height=50px;' alt=''></td>
+                           
                             <td>{$cars->car_price}</td>
                           
                             <td><button class='btn btn-success' data-id='{$cars->id}' id='car-edit-btn' data-toggle='modal' data-target='#edit-car'>Edit</button></td>
@@ -149,15 +146,14 @@ class CarController extends Controller
                     <thead>
                         <tr>
                         <td>Car id</td>
-                        <td>Car color</td>
                         <td>Car Category</td>
                         <td>Car Brand</td>
                         <td>Type Of Fuel</td>
                         <td>Car Model</td>
                         <td>Car Gear</td>
-                        <td>Car image</td>
+                
                         <td>Car price</td>
-                        <td>Username</td>
+                        
                         <th>Edit</th>
                         <th>Delete</th>
                         </tr>
@@ -168,15 +164,14 @@ class CarController extends Controller
                 $output .= "
                         <tr>
                         <td>{$cars->id}</td>
-                        <td>{$cars->car_color}</td>
                         <td>{$cars->car_category->car_cat_name}</td>
                         <td>{$cars->car_brand->car_brand_name}</td>
                         <td>{$cars->car_fuel->car_fuel_name}</td>
                         <td>{$cars->car_model->car_model_name}</td>
                         <td>{$cars->type_gear}</td>
-                        <td><img src='{$image}' style='width:50px;height=50px;' alt=''></td>
+    
                         <td>{$cars->car_price}</td>
-                        <td>{$cars->users->username}</td>
+                  
                         <td><button class='btn btn-success' data-id='{$cars->id}' id='car-edit-btn' data-toggle='modal' data-target='#edit-car'>Edit</button></td>
                         <td><button class='btn btn-danger' data-id='{$cars->id}' id='car-delete-btn'>Delete</button></td>
 
@@ -264,11 +259,7 @@ class CarController extends Controller
         $car = Car::find($id);
         $image = asset("upload/cars/" . $car->car_image);
         // echo $image;
-        $output .= "<div class='form-group'>
-                                <label for=''>Enter Car Name</label>
-                                <input type='hidden' value='{$car->id}' name='edit_car_id' id='edit_car_id' class='form-control form-control-lg'>
-                                <input type='text' value='{$car->car_name}' name='edit_car_name' id='edit_car_name' class='form-control form-control-lg'>
-                            </div>
+        $output .= "
                             <div class='form-group'>
                                 <label for=''>Enter Car Category</label>
                                 <select name='edit_car_cat_id' id='edit_car_cat_id' class='form-control form-control-lg'>
@@ -460,7 +451,7 @@ class CarController extends Controller
         $books = BookCar::where('status',1)->get();
 
         $Type = "Resevation";
-        return view("admin.statusCar", compact('books', 'Type'));
+        return view("admin.order", compact('books', 'Type'));
     }
 
     public function getALlCars()

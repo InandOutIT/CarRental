@@ -45,6 +45,7 @@ class BookCarController extends Controller
         $book->car_id = $id;
         $book->start_book = date($request->start_book);
         $book->end_book = date($request->end_book);
+        $book->time = date($request->time);
         $book->days = dateDiffInDays($book->start_book, $book->end_book) + 1;
         // $book->days=1;
         $result = $book->save();

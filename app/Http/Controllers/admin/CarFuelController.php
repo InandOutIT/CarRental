@@ -33,7 +33,7 @@ class CarFuelController extends Controller
                         <tr>
                             <th>Fuel Id</th>
                             <th>Fuel Name</th>
-                            <th>Fuel Status</th>
+                
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
