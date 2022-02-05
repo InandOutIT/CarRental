@@ -9,23 +9,17 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+
   <meta property="og:title" content="">
   <meta property="og:image" content="">
   <meta property="og:url" content="">
   <meta property="og:site_name" content="">
   <meta property="og:description" content="">
 
-  <!-- Twitter cards integration: https://dev.twitter.com/cards/  -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="">
-  <meta name="twitter:title" content="">
-  <meta name="twitter:description" content="">
-  <meta name="twitter:image" content="">
 
   <!-- Favicons -->
-  <link href="index/assets/img/logo.png" rel="icon">
-  <link href="index/assets/img/logo.png" rel="apple-touch-icon">
+  <link href="index/assets/img/car3.png" rel="icon">
+  <link href="index/assets/img/car3.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
@@ -48,12 +42,7 @@
   <!-- Template Main CSS File -->
   <link href="index/assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Imperial - v5.7.0
-  * Template URL: https://bootstrapmade.com/imperial-free-onepage-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body>
@@ -63,7 +52,7 @@
 
       <h1 class="logo me-auto me-lg-0"><a href="{{''}}">Levant<span>.</span></a></h1>
       
-      {{-- <a href="index.html" class="logo me-auto me-lg-0"><img src="index/assets/img/car1.png" alt="" class="img-fluid"></a> --}}
+
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -71,7 +60,7 @@
           <li><a class="nav-link scrollto" href="#hero1">About</a></li>
           <li><a class="nav-link scrollto" href="#subscribe">Our Pages</a></li>
           
-          {{-- <li><a class="nav-link scrollto" href="#team">Team</a></li> --}}
+
 
 
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -105,71 +94,17 @@
 
         <h1>Welcome to Levant WebSite</h1>
         <h3>The Best Way To Rent Your Car</h3>
-        <h2>We Have <span class="typed" data-typed-items="BMW, AUDI, KIA, FORD"></span></h2>
+        <h2>We Have <span class="typed" data-typed-items="BMW, AUDI, LEXUS, FORD, NISSAN"></span></h2>
         <div class="actions">
           <a href="{{ route('cars') }}" class="btn-get-started">Choose Your Car Now</a>
           {{-- <a href="#services" class="btn-services">Our Services</a> --}}
         </div> 
-        <!-- <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-          <div class="col-xl-2 col-md-4">
-            <div class="icon-box">
-              <i class="ri-store-line"></i>
-              <h3><a href="">Our Car In Dubai</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4">
-            <div class="icon-box">
-              <i class="ri-bar-chart-box-line"></i>
-              <h3><a href="">Our Car In Abu Dhabi</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4">
-            <div class="icon-box">
-              <i class="ri-calendar-todo-line"></i>
-              <h3><a href="">Our Car In Al Ain</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4">
-            <div class="icon-box">
-              <i class="ri-paint-brush-line"></i>
-              <h3><a href="">Our Car In Al Shargh</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4">
-            <div class="icon-box">
-              <i class="ri-database-2-line"></i>
-              <h3><a href="">Our Car In Ajman</a></h3>
-            </div>
-          </div>
-          
-        </div> -->
+        
         
             
     
           <div class="container contact-form">
-            <!-- <div class="contact-image">
-              <img src="index/assets/img/classic-car-silhouette-vintage-side-view-flat-vector-165396543.jpg" alt="rocket_contact"/>
-            </div> -->
-            <!-- <form method="post">
-              <h3>Select Time You Need</h3>
-               <div class="row">
-                <div class="col-md-6">
-                  
-                  <div class="form-group">
-                    <input type="datetime-local" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" name="btnSubmit" class="btn-get-started" value="Select Time" />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="datetime-local" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
-                  </div>
-                </div>
-              </div>
-            </form>
-               -->
+          
           </div>
                 
         
@@ -191,6 +126,7 @@
       
 
       <div class="clients-slider swiper">
+        <h2 style="color: rgb(61, 61, 61)"><strong>Choose Your Favourite Brand</strong></h2>
         <div class="swiper-wrapper align-items-center">
           @foreach ($brand as $bra)
           <a class="swiper-slide" href="{{ route('category-post', [$bra->id]) }}">
@@ -247,15 +183,15 @@
           
           <div class="col-md-8">
             <h3 class="subscribe-title">Subscribe OUR Pages</h3>
-            <p class="subscribe-text">Join our 1000+ subscribers </p>
+            <p class="subscribe-text">The Best Way To Rent Your Car</p>
           </div>
           <div class="col-md-4 subscribe-btn-container">
             <div class="social-links">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://instagram.com/levantrenta?utm_medium=copy_link" class="instagram"><i class="bx bxl-instagram"></i></a>
               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-whatsapp"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-snapchat"></i></a>
             </div>
           </div>
           </div>
@@ -281,36 +217,49 @@
             <div class="info">
               <div>
                 <i class="bi bi-geo-alt"></i>
-                <p>A108 Adam Street<br>Dubai , NY 535022</p>
+                <p>UAE_Dubai <br> </p>
               </div>
 
               <div>
                 <i class="bi bi-envelope"></i>
-                <p>info@example.com</p>
+                <p>Levantrentacar@outlook.com</p>
               </div>
 
               <div>
                 <i class="bi bi-phone"></i>
-                <p>+971 544444444</p>
+                <p>+971-544444444</p>
+              </div>
+
+              <div>
+                <i class="bi bi-telephone"></i>
+                <p>544444444</p>
               </div>
 
             </div>
           </div>
 
+
+          
+       
+         
+
+
+
+
           <div class="col-lg-5 col-md-8">
             <div class="form">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <form method="POST" action="{{ url('/add-contact') }}"  enctype="multipart/form-data" class="php-email-form">
+             @csrf
                 <div class="form-group">
+               
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group mt-3">
                   <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                 </div>
+               
                 <div class="form-group mt-3">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                </div>
-                <div class="form-group mt-3">
-                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="message" required></textarea>
                 </div>
                 <div class="my-3">
                   <div class="loading">Loading</div>
@@ -337,12 +286,7 @@
             &copy; Copyright <strong>In & Out Group</strong>. All Rights Reserved
           </div>
           <div class="credits">
-            <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Imperial
-          -->
+            
             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
           </div>
         </div>

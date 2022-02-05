@@ -28,37 +28,32 @@
 		
 			  
 		
-			  <nav id="navbar" class="navbar">
-				<ul>
-				  <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-				  <li><a class="nav-link scrollto" href="#about">About</a></li>
-				  <li><a class="nav-link scrollto" href="#services">Services</a></li>
-				  <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-				  <li><a class="nav-link scrollto" href="#team">Team</a></li>
-				  <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-				  <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+				<nav id="navbar" class="navbar order-last order-lg-0">
 					<ul>
-					  <li><a href="#">Drop Down 1</a></li>
-					  <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-						<ul>
-						  <li><a href="#">Deep Drop Down 1</a></li>
-						  <li><a href="#">Deep Drop Down 2</a></li>
-						  <li><a href="#">Deep Drop Down 3</a></li>
-						  <li><a href="#">Deep Drop Down 4</a></li>
-						  <li><a href="#">Deep Drop Down 5</a></li>
-						</ul>
-					  </li>
-					  <li><a href="#">Drop Down 2</a></li>
-					  <li><a href="#">Drop Down 3</a></li>
-					  <li><a href="#">Drop Down 4</a></li>
+					  <li><a href="{{ route('home')}}" class="nav-link scrollto active" href="#hero">Home</a></li>
+					   <li><a href="{{ route('home')}}" class="nav-link scrollto" href="#hero1">About</a></li> 
+					{{--  <li><a class="nav-link scrollto" href="#subscribe">Our Pages</a></li> --}}
+					  
+					  {{-- <li><a class="nav-link scrollto" href="#team">Team</a></li> --}}
+			
+			
+					  <li><a href="{{ route('home')}}" class="nav-link scrollto" href="#contact">Contact</a></li>
+						@if (session()->has("loggedUser"))
+						<li> <a href="/get-Account" class="{{Request::routeIs("get-Account") ?'activess' : ""}}">Account</a></li>
+						<li> <a href="{{ route('logouts')}}" class="{{Request::routeIs("loggouts") ?'activess' : ""}}">Logout</a></li>
+						@else
+						<li>  <a href="{{ route('signup')}}" class="{{Request::routeIs("signup") ?'activess' : ""}}">Register</a></li>
+						<li> <a href="{{ route('signin') }}" class="{{Request::routeIs("signin") ?'activess' : ""}}">Login</a></li>
+						@endif
+			
+				   
+					 
+					  
 					</ul>
-				  </li>
-				  <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-				</ul>
-				<i class="bi bi-list mobile-nav-toggle"></i>
-			  </nav><!-- .navbar -->
+					<i class="bi bi-list mobile-nav-toggle"></i>
+				  </nav><!-- .navbar -->
 			  <div class="logo">
-				<a href="index.html"><img src="Carassets/img/levant2.png" alt="" class="img-fluid"></a>
+				<a href="{{ route('home')}}"><img src="{{asset('Carassets/img/levant2.png')}}" alt="" class="img-fluid"></a>
 			  </div>
 			</div>
 		  </header><!-- End Header -->
@@ -83,10 +78,10 @@
 				
 				<ul class="list-unstyled menu-elements">
 					<li>
-						<a href="#otherSections1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections">
+						<a href="#otherSections" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections">
 							<i class="fas fa-stream"></i>Brand
 						</a>
-						<ul class="collapse list-unstyled" id="otherSections1">
+						<ul class="collapse list-unstyled" id="otherSections">
 							<li>
 								<a class="scroll-link" href="#section-3">Audi </a>
 							</li>
@@ -162,32 +157,6 @@
                     <i class="fas fa-align-left"></i> <span>Filtter</span>
                 </a>
 			
-				<div class="filters d-flex flex-column flex-md-row justify-content-around">
-        
-					<div class="btn-group" role="group" data-filter-group="color" aria-label="Kind">
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter checked" data-filter="">All</button>
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".yellow">Yellow</button>
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".black">Black</button>
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".red">Red</button>
-					</div>
-				
-					<div class="btn-group" role="group" data-filter-group="size" aria-label="Size">
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter checked" data-filter="">All</button>
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".small">Small</button>
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".wide">Wide</button>
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".big">Big</button>
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".tall">Tall</button>
-					</div>
-				
-					<div class="btn-group" role="group" data-filter-group="shape" aria-label="Shape">
-					  <button type="" class="btn btn-sm btn-secondary btn-filter checked" data-filter="">All</button>
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".round">Round</button>
-					  <button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".square">Square</button>
-									
-									
-					  
-					</div>
-				  </div>
 				
 				   
 					
@@ -214,7 +183,7 @@
 							
 							<div class="profile-description">{{$car->car_model->car_model_name}}</div>
 						<div class="protofile-img" style>	<img   src='{{asset("upload/car-category/".$car->car_brand->car_image)}}' alt='{{$car->car_brand->car_brand_name}}' ></div>
-							<div class="profile-description2">Rent Now {{$car->car_price}} $ </div>
+							<div class="profile-description2">Rent Now {{$car->car_price}} AED </div>
 							
 							
 							

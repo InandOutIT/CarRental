@@ -53,7 +53,7 @@ class BookCarController extends Controller
         // $car = Car::find($id);
         // $car->status = 0;
         if ($result) {
-           return redirect()->back();
+            return redirect()->back()->with('message', 'Your request is being processed , Wait for admin approval');
         } else {
             echo 0;
         }

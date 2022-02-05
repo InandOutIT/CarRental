@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('Detailsassets/img/favicon.png')}}" rel="icon">
-  <link href="{{asset('Detailsassets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{asset('index/assets/img/car6.png')}}" rel="icon">
+  <link href="{{asset('index/assets/img/car6.png')}}" rel="apple-touch-icon">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700&display=swap" rel="stylesheet">
 	
   {{-- <link rel="stylesheet" href="css/ionicons.min.css">
@@ -99,6 +99,12 @@
        
             <button class="btn btn-danger" type="button">Rent Now</button>
           </div> --}}
+        
+          @if(session()->has('message'))
+    <div class="alert alert-success" role="alert">
+        {{ session()->get('message') }}
+    </div>
+@endif
           @if ($errors->any())
           
           <div class="alert alert-danger">

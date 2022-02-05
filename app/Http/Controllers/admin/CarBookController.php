@@ -37,8 +37,8 @@ class CarBookController extends Controller
                 $output .= "
                 <tr>
                 <td>{$book->id}</td>
-                <td>{$book->customar_books->username}</td>
-                <td>{$book->book_car->car_name}</td>
+                <td>{$book->customar_books->fname} {$book->customar_books->lname }</td>
+                <td>{$book->book_car->car_model->car_model_name}</td>
                 <td>{$book->days}</td>
                 <td>{$book->book}</td>
                 <td>

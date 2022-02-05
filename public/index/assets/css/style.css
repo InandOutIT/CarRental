@@ -166,7 +166,7 @@ font-family: 'Times New Roman', Times, serif;
 
 @media (max-width: 1024px) {
   #hero {
-    height: 80vh;
+    height: 100vh;
   }
   #hero h1 {
     font-size: 28px;

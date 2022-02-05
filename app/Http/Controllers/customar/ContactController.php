@@ -18,7 +18,7 @@ $contact->email=$request->email;
 $contact->message=$request->message;
 $result=$contact->save();
 if($result){
-echo 1;
+echo "Your message has been sent. Thank you!";
 }else{
 echo 0;
 }

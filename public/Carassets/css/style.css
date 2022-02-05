@@ -64,20 +64,27 @@ align-items: right;
 	color: #fff;
 }
 
-.sidebar ul ul a { background: #444; padding-left: 30px; font-size: 14px; }
+.sidebar ul ul a { 
+  background: rgb(32, 32, 32);  
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+ 
+}
 
-.sidebar ul ul li.active > a { background: #555; }
+.sidebar ul ul li.active > a { background: rgb(44, 41, 41); }
 
 .sidebar a[data-toggle="collapse"] {
-    position: relative;
+  position: relative;
 }
 
 .sidebar .dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
 }
 
 .sidebar .to-top { padding: 20px; text-align: center; }
@@ -232,12 +239,6 @@ a:focus {
 	
 }
 
-.card-container {
-    padding: 70px 0px;
-    -webkit-perspective: 1000;
-    perspective: 1000;
-   
-}
 
 
 
@@ -250,11 +251,12 @@ a:focus {
     border-style: solid;
     border-width: 5px;
     border-color: #2d2b2b;
-    
+    margin-right: 40px;
+    margin-left:40px;
     box-shadow: 3px 3px 1px rgb(49, 49, 49);
     overflow: hidden;
     position: relative;
-    margin: 10px auto;
+   
     cursor: pointer;
 }
 .profile-card-4 .img1  {
