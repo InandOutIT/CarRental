@@ -16,11 +16,12 @@ class Car extends Model
         "car_brand_id",
         "car_model_id",
         "car_color",
+        "kilometer",
         "car_desc",
         "car_image",
         "car_price",
         "num_door",
-        "num_site",
+        "year",
         "type_gear",
 
     ];

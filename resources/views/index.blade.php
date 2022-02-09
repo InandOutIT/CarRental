@@ -47,6 +47,7 @@
 
 <body>
    <!-- ======= Header ======= -->
+  
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
@@ -85,7 +86,16 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
+
   <section id="hero">
+      @if(session()->has('message'))
+      <div style="height: 100px"></div>
+      <div style="width: 400px" class="alert alert-danger  alert-dismissible fade show" role="alert">
+        {{ session()->get('message') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+@endif
     <div class="hero-container">
       <div data-aos="fade-in">
         <div class="hero-logo">
@@ -227,12 +237,12 @@
 
               <div>
                 <i class="bi bi-phone"></i>
-                <p>+971-544444444</p>
+                <p>+971566104000</p>
               </div>
 
               <div>
                 <i class="bi bi-telephone"></i>
-                <p>544444444</p>
+                <p>566104000</p>
               </div>
 
             </div>
@@ -248,7 +258,7 @@
 
           <div class="col-lg-5 col-md-8">
             <div class="form">
-              <form method="POST" action="{{ url('/add-contact') }}"  enctype="multipart/form-data" class="php-email-form">
+              <form method="POST" action="{{ url('/add-contact') }}"  enctype="multipart/form-data" class="php-email-form1">
              @csrf
                 <div class="form-group">
                
@@ -262,10 +272,7 @@
                   <textarea class="form-control" id="message" name="message" rows="5" placeholder="message" required></textarea>
                 </div>
                 <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
+              
                 <div class="text-center"><button type="submit">Send Message</button></div>
               </form>
             </div>

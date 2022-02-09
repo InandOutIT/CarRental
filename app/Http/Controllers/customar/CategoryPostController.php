@@ -12,9 +12,9 @@ class CategoryPostController extends Controller
 {
     public function index($id)
     {
-        $brand=CarBrand::find($id);
-        $category=CarCategory::find($id);
+       
+        $category=CarCategory::all();
         $cars=Car::where("car_brand_id",$id)->get();
-        return view("customar.category-post",["cars"=>$cars,"brand"=>$brand]);
+        return view("customar.category-post",["cars"=>$cars,"category"=>$category]);
     }
 }

@@ -236,13 +236,26 @@
               <ul>
                 <li><strong>Brand</strong>:  <strong style="color: rgb(148, 13, 13)">{{$cars->car_brand->car_brand_name}}</strong></li>
                 <li><strong>Model</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_model->car_model_name}}</strong></li>
-                <li><strong>Model Year</strong>: <strong style="color: rgb(148, 13, 13)">2017</strong></li>
-                <li><strong>Category</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_category->car_cat_name}}</strong></li>
+                <li><strong>Model Year</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->year}}</strong></li>
                 <li><strong>Price In Day</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_price}} AED</strong></li>
-                <li><strong>Type Of Gear</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->type_gear}}</strong></li>
-                <li><strong>Num Of Doors</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->num_door}}</strong></li>
-                
               </ul>
+              <p>
+                <button class="get-started-btn2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+               <strong> More Information</strong>  
+                </button>
+              </p>
+              <div class="collapse" id="collapseExample">
+                <div style="background-color: #f7f5f5;" class="card card-body">
+                  <ul>
+                  <li><strong>Category</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_category->car_cat_name}}</strong></li>
+                  <li><strong>Color Of Car</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_color}}</strong></li>
+                  <li><strong>Type Of Gear</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->type_gear}}</strong></li>
+                  <li><strong>Num Of Doors</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->num_door}}</strong></li>
+                  <li><strong>Type Of Fuel</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->car_fuel->car_fuel_name}}</strong></li>
+                  <li><strong>kilometers</strong>: <strong style="color: rgb(148, 13, 13)">{{$cars->kilometer}}</strong></li>
+                </ul>
+                </div>
+              </div>
             </div>
             <div class="portfolio-description">
               <h2>Car Description</h2>
@@ -256,7 +269,7 @@
 
       </div>
     </section><!-- End Portfolio Details Section -->
-    
+   
   </main><!-- End #main -->
 
 

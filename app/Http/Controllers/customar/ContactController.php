@@ -18,7 +18,8 @@ $contact->email=$request->email;
 $contact->message=$request->message;
 $result=$contact->save();
 if($result){
-echo "Your message has been sent. Thank you!";
+
+	return redirect()->back()->with('message', 'Your Massege Sent Successfuly');
 }else{
 echo 0;
 }

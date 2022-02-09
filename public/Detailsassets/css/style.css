@@ -198,6 +198,29 @@ font-weight: bold;
   }
 }
 
+.get-started-btn2 {
+  background-color: #e2e2e2;
+  margin-top: 10px;
+  color: rgb(52, 52, 52);
+  border-radius: 5px;
+ 
+ 
+  font-size: 20px;
+  
+}
+
+.get-started-btn2:hover {
+  background: #584747;
+  color: #ffffff;
+}
+@media (max-width: 992px) {
+  .get-started-btn {
+    padding: 7px 20px 8px 20px;
+    margin-right: 15px;
+    display: none;
+  }
+}
+
 
 .get-end-btn {
   color: rgb(255, 255, 255);

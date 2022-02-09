@@ -50,9 +50,14 @@
                                         <td>Car Name</td>
                                         <td>Year</td>
                                         <td>Color</td>
+                                        <td>Car Category</td>
                                         <td>Car price</td>
-                                        <th>Status</th>
-                                       
+                                        <td>Type Of Fuel</td>
+                                        <td>Car Gear</td>
+                                        <td>Num Of DOOR</td>
+                                        <td>kilometer</td>
+                                        <td>Edit</td>
+                                        <td>Delete</td>
                            
                                       </tr>
                                     </thead>
@@ -63,9 +68,14 @@
                                         <td>Car Name</td>
                                         <td>Year</td>
                                         <td>Color</td>
+                                        <td>Car Category</td>
                                         <td>Car price</td>
-                                        <th>Status</th>
-                                        
+                                        <td>Type Of Fuel</td>
+                                        <td>Car Gear</td>
+                                        <td>Num Of DOOR</td>
+                                        <td>kilometer</td>
+                                        <td>Edit</td>
+                                        <td>Delete</td>
                                        
                                        
                                       </tr>
@@ -79,44 +89,16 @@
             <td>{{$ad->car_model->car_model_name}}</td>
             <td>{{$ad->year}}</td>
             <td>{{$ad->car_color}}</td>
+            <td>{{$ad->car_category->car_cat_name}}</td>
             <td>{{$ad->car_price}}</td>
-            <td>
-        
-
-              @if($ad->status==0)
-
-             <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
-              @csrf
-              <input name="status" type="hidden" value=1>
-              <button  class="btn btn-success"> make online  </button>  
-             </form>
-             
-             @elseif($ad->status==1)
-             {{-- <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
-              @csrf
-              <input name="status" type="hidden" value=2>
-              <button  class="btn btn-success"> make reservation </button>  
-             </form> --}}
-             <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
-              @csrf
-              <input name="status" type="hidden" value=0>
-              <button  class="btn btn-danger"> make offline </button>  
-             </form>
-
-             @elseif($ad->status==2)
-             <form method="POST" action="{{route('statusCar',['id'=>$ad->id])}}">
-              @csrf
-              <input name="status" type="hidden" value=1>
-              <button  class="btn btn-success"> make online </button>  
-             </form>
-
-             @endif
-             
-           
-              
-            </td>
-           
+            <td>{{$ad->car_fuel->car_fuel_name}}</td>
             
+            <td>{{$ad->type_gear}}</td>
+           <td>{{$ad->num_door}}</td>
+           <td>{{$ad->kilometer}}</td>
+           
+           <td><button class='btn btn-success' data-id='{{$ad->id}}' id='car-edit-btn' data-toggle='modal' data-target='#edit-car'>Edit</button></td>
+           <td><button class='btn btn-danger' data-id='{{$ad->id}}' id='car-delete-btn'>Delete</button></td>
            
           </tr>
           @endforeach
@@ -132,7 +114,29 @@
   
   
   
-  
+    <div class="modal fade" id="edit-car" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+    aria-hidden="true">
+    <div style="background-color: rgb(57, 57, 57)" class="modal-dialog" role="document">
+      <div style="background-color: rgb(57, 57, 57)" class="modal-content">
+          <div style="background-color: rgb(42, 41, 41)" class="modal-header">
+              <h3 style="color: rgb(164, 21, 21)" class="modal-title" id="staticBackdropLabel"><strong>Enter New  Information Car</strong> </h3>
+              <button style="background-color: rgb(209, 23, 23)" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+            <div class="modal-body">
+                <form action="" id="editcars">
+                    @csrf
+                    <div id="car-form-data"></div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
   
   
   <div>

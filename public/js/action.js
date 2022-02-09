@@ -167,10 +167,10 @@ $(document).ready(function() {
     $("#addcarCategory").submit(function(e) {
         e.preventDefault();
         var car_name = $("#car_cat_name").val();
-        var car_image = $("#car_image").val();
+       
 
         const formdata = new FormData(this);
-        if (car_name == "" || car_image == "") {
+        if (car_name == "" ) {
             show_message("error", "Please Fill All Field");
         } else {
             $.ajax({
@@ -705,16 +705,15 @@ $(document).ready(function() {
 
     $("#editcars").submit(function(e) {
         e.preventDefault();
-        const car_name = $("#edit_car_name").val();
+      
         const car_id = $("#edit_car_cat_id").val();
-        const car_brand = $("#edit_car_brand_id").val();
-        const car_model = $("#edit_car_model_id").val();
+      
         const car_fuel = $("#edit_car_fuel_id").val();
         const car_desc = $("#edit_car_desc").val();
         const car_price = $("#edit_car_price").val();
 
         const formdata = new FormData(this);
-        if (car_name == "" || car_price == "" || car_desc == "" || car_id == "" || car_brand == "" || car_fuel == "" || car_model == "") {
+        if ( car_price == "" || car_desc == "" || car_id == "" ||  car_fuel == "" ) {
             show_message("error", "Please Fill All Field");
         } else {
             $.ajax({

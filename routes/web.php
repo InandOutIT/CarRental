@@ -178,6 +178,7 @@ Route::middleware(["auth"])->group(function () {
     Route::get("/admin/search", [CarController::class, "search"]);
     Route::get("/admin/edit", [CarController::class, "edit"]);
     Route::post("/admin/update", [CarController::class, "update"]);
+    
     Route::get("/admin/delete", [CarController::class, "delete"]);
     Route::get("/admin/total-car",[CarController::class,"totalCount"]);
 

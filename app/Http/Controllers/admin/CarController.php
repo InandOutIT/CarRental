@@ -195,6 +195,9 @@ class CarController extends Controller
         $image->move(public_path("upload/car"),$new_image);
 
         $car->car_cat_id = $request->car_id;
+        $car->car_color = $request->car_color;
+        $car->kilometer = $request->kilometer;
+        $car->year = $request->year;
         $car->car_brand_id = $request->car_brand;
         $car->car_fuel_id = $request->car_fuel;
         $car->car_model_id = $request->car_model;
@@ -225,22 +228,6 @@ class CarController extends Controller
         }
 
 
-
-
-
-
-
-        // foreach ($request->file('images') as $imagefile) {
-        //     $image = new Image();
-        //     // $image = $imagefile;
-        //     $path = $imagefile->store('/upload/test', ['disk' =>'my_files']);
-        //     // $image->move('resource/',$image->hashName);
-        //     $image->url = $path;
-        //     $image->car_id = $car->id;
-        //     $image->save();
-        //   }
-
-
         if ($result) {
             echo 1;
         } else {
@@ -253,15 +240,51 @@ class CarController extends Controller
         $output = "";
         $id = $request->id;
         $category = CarCategory::all();
-        $brand = CarBrand::all();
+        
         $fuel = CarFuel::all();
-        $model = CarModel::all();
+        
         $car = Car::find($id);
         $image = asset("upload/cars/" . $car->car_image);
         // echo $image;
         $output .= "
+                            
+
+
                             <div class='form-group'>
-                                <label for=''>Enter Car Category</label>
+                          
+                            
+                            <input type='text' value='CAR BRAND :  {$car->car_brand->car_brand_name}'  class='form-control form-control-lg' disabled>";
+                                
+        $test = 0;
+        if ($car->type_gear == "Manual")
+            $test = 1;
+
+        $output .= "</select>
+                        </div>
+
+                        <div class='form-group'>
+                          
+                            
+                        <input type='text' value='CAR MODEL :  {$car->car_model->car_model_name}'  class='form-control form-control-lg' disabled>";
+                            
+    
+
+    $output .= "</select>
+                    </div>
+
+                    <div class='form-group'>
+                          
+                            
+                        <input type='text' value='CAR MODEL YEAR :  {$car->year}'  class='form-control form-control-lg' disabled>";
+                            
+    
+
+    $output .= "</select>
+                    </div>
+
+
+                        <div class='form-group'>
+                                <label for=''>Enter NEW Car Category</label>
                                 <select name='edit_car_cat_id' id='edit_car_cat_id' class='form-control form-control-lg'>
                                     <option disabled selected>Select Car category</option>";
         foreach ($category as $cat) {
@@ -275,35 +298,8 @@ class CarController extends Controller
         $output .= "</select>
                             </div>
 
-
-                            <div class='form-group'>
-                            <label for=''>Enter Car Brand</label>
-                            <select name='edit_car_brand_id' id='edit_car_brand_id' class='form-control form-control-lg'>
-                                <option disabled selected>Select Car brand</option>";
-        foreach ($brand as $bra) {
-            if ($bra->id == $car->car_brand_id) {
-                $select = "selected";
-            } else {
-                $select = "";
-            }
-            $output .= "<option {$select} value='{$bra->id}'>{$bra->car_brand_name}</option>";
-        }
-
-
-
-
-
-
-        $test = 0;
-        if ($car->type_gear == "Manual")
-            $test = 1;
-
-        $output .= "</select>
-                        </div>
-
-
                         <div class='form-group'>
-                        <label for=''>Enter Type Of Fuel</label>
+                        <label for=''><h4>Enter NEW Type Of Fuel</h4></label>
                         <select name='edit_car_fuel_id' id='edit_car_fuel_id' class='form-control form-control-lg'>
                             <option disabled selected>Select Car fuelegory</option>";
         foreach ($fuel as $cat) {
@@ -318,51 +314,26 @@ class CarController extends Controller
                     </div>
 
 
-                    <div class='form-group'>
-                    <label for=''>Enter model</label>
-                    <select name='edit_car_model_id' id='edit_car_model_id' class='form-control form-control-lg'>
-                        <option disabled selected>Select Car model</option>";
-        // foreach ($model as $cat) {
-        // if ($cat->id == $car->car_model_id) {
-        //     $select = "selected";
-        // } else {
-        //     $select = "";
-        // }
-        // $output .= "<option {$select} value='{$cat->id}'>{$cat->car_model_name}</option>";
-        // }
-        $output .= "</select>
-                </div>
-
-                        
-
+                    
                             <div class='form-group'>
-                                <label for=''>Enter num door</label>
+                                <label  for=''><h4> Enter NEW num door</h4></label>
                                 <select name='edit_door' id='edit_door' class='form-control form-control-lg'>
                                     <option disabled >Select num door</option>
                                     <option selected value='{$car->num_door}'>{$car->num_door}</option>
                                     <option value='2'>2</option>
+                                    <option value='3'>3</option>
                                     <option value='4'>4</option>
                                     <option value='6'>6</option>
                                    
                                 </select>
                             </div>
 
-                            <div class='form-group'>
-                                <label for=''>Enter num site</label>
-                                <select name='edit_site' id='edit_site' class='form-control form-control-lg'>
-                                    <option disabled >Select num door</option>
-                                    <option selected value='{$car->num_site}'>{$car->num_site}</option>
-                                    <option value='2'>2</option>
-                                    <option value='5'>5</option>
-                                    <option value='8'>8</option>
-                                   
-                                </select>
-                            </div>
+                           
 
                             <div class='form-group'>
-                                <label for=''>Enter Gear</label>
+                                <label for=''><h4>Enter NEW Type Of Gear</h4></label>
                                 <select name='edit_gear' id='edit_gear' class='form-control form-control-lg'>
-                                    <option disabled >Select num door</option>
+                                    <option disabled >Select New Gear</option>
                                     <option selected value=$test>{$car->type_gear}</option>
                                     <option value=0>Automatic</option>
                                     <option value=1>Manual</option>
@@ -376,18 +347,18 @@ class CarController extends Controller
 
 
                             <div class='form-group'>
-                                <label for=''>Enter Car Description</label>
+                                <label for=''><h4>Enter New Car Description</h4></label>
                                 <textarea name='edit_desc' id='edit_desc' cols='30' rows='10'
                                     class='form-control form-control-lg'>{$car->car_desc}</textarea>
                             </div>
                             <div class='form-group'>
-                                <label for=''>Enter Car Image</label>
+                                <label for=''><h4>Enter NEW Car Image</h4></label>
                                 <input type='file' name='new_car_img' id='new_car_img' class='form-control form-control-lg'>
-                                <img src='{$image}' class='img-fluid' style='width:50px;height:50px;' alt=''>
+                                <img src='{$image}' class='img-fluid' style='width:100px;height:100px;' alt=''>
                                   <input type='hidden' value='{$car->car_image}' name='old_car_img' id='old_car_img' class='form-control form-control-lg'>
                             </div>
                             <div class='form-group'>
-                                <label for=''>Enter Car Price</label>
+                                <label for=''><h4>Enter NEW CAR Price</h4></label>
                                 <input type='text' value='{$car->car_price}' name='edit_price' id='edit_price' class='form-control form-control-lg'>
                             </div>";
         echo $output;
@@ -408,17 +379,13 @@ class CarController extends Controller
         } else {
             $car->car_image = $request->old_car_img;
         }
+        
         $car->car_cat_id = $request->edit_car_cat_id;
-        $car->car_brand_id = $request->edit_car_brand_id;
         $car->car_fuel_id = $request->edit_car_fuel_id;
-        $car->car_model_id = $request->edit_car_model_id;
-        $car->user_id = Auth::user()->id;
-        $car->car_name = $request->edit_car_name;
         $car->car_desc = $request->edit_desc;
         $car->car_price = $request->edit_price;
         $car->num_door = $request->edit_door;
         $car->type_gear = $request->edit_gear;
-        $car->num_site = $request->edit_site;
         $result = $car->save();
         if ($result) {
             echo 1;
@@ -459,7 +426,7 @@ class CarController extends Controller
         $cars = Car::all();
 
         $Type = "";
-        return view("admin.statusCar", compact('cars', 'Type'));
+        return view("admin.allcar", compact('cars', 'Type'));
     }
 
 

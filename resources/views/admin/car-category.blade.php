@@ -42,11 +42,7 @@
                                 <input type="text" name="car_cat_name" id="car_cat_name"
                                     class="form-control form-control-lg">
                             </div>
-                            <div class="form-group">
-                                <label for="">Enter Image</label>
-                                <input type="file" name="car_img" id="car_img"
-                                    class="form-control form-control-lg form-control-file">
-                            </div>
+                        
                             <div class="form-group">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save</button>

@@ -10,8 +10,7 @@
         <title>Car Rental</title>
 
         <!-- CSS -->
-        
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
      
 
@@ -32,9 +31,7 @@
 					<ul>
 					  <li><a href="{{ route('home')}}" class="nav-link scrollto active" href="#hero">Home</a></li>
 					   <li><a href="{{ route('home')}}" class="nav-link scrollto" href="#hero1">About</a></li> 
-					{{--  <li><a class="nav-link scrollto" href="#subscribe">Our Pages</a></li> --}}
-					  
-					  {{-- <li><a class="nav-link scrollto" href="#team">Team</a></li> --}}
+			
 			
 			
 					  <li><a href="{{ route('home')}}" class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -60,6 +57,13 @@
 
 		  <div style="height:80px;"></div>
 
+
+
+
+
+
+
+
 		<!-- Wrapper -->
     	<div class="wrapper">
 
@@ -84,6 +88,25 @@
 				
 					</li>
 					<li>
+						<a href="#otherSections5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections">
+							<i class="fas fa-stream"></i>Brand
+						</a>
+						<ul class="collapse list-unstyled" id="otherSections5">
+						     
+								<li>
+									<a  class="btn btn-filter checked" data-filter="">All</a>
+								</li>
+								@foreach ($brand as $item)
+								<li>
+									
+									
+								<a   class="btn btn-filter" data-filter=".{{$item->car_brand_name}}">{{$item->car_brand_name}}</a>
+								@endforeach
+		      					</li>
+							
+						</ul>
+					</li>
+					<li>
 						<a href="#otherSections1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections">
 							<i class="fas fa-stream"></i>Category
 						</a>
@@ -104,12 +127,55 @@
 					</li>
 					<li>
 						<a href="#otherSections" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections">
-							<i class="fas fa-stream"></i>Num door
+							<i class="fas fa-stream"></i>Color Car
 						</a>
 
 					
 						
 						<ul class="collapse list-unstyled" id="otherSections">
+							<li>
+								<a class="btn btn-filter checked" data-filter="">All</a>
+							</li>
+							<li>
+								<a style="color:Black " class="btn btn-filter" data-filter=".Black">Black</a>
+							</li>
+							<li>
+								<a style="color:White " class="btn btn-filter" data-filter=".White">White</a>
+							</li>
+							<li>
+								<a style="color:Gray " class="btn btn-filter" data-filter=".Gray">Gray</a>
+							</li>
+							<li>
+								<a style="color:Silver " class="btn btn-filter" data-filter=".Silver">Silver</a>
+							</li>
+							<li>
+								<a style="color:Blue " style="color:Black " class="btn btn-filter" data-filter=".Blue">Blue</a>
+							</li>
+							<li>
+								<a style="color:Green " class="btn btn-filter" data-filter=".Green">Green</a>
+							</li>
+							<li>
+								<a style="color:Gold " class="btn btn-filter" data-filter=".Gold">Gold</a>
+							</li>
+							<li>
+								<a  style="color:Brown " class="btn btn-filter" data-filter=".Brown">Brown</a>
+							</li>
+							<li>
+								<a style="color:Orange " class="btn btn-filter" data-filter=".Orange">Orange</a>
+							</li>
+							<li>
+								<a style="color:Yellow " class="btn btn-filter" data-filter=".Yellow">Yellow</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#otherSections4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections">
+							<i class="fas fa-stream"></i>Num door
+						</a>
+
+					
+						
+						<ul class="collapse list-unstyled" id="otherSections4">
 							<li>
 								<a class="btn btn-filter checked" data-filter="">All</a>
 							</li>
@@ -175,34 +241,10 @@
 			
 				
 				<section class="container" >
-					<div class="filters d-flex flex-column flex-md-row justify-content-around">
-				
-						<div class="btn-group" role="group" data-filter-group="category" aria-label="Kind">
-							<button type="button" class="btn btn-sm btn-secondary btn-filter checked" data-filter="">All</button>
-							@foreach ($category as $item)
-							<button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".{{$item->car_cat_name}}">{{$item->car_cat_name}}</button>
-							@endforeach
-						</div>
-				
-						<div class="btn-group" role="group" data-filter-group="size" aria-label="Size">
-							<button type="button" class="btn btn-sm btn-secondary btn-filter checked" data-filter="">All</button>
-							<button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".2">Two</button>
-							<button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".3">Three</button>
-							<button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".4">Four</button>
-							<button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".6">More</button>
-						</div>
-				
-						<div class="btn-group" role="group" data-filter-group="shape" aria-label="Shape">
-							<button type="button" class="btn btn-sm btn-secondary btn-filter checked" data-filter="">All</button>
-							<button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".round">Round</button>
-							<button type="button" class="btn btn-sm btn-secondary btn-filter" data-filter=".square">Square</button>
-						</div>
-					</div>
+					
 				
 						<!-- This is the Isotope grid that contains all the elements to be filtered
 						The JS references the item class to define which element to sort, filter and apply masonry layout to the item class could be renamed to anything you want e.g. card, product etc. and the JS from itemSelector: '.item' -->
-				
-				
 
 						<div  class=" container  " >
                   
@@ -215,7 +257,7 @@
 						@foreach ($cars as $car) 
 						
 						
-							<div     class=" item {{$car->type_gear}} {{$car->num_door}} {{$car->car_category->car_cat_name}}"   >	
+							<div     class=" item {{$car->type_gear}} {{$car->car_color}} {{$car->num_door}} {{$car->car_category->car_cat_name}} {{$car->car_brand->car_brand_name}}"   >	
 				 <hr>
 					<a href="{{ route('car-detail', $car->id) }}">
 					 <div class="profile-card-4 text-center"  > 
@@ -236,6 +278,7 @@
 				 </div>
 					   </div>
 					</a>
+					
 				 @endforeach
 				 
 		        
@@ -278,7 +321,7 @@
         <script src="{{asset('Carassets/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
         <script src="{{asset('Carassets/js/scripts.js')}}"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-	
+
 		 
 		 
 

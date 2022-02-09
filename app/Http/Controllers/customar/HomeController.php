@@ -14,6 +14,8 @@ class HomeController extends Controller
    public function index(){
        $category=CarCategory::orderBy("id","DESC")->get();
        $brand=CarBrand::orderBy("id","DESC")->get();
+       $brand=CarBrand::orderBy("id","DESC")->get();
+     
        $car=Car::orderBy("id","DESC")->get();
        $posts=Posts::orderBy("id","DESC")->get();
        return view("index",["category"=>$category,"cars"=>$car,"brand"=>$brand]);
