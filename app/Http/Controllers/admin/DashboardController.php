@@ -11,6 +11,7 @@ use App\Models\CarComment;
 use App\Models\CarFuel;
 use App\Models\Comments;
 use App\Models\Customar;
+use App\Models\Image;
 use App\Models\Like;
 use App\Models\Posts;
 use Illuminate\Http\Request;
@@ -30,7 +31,8 @@ class DashboardController extends Controller
         $comments = Comments::orderBy("id", "DESC")->limit(6)->get();
         $sumlikes = Like::sum("like");
         $fuel= CarFuel::all();
-        return view("admin.dashboard", ["customars" => $customars, "likes" => $likes, "sumlikes" => $sumlikes, "car_comments" => $car_comments, "comments" => $comments,"fuel"=>$fuel, "categorys" => $categorys,"brands" => $brands, "cars" => $cars, "posts" => $posts, "car_books" => $car_books]);
+    
+        return view("admin.dashboard", [  "customars" => $customars, "likes" => $likes, "sumlikes" => $sumlikes, "car_comments" => $car_comments, "comments" => $comments,"fuel"=>$fuel, "categorys" => $categorys,"brands" => $brands, "cars" => $cars, "posts" => $posts, "car_books" => $car_books]);
     }
 
     public function get()

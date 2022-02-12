@@ -50,6 +50,9 @@ Route::get("/", [HomeController::class, "index"])->name("home");
 Route::get("/category-post/{id}", [CategoryPostController::class, "index"])->name("category-post");
 Route::get("/car", [CustomarCarController::class, "index"])->name("cars");
 Route::get("/car-detail/{id}", [CustomarCarController::class, "detail"])->name("car-detail");
+
+
+
 Route::get("/blog", [BlogController::class, "index"])->name("blog");
 Route::get("/blog-detail/{id}", [BlogController::class, "detail"])->name("blog-detail");
 Route::post("/create_comment", [Comments::class, "create"]);
@@ -258,5 +261,23 @@ Route::middleware(["auth"])->group(function () {
 
     // get contacts
     Route::get("/admin/contact", [AdminContactController::class, "index"])->name("contact");
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Route::get("/image/{id}", [CustomarCarController::class, "image"])->name("image");
+    Route::get("/deleteimage/{id}", [CustomarCarController::class, "delete"])->name("deleteimage");
+    Route::post("/createimage", [CustomarCarController::class, "createimage"])->name("createimage");
 });
 require __DIR__ . '/auth.php';

@@ -424,9 +424,9 @@ class CarController extends Controller
     public function getALlCars()
     {
         $cars = Car::all();
-
+        $images=Image::all();
         $Type = "";
-        return view("admin.allcar", compact('cars', 'Type'));
+        return view("admin.allcar", compact('cars', 'Type','images'));
     }
 
 

@@ -38,7 +38,7 @@
                       <!-- DataTales Example -->
                       <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Ads in Car Rental</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Levant Car Rental</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -52,12 +52,14 @@
                                         <td>Color</td>
                                         <td>Car Category</td>
                                         <td>Car price</td>
+                                        <td>Image</td>
+                                        <td>Edit</td>
+                                        <td>Delete</td>
                                         <td>Type Of Fuel</td>
                                         <td>Car Gear</td>
                                         <td>Num Of DOOR</td>
                                         <td>kilometer</td>
-                                        <td>Edit</td>
-                                        <td>Delete</td>
+                                       
                            
                                       </tr>
                                     </thead>
@@ -70,12 +72,14 @@
                                         <td>Color</td>
                                         <td>Car Category</td>
                                         <td>Car price</td>
+                                        <td>Image</td>
+                                        <td>Edit</td>
+                                        <td>Delete</td>
                                         <td>Type Of Fuel</td>
                                         <td>Car Gear</td>
                                         <td>Num Of DOOR</td>
                                         <td>kilometer</td>
-                                        <td>Edit</td>
-                                        <td>Delete</td>
+                                        
                                        
                                        
                                       </tr>
@@ -91,14 +95,24 @@
             <td>{{$ad->car_color}}</td>
             <td>{{$ad->car_category->car_cat_name}}</td>
             <td>{{$ad->car_price}}</td>
+           <!-- Button trigger modal -->
+  <td> 
+    <a href="{{route('image',$ad->id) }}" 
+      class="btn btn-info ">
+   Show
+    </a>
+   
+   
+</td>
+<td><button class='btn btn-success' data-id='{{$ad->id}}' id='car-edit-btn' data-toggle='modal' data-target='#edit-car'>Edit</button></td>
+<td><button class='btn btn-danger' data-id='{{$ad->id}}' id='car-delete-btn'>Delete</button></td>
             <td>{{$ad->car_fuel->car_fuel_name}}</td>
             
             <td>{{$ad->type_gear}}</td>
            <td>{{$ad->num_door}}</td>
            <td>{{$ad->kilometer}}</td>
            
-           <td><button class='btn btn-success' data-id='{{$ad->id}}' id='car-edit-btn' data-toggle='modal' data-target='#edit-car'>Edit</button></td>
-           <td><button class='btn btn-danger' data-id='{{$ad->id}}' id='car-delete-btn'>Delete</button></td>
+          
            
           </tr>
           @endforeach
@@ -151,7 +165,7 @@
      
   
   </body>
-  
+ 
   </html>
 </x-slot>
 </x-app-layout>
