@@ -1,3 +1,7 @@
+
+	
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,17 +82,45 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">My Rent Car</h5>
+          <h5 class="modal-title" id="exampleModalLabel"><strong>My Books</strong> </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-           
+			@foreach($bookCar as $car) 
+			<div style="margin-bottom: 20px;border-radius: 8px;
+			border-width: 4px; border-color: #151515;
+			border-style: solid;" class="card text-center">
+				<div style="background-color:rgb(165, 165, 165) " class="card-header">
+					<h3 style="color: rgb(0, 0, 0)"><strong>Book Status</strong> </h3>
+				</div>
+				<div class="card-body">
+			
+						
+					
+				  <h2 style="margin-bottom: 30px;color: rgb(126, 25, 25)"><strong>{{$car->book_car->car_model->car_model_name}}  {{$car->book_car->year}}</strong>   </h2>
+	
+				  <h4 style="margin-bottom: 20px; color: rgb(95, 94, 105)" class="card-title"> <strong> Delivery time :  {{$car->time}}  </strong></h4>
+				  <h4 style="margin-bottom: 20px; color: rgb(0, 0, 0)" class="card-text"><strong>Cost : {{$car->days * $car->book_car->car_price}} AED / Days : {{$car->days}}</strong> </h4>
+				  <h4 style="margin-bottom: 20px;color: rgb(95, 94, 105)" class="card-title"> <strong>From :  
+					{{ \Carbon\Carbon::parse($car->start_book)->format('d-m-Y') }} /
+			To :  {{ \Carbon\Carbon::parse($car->end_book)->format('d-m-Y') }}</strong> </h4>
+				</div>
+				<div style="background-color: rgb(165, 165, 165)" class="card-footer text-muted">
+					@if ($car->book == 'not confirm')
+					<h4 style="color: rgb(208, 24, 24)"><strong>status :	{{$car->book}}</strong> </h4>
+					@else
+					<h4 style="color: rgb(13, 137, 13)"><strong>status :	{{$car->book}}</strong> </h4>
+					@endif
+			
+			
+				</div>
+			  </div>
               
-              
-      
-               <div class='table-responsive'>
+			  @endforeach 
+			  
+               {{-- <div class='table-responsive'>
             <table class='table table-bordered'>
                 <thead>
                     <tr>
@@ -126,7 +158,7 @@
             
                 </table>
             </div>
-              
+               --}}
            
         </div>
         <div class="modal-footer">
@@ -160,3 +192,4 @@
 
 </body>
 </html>
+
