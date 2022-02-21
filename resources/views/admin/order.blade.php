@@ -31,7 +31,7 @@
   <body id="page-top">
   
     <div class="jumbotron">
-      <h1 class="display-4">Orders In LEVANT</h1>
+      <h1 class="display-4">{{$Type}} Orders In LEVANT</h1>
       
     </div>
    @if ($books->count()>0)
@@ -47,11 +47,17 @@
                                       <tr>
                                         <td>Book id</td>
                                         <td>Car</td>
+                                        <td>Customer</td>
                                         <td>Start</td>
                                         <td>End</td>
-                                      
                                         <td>Days</td>
-                                       
+                                        <td>Time</td>
+                                        @if ($Type =='NEW')
+                                        <td>Accept</td>
+            @elseif($Type =='Accepted')
+            <td>finished</td>
+            @endif
+                                      
                            
                                       </tr>
                                     </thead>
@@ -59,13 +65,17 @@
                                       <tr>
                                         <td>Book id</td>
                                         <td>Car</td>
+                                        <td>Customer</td>
                                         <td>Start</td>
                                         <td>End</td>
-                                       
                                         <td>Days</td>
-                                        
-                                       
-                                       
+                                        <td>Time</td>
+                                        @if ($Type =='NEW')
+                                        <td>Accept</td>
+            @elseif($Type =='Accepted')
+            <td>finished</td>
+            @endif
+                                     
                                       </tr>
                                     </tfoot>
                                     <tbody>
@@ -73,12 +83,43 @@
                                        
          <tr>
             <th scope="row">{{$ad->id}}</th>
-            <td>{{$ad->book_car->car_model->car_model_name}}</td>
-            <td>{{$ad->start_book}}</td>
-            <td>{{$ad->end_book}}</td>
-           
+            <td>
+              <a tabindex="0" class="btn btn-outline-dark btn-lg" role="button" data-toggle="popover" data-trigger="focus" title="<h4>Car Information</h4>" data-content="
+             <h5> Model : {{$ad->book_car->car_model->car_model_name}}</h5>
+              <br />
+              <h5> Year : {{$ad->book_car->year}}</h5>
+              <br />
+              <h5> color : {{$ad->book_car->car_color}}</h5>
+              <br />
+             
+              " data-html="true" id="example">{{$ad->book_car->car_model->car_model_name}}</a>
+            
+            </td>
+
+            <td>
+              <a tabindex="0" class="btn btn-outline-dark btn-lg" role="button" data-toggle="popover" data-trigger="focus" title="<h4>Customer Information</h4>" data-content="
+                <h5> Name : {{$ad->customar_books->fname}} {{$ad->customar_books->lname}}</h5>
+                <br />
+                <h5> Mobile :  {{$ad->customar_books->phone}}</h5>
+                <br />
+                <h5> Email :  {{$ad->customar_books->email}}</h5>
+                <br />
+             
+              " data-html="true" id="example">{{$ad->customar_books->fname}} {{$ad->customar_books->lname}}</a>
+            
+            </td>
+            <td>{{ \Carbon\Carbon::parse($ad->start_book)->format('d-m-Y') }}</td>
+            <td>{{ \Carbon\Carbon::parse($ad->end_book)->format('d-m-Y') }}</td>
             <td>{{$ad->days}}</td>
-        
+            <td>{{$ad->time}}</td>
+            @if ($Type =='NEW')
+            <td><a href="{{route('acceptBook',$ad->id)}}" type="button" class="btn btn-success btn-lg">Accept This Book</a></td> 
+            @elseif($Type =='Accepted')
+            <td><a href="{{route('FinishedBook',$ad->id)}}" type="button" class="btn btn-danger btn-lg">finished This Book</a></td>  
+            @endif
+           
+            
+            
            
         
 
@@ -99,7 +140,7 @@
     </div>
     @endif
   
-  
+ 
   
   
   

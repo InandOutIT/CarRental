@@ -20,6 +20,18 @@
 
  <!-- Page level custom scripts -->
  <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
+ <script>
+ // Select all elements with data-toggle="popover" in the document
+$('[data-toggle="popover"]').popover();
+
+// Select a specified element
+$('#myPopover').popover();
+$(this).popover({
+            html:true
+        });
+
+
+ </script>
 </body>
 
 </html>

@@ -37,13 +37,18 @@ use App\Http\Controllers\customar\ResetPasswordController;
 use App\Http\Controllers\customar\SignUpController;
 use App\Http\Controllers\customar\SubscribeController;
 use App\Http\Controllers\customar\UpdateProfileController;
-
+use Illuminate\Support\Facades\Artisan;
 
 // Route::get('/', function () {
 //     return view('customar.home');
 // });
 
 // Home route
+
+Route::get('/cr',function(){
+   Artisan::call('cache:clear'); 
+});
+
 Route::get("/", [HomeController::class, "index"])->name("home");
 
 
@@ -111,7 +116,7 @@ Route::middleware(["auth"])->group(function () {
     Route::get("/admin/comments", [CommentsController::class, "index"])->name("comments");
     Route::get("/admin/load-all-comments", [CommentsController::class, "comments"]);
     Route::get("/admin/delete-comments", [CommentsController::class, "delete"]);
-    Route::get("/admin/accept-order/{id}",[CarBookController::class,"acceptBook"]);
+    Route::get("/admin/accept-order/{id}",[CarBookController::class,"acceptBook"])->name("acceptBook");
 
 
     // users
@@ -267,6 +272,10 @@ Route::middleware(["auth"])->group(function () {
 
 
 
+    Route::get('/admin/finish-book/{id}',[CarBookController::class,'finishBook'])->name('FinishedBook');
+    Route::get('/admin/get-current-book',[CarBookController::class,'getCurrentBook'])->name('getCurrentBook');
+    Route::get('/admin/get-accept-book',[CarBookController::class,'getAcceptBook'])->name('getAcceptBook');
+    Route::get('/admin/get-finished-book',[CarBookController::class,'getFinishedBook'])->name('getFinishedBook');
 
 
 

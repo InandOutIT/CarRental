@@ -42,7 +42,7 @@ class CarBookController extends Controller
                 <td>{$book->days}</td>
                 <td>{$book->book}</td>
                 <td>
-                    <button data-id='{$book->id}' id='confirm' class='btn btn-success'>Confirm</button>
+                    <a  data-id='{$book->id}' id='confirm' class='btn btn-success'>Confirm</a>
                     <button data-id='{$book->id}' id='not-confirm' class='btn btn-danger'>Not</button>
                 </td>
             </tr>";
@@ -56,14 +56,38 @@ class CarBookController extends Controller
     }
 
 
+        public function getCurrentBook()
+    {
+        $books = BookCar::where('status',0)->orderBy("id", "DESC")->get();
+        $Type='NEW';
+        return view("admin.order", compact('books', 'Type'));
+
+    }
+
+    public function getAcceptBook()
+    {
+        $books = BookCar::where('status',1)->orderBy('id','DESC')->get();
+        $Type='Accepted';
+        return view("admin.order", compact('books', 'Type'));
+    }
+
+
+    public function getFinishedBook()
+    {
+        $books = BookCar::where('status',2)->orderBy('id',"DESC")->get();
+        $Type='Finished';
+        return view("admin.order", compact('books', 'Type'));
+    }
+    
 
     public function acceptBook($id)
     {
         $book = BookCar::find($id);
         $book->status = 1;
         $car = Car::find($book->car_id);
-        $car->status = 1;
+        $car->status = 2;
         $book->save();
+        $car->save();
         // BookCar::where('car_id',$book->car_id)->where('status',0)->delete();
         $new_start_date = $book->start_book;
         $new_end_date =  $book->end_book;
@@ -79,6 +103,19 @@ class CarBookController extends Controller
         // ->where([ ['car_id','=',$book->car_id], ['status','=',0] ])
         // ->get();
 
-        return redirect()->route('dashboard')->with("message", "the car book has been accepted");
+        return redirect()->back()->with("message", "the car book has been accepted");
     }
+    
+    public function finishBook( $id )
+    {
+        $book = BookCar::find( $id );
+        $book->status = 2 ;
+        $book->save();
+        $car = Car::find( $book->car_id );
+        $car->status = 1 ;
+        $car->save();
+
+        return redirect()->back()->with("message", "the car book has been Finished");
+    }
+    
 }

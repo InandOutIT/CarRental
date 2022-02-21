@@ -8,16 +8,47 @@
                
                 <div style="text-align: center"  class="col-xl-3 col-md-6">
                    
-                    <button style="align-items: center" type="button" class="btn btn-outline-danger  mb-4" data-toggle="modal" data-target="#addcar">
+                    <button style="align-items: center" type="button" class="btn btn-outline-secondary  mb-4" data-toggle="modal" data-target="#addcar">
                         <div class="card-body">
                      
-                            <h3>ADD NEW CAR TO LEVANT</h3>
+                            <h3>ADD NEW CAR</h3>
                           </div>
                     </button>
-                    
+
+                  
                
             </div>
-
+            <div style="text-align: center"  class="col-xl-3 col-md-6">
+                   
+                <a style="align-items: center" type="button" class="btn btn-outline-danger  mb-4" href="{{route('getCurrentBook')}}">
+                    <div class="card-body">
+                 
+                        <h3>NEW BOOKS</h3>
+                      </div>
+                <a>
+           
+            </div>
+            
+            <div style="text-align: center"  class="col-xl-3 col-md-6">
+                   
+                <a style="align-items: center" type="button" class="btn btn-outline-success  mb-4" href="{{route('getAcceptBook')}}">
+                    <div class="card-body">
+                 
+                        <h3>Accepted BOOKS</h3>
+                      </div>
+                <a>
+           
+            </div>
+            <div style="text-align: center"  class="col-xl-3 col-md-6">
+                   
+                <a style="align-items: center" type="button" class="btn btn-outline-primary  mb-4" href="{{route('getFinishedBook')}}">
+                    <div class="card-body">
+                 
+                        <h3>Finished BOOKS</h3>
+                      </div>
+                <a>
+           
+            </div>
             
             
             </ol>

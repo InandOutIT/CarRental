@@ -252,8 +252,8 @@ class CarController extends Controller
 
                             <div class='form-group'>
                           
-                            
-                            <input type='text' value='CAR BRAND :  {$car->car_brand->car_brand_name}'  class='form-control form-control-lg' disabled>";
+                            <input type='hidden' value='{$id}' name='edit-car-id'>
+                            <input type='text' value='{$car->car_brand->car_brand_name}'  class='form-control form-control-lg' disabled>";
                                 
         $test = 0;
         if ($car->type_gear == "Manual")
@@ -265,7 +265,7 @@ class CarController extends Controller
                         <div class='form-group'>
                           
                             
-                        <input type='text' value='CAR MODEL :  {$car->car_model->car_model_name}'  class='form-control form-control-lg' disabled>";
+                        <input type='text' value='{$car->car_model->car_model_name}'  class='form-control form-control-lg' disabled>";
                             
     
 
@@ -275,7 +275,7 @@ class CarController extends Controller
                     <div class='form-group'>
                           
                             
-                        <input type='text' value='CAR MODEL YEAR :  {$car->year}'  class='form-control form-control-lg' disabled>";
+                        <input type='text' value='{$car->year}'  class='form-control form-control-lg' disabled>";
                             
     
 
@@ -351,12 +351,7 @@ class CarController extends Controller
                                 <textarea name='edit_desc' id='edit_desc' cols='30' rows='10'
                                     class='form-control form-control-lg'>{$car->car_desc}</textarea>
                             </div>
-                            <div class='form-group'>
-                                <label for=''><h4>Enter NEW Car Image</h4></label>
-                                <input type='file' name='new_car_img' id='new_car_img' class='form-control form-control-lg'>
-                                <img src='{$image}' class='img-fluid' style='width:100px;height:100px;' alt=''>
-                                  <input type='hidden' value='{$car->car_image}' name='old_car_img' id='old_car_img' class='form-control form-control-lg'>
-                            </div>
+                          
                             <div class='form-group'>
                                 <label for=''><h4>Enter NEW CAR Price</h4></label>
                                 <input type='text' value='{$car->car_price}' name='edit_price' id='edit_price' class='form-control form-control-lg'>
@@ -365,27 +360,29 @@ class CarController extends Controller
     }
     public function update(Request $request)
     {
-
-        $car = Car::find($request->edit_car_id);
-        if ($request->hasFile("new_car_img")) {
-            $destination = public_path("upload\\cars\\" . $car->car_image);
-            if (File::exists($destination)) {
-                unlink($destination);
-            }
-            $image = $request->file("new_car_img");
-            $new_image = rand() . "." . $image->extension();
-            $image->move(public_path("upload/cars"), $new_image);
-            $car->car_image = $new_image;
-        } else {
-            $car->car_image = $request->old_car_img;
-        }
+    
+    
+        $car = Car::find($request['edit-car-id']);
+       
+        // if ($request->hasFile("new_car_img")) {
+        //     $destination = public_path("upload\\cars\\" . $car->car_image);
+        //     if (File::exists($destination)) {
+        //         unlink($destination);
+        //     }
+        //     $image = $request->file("new_car_img");
+        //     $new_image = rand() . "." . $image->extension();
+        //     $image->move(public_path("upload/cars"), $new_image);
+        //     $car->car_image = $new_image;
+        // } else {
+        //     $car->car_image = $request->old_car_img;
+        // }
         
-        $car->car_cat_id = $request->edit_car_cat_id;
-        $car->car_fuel_id = $request->edit_car_fuel_id;
-        $car->car_desc = $request->edit_desc;
-        $car->car_price = $request->edit_price;
-        $car->num_door = $request->edit_door;
-        $car->type_gear = $request->edit_gear;
+        $car->car_cat_id = $request['edit_car_cat_id'];
+        $car->car_fuel_id = $request['edit_car_fuel_id'];
+        $car->car_desc = $request['edit_desc'];
+        $car->car_price = $request['edit_price'];
+        $car->num_door = $request['edit_door'];
+        $car->type_gear = $request['edit_gear'];
         $result = $car->save();
         if ($result) {
             echo 1;
@@ -393,6 +390,7 @@ class CarController extends Controller
             echo 0;
         }
     }
+
 
 
 
@@ -414,13 +412,12 @@ class CarController extends Controller
 
     public function getReservationCars()
     {
-        // $cars = Car::where('status', 2)->get();
-        $books = BookCar::where('status',1)->get();
-
+        $cars = Car::where('status', 2)->get();
+        // $books = BookCar::where('status',1)->get();
+     
         $Type = "Resevation";
-        return view("admin.order", compact('books', 'Type'));
+        return view("admin.statusCar", compact('cars', 'Type'));
     }
-
     public function getALlCars()
     {
         $cars = Car::all();
