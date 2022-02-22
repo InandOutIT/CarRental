@@ -77,10 +77,10 @@
                             <a href="{{ route('admins') }}" class="{{Request::routeIs("admins") ? 'actives' :""}}">
                             Admin</a>
                         </div>
-                        {{-- <div class="flex  nav-link">
+                        <div class="flex  nav-link">
                             <a href="{{ route('customars') }}" class="{{Request::routeIs("customars") ? 'actives' :""}}">
                             Customer</a>
-                        </div> --}}
+                        </div>
                         {{-- <div class="flex  nav-link">
                             <a href="{{ route('about') }}" class="{{Request::routeIs("about") ? 'actives' :""}}">
                             About</a>

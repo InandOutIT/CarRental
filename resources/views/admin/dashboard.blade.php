@@ -64,6 +64,15 @@
                     </a>
                 </div>
                 <div class="col-xl-3 col-md-6">
+                    <a href="{{ route('customars') }}" style="align-items: center" class="btn btn-outline-secondary  mb-4">
+                        
+                        <div class="card-body">
+                         
+                          <h3>CUSTOMAR IN LEVANT</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6">
                     <a href="{{ route('get-car-offline') }}" style="align-items: center" class="btn btn-outline-danger  mb-4">
                         
                         <div class="card-body">

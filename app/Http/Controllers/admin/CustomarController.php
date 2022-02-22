@@ -10,7 +10,8 @@ class CustomarController extends Controller
 {
     public function index()
     {
-        return view("admin.customars");
+      $customer=  Customar::all();
+        return view("admin.customars",compact('customer'));
     }
     public function customars()
     {
@@ -24,7 +25,7 @@ class CustomarController extends Controller
                     <th>Id</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>User Name</th>
+                    <th>Mobile</th>
                     <th>Email</th>
                     <th>Image</th>
                     <th>Delete</th>
@@ -37,7 +38,7 @@ class CustomarController extends Controller
                 <td>{$customar->id}</td>
                 <td>{$customar->fname}</td>
                 <td>{$customar->lname}</td>
-                <td>{$customar->username}</td>
+                <td>{$customar->phone}</td>
                 <td>{$customar->email}</td>
                 <td><img src='{$image}' style='width:50px;height:50px;' alt=''></td>
                 <td><button id='delete-customars' class='btn btn-danger'>Delete</button></td>
