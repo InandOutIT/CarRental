@@ -6,54 +6,78 @@
             <h1 class="mt-4">Dashboard</h1>
             <ol class="breadcrumb mb-4">
                
-                <div style="text-align: center"  class="col-xl-3 col-md-6">
-                   
-                    <button style="align-items: center" type="button" class="btn btn-outline-secondary  mb-4" data-toggle="modal" data-target="#addcar">
-                        <div class="card-body">
-                     
-                            <h3>ADD NEW CAR</h3>
-                          </div>
-                    </button>
 
-                  
-               
-            </div>
-            <div style="text-align: center"  class="col-xl-3 col-md-6">
-                   
-                <a style="align-items: center" type="button" class="btn btn-outline-danger  mb-4" href="{{route('getCurrentBook')}}">
-                    <div class="card-body">
-                 
-                        <h3>NEW BOOKS</h3>
-                      </div>
-                <a>
-           
-            </div>
-            
-            <div style="text-align: center"  class="col-xl-3 col-md-6">
-                   
-                <a style="align-items: center" type="button" class="btn btn-outline-success  mb-4" href="{{route('getAcceptBook')}}">
-                    <div class="card-body">
-                 
-                        <h3>Accepted BOOKS</h3>
-                      </div>
-                <a>
-           
-            </div>
-            <div style="text-align: center"  class="col-xl-3 col-md-6">
-                   
-                <a style="align-items: center" type="button" class="btn btn-outline-primary  mb-4" href="{{route('getFinishedBook')}}">
-                    <div class="card-body">
-                 
-                        <h3>Finished BOOKS</h3>
-                      </div>
-                <a>
-           
-            </div>
-            
+
+
+
+
+
+
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="counter">
+                                <div class="counter-icon">
+                                    <i class="fa fa-globe"></i>
+                                </div>
+                                <h3>Books</h3>
+                                <span class="counter-value">{{count($car_books)}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="counter pink">
+                                <div class="counter-icon">
+                                    <i class="fa fa-car"></i>
+                                </div>
+                                <h3>Cars</h3>
+                                <span class="counter-value">{{count($cars)}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="counter">
+                                <div class="counter-icon">
+                                    <i class="fa fa-child"></i>
+                                </div>
+                                <h3>customer</h3>
+                                <span class="counter-value">{{count($customars)}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="counter pink">
+                                <div class="counter-icon">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <h3>Brand</h3>
+                                <span class="counter-value">{{count($brands)}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                
             
             </ol>
            
             <div class="row">
+
+
+
+
+
+
+                
+
+
+
+
                 <div class="col-xl-3 col-md-6">
                     <a href="{{ route('get-all-car') }}" style="align-items: center" class="btn btn-outline-secondary  mb-4">
                         
@@ -68,12 +92,14 @@
                         
                         <div class="card-body">
                          
-                          <h3>CUSTOMAR IN LEVANT</h3>
+                          <h3>User IN LEVANT</h3>
                         </div>
                     </a>
                 </div>
+
+                
                 <div class="col-xl-3 col-md-6">
-                    <a href="{{ route('get-car-offline') }}" style="align-items: center" class="btn btn-outline-danger  mb-4">
+                    <a href="{{ route('get-car-offline') }}" style="align-items: center" class="btn btn-outline-secondary  mb-4">
                         
                         <div class="card-body">
                          
@@ -82,7 +108,7 @@
                     </a>
                 </div>
                 <div class="col-xl-3 col-md-6">
-                    <a href="{{ route('get-car-online') }}" style="align-items: center" class="btn btn-outline-success  mb-4">
+                    <a href="{{ route('get-car-online') }}" style="align-items: center" class="btn btn-outline-secondary  mb-4">
                         
                         <div class="card-body">
                          
@@ -91,7 +117,7 @@
                     </a>
                 </div>
                 <div class="col-xl-3 col-md-6">
-                    <a href="{{ route('get-car-reservation') }}" style="align-items: center" class="btn btn-outline-primary  mb-4">
+                    <a href="{{ route('get-car-reservation') }}" style="align-items: center" class="btn btn-outline-secondary  mb-4">
                         
                         <div class="card-body">
                          
@@ -99,6 +125,50 @@
                         </div>
                     </a>
                 </div>
+
+                <div style="text-align: center"  class="col-xl-3 col-md-6">
+                   
+                    <button style="align-items: center" type="button" class="btn btn-outline-secondary  mb-4" data-toggle="modal" data-target="#addcar">
+                        <div class="card-body">
+                     
+                            <h3>ADD NEW CAR</h3>
+                          </div>
+                    </button>
+
+                  
+               
+            </div>
+            <div style="text-align: center"  class="col-xl-3 col-md-6">
+                   
+                <a style="align-items: center" type="button" class="btn btn-outline-secondary  mb-4" href="{{route('getCurrentBook')}}">
+                    <div class="card-body">
+                 
+                        <h3>NEW BOOKS</h3>
+                      </div>
+                <a>
+           
+            </div>
+            
+            <div style="text-align: center"  class="col-xl-3 col-md-6">
+                   
+                <a style="align-items: center" type="button" class="btn btn-outline-secondary  mb-4" href="{{route('getAcceptBook')}}">
+                    <div class="card-body">
+                 
+                        <h3>Accepted BOOKS</h3>
+                      </div>
+                <a>
+           
+            </div>
+            <div style="text-align: center"  class="col-xl-3 col-md-6">
+                   
+                <a style="align-items: center" type="button" class="btn btn-outline-secondary  mb-4" href="{{route('getFinishedBook')}}">
+                    <div class="card-body">
+                 
+                        <h3>Finished BOOKS</h3>
+                      </div>
+                <a>
+           
+            </div>
                 
                                 
                 
@@ -336,39 +406,8 @@
                         </div>
                     </div>
                 </div> --}}
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-dark text-white mb-4">
-                        <div class="card-body">
-                            <h3>You Have {{count($car_books)}} Booking Car</h3>
-                         
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-dark text-white mb-4">
-                        <div  class="card-body">
-                            <strong> <h2  style="color: rgb(235, 235, 235)"> {{count($cars)}} Car In This WebSite </h2></strong>
-                      
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-dark text-white mb-4">
-                        <div  class="card-body">
-                            <strong> <h2  style="color: rgb(235, 235, 235)">You Have {{count($customars)}} Users In This Web </h2></strong>
-                      
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-dark text-white mb-4">
-                       
-                        <div class="card-body">
-                            <h3>You Have {{count($brands)}}  Brands</h3>
-                       
-                        </div>
-                    </div>
-                </div>
+                
+            
             </div>
             
             <div class="row">
